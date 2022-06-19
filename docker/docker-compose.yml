@@ -1,12 +1,13 @@
 version: '3'
 services:
   opensearch-node1:
-    image: gsingers/opensearch-learning-to-rank:1.2.3
+    # build the image following https://github.com/gsingers/opensearch-learning-to-rank/blob/main/README.md
+    image: vitalii/opensearch-learning-to-rank
     container_name: opensearch-node1
     environment:
       - discovery.type=single-node
-      - http.max_content_length=1000mb
-      - "OPENSEARCH_JAVA_OPTS=-Xms4G -Xmx4G"
+      - http.max_content_length=2000mb
+      - "OPENSEARCH_JAVA_OPTS=-Xms4G -Xmx8G" # Start with 4Gb of memory, and allow to use up to 8G of memory.
 
     volumes:
       - opensearch-data1:/usr/share/opensearch/data  #todo: figure this out so we can have persistent storage
@@ -29,7 +30,6 @@ services:
       - opensearch-node1
     networks:
       - opensearch-net
-
 
 volumes:
   opensearch-data1:

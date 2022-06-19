@@ -10,6 +10,9 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 logging.basicConfig(format='%(levelname)s:%(message)s')
 
+request_timeout = 20 # let's fail quickly
+DATASETS_DIR = '/Users/vitalii.mishchenko/Documents/personal/opensearch/data'
+
 def get_opensearch():
 
     host = 'localhost'
@@ -30,7 +33,7 @@ def get_opensearch():
     return client
 
 @click.command()
-@click.option('--source_file', '-s', help='source csv file', required=True)
+@click.option('--source_file', '-s', help='source csv file', default=f'/{DATASETS_DIR}/train.csv', required=True)
 def main(source_file):
     index_name = 'bbuy_queries'
     client = get_opensearch()
@@ -46,11 +49,11 @@ def main(source_file):
             doc[col] = row[col]
         docs.append({'_index': index_name , '_source': doc})
         if idx % 300 == 0:
-            bulk(client, docs, request_timeout=60)
+            bulk(client, docs, request_timeout=request_timeout)
             logger.info(f'{idx} documents indexed')
             docs = []
     if len(docs) > 0:
-        bulk(client, docs, request_timeout=60)
+        bulk(client, docs, request_timeout=request_timeout)
     logger.info(f'Done indexing {ds.shape[0]} records')
 
 if __name__ == "__main__":

@@ -23,6 +23,8 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 logging.basicConfig(format='%(levelname)s:%(message)s')
 
+request_timeout = 20 # let's fail quickly
+
 # NOTE: this is not a complete list of fields.  If you wish to add more, put in the appropriate XPath expression.
 #TODO: is there a way to do this using XPath/XSL Functions so that we don't have to maintain a big list?
 mappings =  [
@@ -147,11 +149,11 @@ def index_file(file, index_name, synonyms=False, documents_url="http://localhost
         #docs.append({'_index': index_name, '_source': doc})
         docs_indexed += 1
         if docs_indexed % 200 == 0:
-            bulk(client, docs, request_timeout=60)
+            bulk(client, docs, request_timeout=request_timeout)
             #logger.info(f'{docs_indexed} documents indexed')
             docs = []
     if len(docs) > 0:
-        bulk(client, docs, request_timeout=60)
+        bulk(client, docs, request_timeout=request_timeout)
         logger.info(f'{docs_indexed} documents indexed')
     return docs_indexed
 

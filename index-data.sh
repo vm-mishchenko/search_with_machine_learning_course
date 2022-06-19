@@ -7,13 +7,17 @@ usage()
   exit 2
 }
 
-ANNOTATIONS_JSON_FILE="/workspace/search_with_machine_learning_course/conf/bbuy_annotations.json"
-PRODUCTS_JSON_FILE="/workspace/search_with_machine_learning_course/conf/bbuy_products.json"
-QUERIES_JSON_FILE="/workspace/search_with_machine_learning_course/conf/bbuy_queries.json"
-DATASETS_DIR="/workspace/datasets"
-PYTHON_LOC="/workspace/search_with_machine_learning_course/utilities"
+PROJECT_PATH="/Users/vitalii.mishchenko/Documents/experiments/search_with_machine_learning_course"
 
-LOGS_DIR="/workspace/logs"
+ANNOTATIONS_JSON_FILE="$PROJECT_PATH/conf/bbuy_annotations.json"
+PRODUCTS_JSON_FILE="$PROJECT_PATH/conf/bbuy_products.json"
+QUERIES_JSON_FILE="$PROJECT_PATH/conf/bbuy_queries.json"
+# DATASETS_DIR="/workspace/datasets"
+DATASETS_DIR="/Users/vitalii.mishchenko/Documents/personal/opensearch/data"
+PYTHON_LOC="$PROJECT_PATH/utilities"
+
+#LOGS_DIR="/workspace/logs"
+LOGS_DIR="/Users/vitalii.mishchenko/Documents/personal/opensearch/data/logs"
 ANNOTATE=""
 while getopts ':p:a:q:g:y:d:hrn' c
 do
@@ -45,7 +49,7 @@ if [ "$ANNOTATE" != "--annotate" ]; then
   echo "Creating index settings and mappings"
   if [ -f $PRODUCTS_JSON_FILE ]; then
     echo " Product file: $PRODUCTS_JSON_FILE"
-    curl -k -X PUT -u admin  "https://localhost:9200/bbuy_products" -H 'Content-Type: application/json' -d "@$PRODUCTS_JSON_FILE"
+    curl -k -X PUT -u admin:admin  "https://localhost:9200/bbuy_products" -H 'Content-Type: application/json' -d "@$PRODUCTS_JSON_FILE"
     if [ $? -ne 0 ] ; then
       echo "Failed to create index with settings of $PRODUCTS_JSON_FILE"
       exit 2
@@ -64,7 +68,7 @@ if [ "$ANNOTATE" != "--annotate" ]; then
   if [ -f $QUERIES_JSON_FILE ]; then
     echo ""
     echo " Query file: $QUERIES_JSON_FILE"
-    curl -k -X PUT -u admin  "https://localhost:9200/bbuy_queries" -H 'Content-Type: application/json' -d "@$QUERIES_JSON_FILE"
+    curl -k -X PUT -u admin:admin  "https://localhost:9200/bbuy_queries" -H 'Content-Type: application/json' -d "@$QUERIES_JSON_FILE"
     if [ $? -ne 0 ] ; then
       echo "Failed to create index with settings of $QUERIES_JSON_FILE"
       exit 2
@@ -84,7 +88,7 @@ if [ "$ANNOTATE" == "--annotate" ]; then
   echo "Creating Annotations index"
   if [ -f $ANNOTATIONS_JSON_FILE ]; then
     echo " Product Annotations file: $ANNOTATIONS_JSON_FILE"
-    curl -k -X PUT -u admin  "https://localhost:9200/bbuy_annotations" -H 'Content-Type: application/json' -d "@$ANNOTATIONS_JSON_FILE"
+    curl -k -X PUT -u admin:admin  "https://localhost:9200/bbuy_annotations" -H 'Content-Type: application/json' -d "@$ANNOTATIONS_JSON_FILE"
     if [ $? -ne 0 ] ; then
       echo "Failed to create index with settings of $ANNOTATIONS_JSON_FILE"
       exit 2
