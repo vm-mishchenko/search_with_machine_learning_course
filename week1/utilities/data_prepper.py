@@ -75,8 +75,13 @@ class DataPrepper:
     #
     #
     def synthesize_impressions(self, clicks_df, min_impressions=20, min_clicks=5):
+        # rank row: = for this query, this sku was clicked N times
+        # rank row: = query | sku | clicked
         pairs = clicks_df.groupby(['query', 'sku']).size().reset_index(name='clicks')
+        # add rank for clicks in context of one query
+        # Does rank represent position of item in the Result list?
         pairs['rank'] = pairs.groupby('query')['clicks'].rank('dense', ascending=False)
+        # for each row add number of total clicks for particular query regardless what sku was clicked
         pairs['num_impressions'] = pairs.groupby('query')['clicks'].transform('sum')
         # cut off the extreme end of the long tail due to low confidence in the evidence
         pairs = pairs[(pairs['num_impressions'] >= min_impressions) & (pairs['clicks'] >= min_clicks)]

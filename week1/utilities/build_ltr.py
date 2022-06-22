@@ -278,6 +278,8 @@ if __name__ == "__main__":
     # 2) training.xgb.csv -- a CSV version of the training data that is easier to work with in Pandas than the XGB file.
     #       This CSV file can be useful for debugging purposes.
     #
+    # More about SVMRank file format: https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/core-concepts.html#logging-features-completing-the-training-set
+    #
     #####
     if args.create_xgb_training and args.impressions_file:
         print("Loading impressions from %s/%s" % (output_dir, args.impressions_file))
