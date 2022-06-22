@@ -5,10 +5,14 @@ usage()
   exit 2
 }
 
-SOURCE_DIR="/workspace/search_with_machine_learning_course"
+# SOURCE_DIR="/workspace/search_with_machine_learning_course"
+SOURCE_DIR="/Users/vitalii.mishchenko/Documents/experiments/search_with_machine_learning_course"
+
 WEEK="week1"
-OUTPUT_DIR="/workspace/ltr_output"
-ALL_CLICKS_FILE="/workspace/datasets/train.csv"
+# OUTPUT_DIR="/workspace/ltr_output"
+OUTPUT_DIR="/Users/vitalii.mishchenko/Documents/personal/opensearch/ltr_output"
+# ALL_CLICKS_FILE="/workspace/datasets/train.csv"
+ALL_CLICKS_FILE="/Users/vitalii.mishchenko/Documents/personal/opensearch/data/train.csv"
 SPLIT_TRAIN_ROWS=1000000
 SPLIT_TEST_ROWS=1000000
 NUM_TEST_QUERIES=100 # the number of test queries to run
@@ -48,14 +52,19 @@ cd $SOURCE_DIR
 mkdir -p $OUTPUT_DIR
 echo "ltr-end-to-end.sh $SOURCE_DIR $WEEK $OUTPUT_DIR $ALL_CLICKS_FILE $SYNTHESIZE $CLICK_MODEL run at "  `date` > $OUTPUT_DIR/meta.txt
 set -x
+
+# Create LTR store
 python $WEEK/utilities/build_ltr.py --create_ltr_store
 if [ $? -ne 0 ] ; then
   exit 2
 fi
+
+# Install feature set
 python $WEEK/utilities/build_ltr.py -f $WEEK/conf/ltr_featureset.json --upload_featureset
 if [ $? -ne 0 ] ; then
   exit 2
 fi
+
 echo "Creating training and test data sets from impressions by splitting on dates"
 # Split the impressions into training and test
 python $WEEK/utilities/build_ltr.py --output_dir "$OUTPUT_DIR" --split_input "$ALL_CLICKS_FILE"  --split_train_rows $SPLIT_TRAIN_ROWS --split_test_rows $SPLIT_TEST_ROWS
@@ -63,12 +72,16 @@ if [ $? -ne 0 ] ; then
   exit 2
 fi
 
+
 # Create our impressions (positive/negative) data set, e.g. all sessions (with LTR features added in already)
 echo "Creating impressions data set" # outputs to $OUTPUT_DIR/impressions.csv by default
 python $WEEK/utilities/build_ltr.py --generate_impressions  --output_dir "$OUTPUT_DIR" --train_file "$OUTPUT_DIR/train.csv" $SYNTHESIZE
 if [ $? -ne 0 ] ; then
   exit 2
 fi
+
+exit 0
+
 # Create the actual training set from the impressions set
 python $WEEK/utilities/build_ltr.py --ltr_terms_field sku --output_dir "$OUTPUT_DIR" --create_xgb_training -f $WEEK/conf/ltr_featureset.json --click_model $CLICK_MODEL $DOWNSAMPLE
 if [ $? -ne 0 ] ; then

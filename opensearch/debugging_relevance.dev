@@ -8,8 +8,9 @@ GET /searchml_test/_validate/query?explain=true
         "title": "dog"
       }
   }
-}
-# slightly more complex
+
+
+# Slightly more complex
 GET /searchml_test/_validate/query?explain=true
 {
   "query": {
@@ -29,7 +30,6 @@ GET /searchml_test/_validate/query?explain=true
                 "query": "dogs OR cats OR \"bad wolf\" (house or puffed)"
             }}
         ]
-
       }
   }
 }
@@ -79,7 +79,6 @@ POST /searchml_test/_explain/doc_a
   }
 }
 
-
 # Try out some query log aggregations
 GET /bbuy_queries/_search
 {
@@ -111,8 +110,7 @@ GET /bbuy_queries/_search
 }
 
 ##############
-##  Creaate the searchml_test index using the documents.  You only need to re-run this if you deleted searchml_test or want to start fresh
-##
+##  Create the searchml_test index using the documents.  You only need to re-run this if you deleted searchml_test or want to start fresh
 ##############
 ##Create our index
 PUT /searchml_test

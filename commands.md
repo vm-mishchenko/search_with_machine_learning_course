@@ -56,3 +56,13 @@ tail -f /Users/vitalii.mishchenko/Documents/personal/opensearch/data/logs/index_
 # check annotations logs
 tail -f /Users/vitalii.mishchenko/Documents/personal/opensearch/data/logs/index_annotations.log
 ```
+
+
+## Sync with upstream
+```shell
+# add upstream
+git remote add upstream https://github.com/gsingers/search_with_machine_learning_course.git
+
+# pull
+git remote pull upstream
+```
