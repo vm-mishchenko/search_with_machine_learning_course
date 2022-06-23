@@ -312,6 +312,7 @@ for (idx, item) in enumerate(judgments.items()):
     # by adding all the doc ids for this query and scoring them all at once and cut our number of queries down
     # significantly
     # Create our SLTR query, filtering so we only retrieve the doc id in question
+    # https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/logging-features.html
     query_obj = {
       'query': {
         'bool': {
@@ -327,7 +328,7 @@ for (idx, item) in enumerate(judgments.items()):
                 "featureset": featureset_name,
                 "store": ltr_store_name,
                 "params": {
-                  "keywords": queries[judgment.query]
+                  "keywords": queries[judgment.query] # e.g. dogs
                 }
               }
             }
@@ -338,13 +339,14 @@ for (idx, item) in enumerate(judgments.items()):
       "ext": {
         "ltr_log": {
           "log_specs": {
-            "name": "log_entry",
+            "name": "log_entry", # just random user-defined name
             "named_query": "logged_featureset"
           }
         }
       }
     }
     # Run the query just like any other search
+    # index_name = searchml_ltr
     response = client.search(body=query_obj, index=index_name)
     print(response)
     # For each response, extract out the features and build our training features
@@ -463,4 +465,4 @@ print("Response:\n%s" % json.dumps(response, indent=True))
 model_plot = plot_tree(bst, feat_map_file.name)
 model_plot.figure.savefig("ltr_toy_model.png")
 # If you are running in an environment other than Gitpod that can display things, you can also uncomment the next line:
-# plt.show()
+plt.show()

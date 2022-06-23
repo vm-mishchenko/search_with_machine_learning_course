@@ -67,3 +67,12 @@ git remote add upstream https://github.com/gsingers/search_with_machine_learning
 git pull upstream main
 ```
 
+## Pip
+```shell
+pip install -r requirements.txt
+```
+
+## Draw model 
+```shell
+brew install graphviz
+```

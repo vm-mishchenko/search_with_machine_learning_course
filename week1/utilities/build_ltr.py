@@ -272,11 +272,14 @@ if __name__ == "__main__":
     # Given an --impressions_file, create an SVMRank formatted output file containing one row per query-doc-features-comments.
     # Looping over impressions, this code issues queries to OpenSearch using the SLTR EXT function to extract LTR feaatures per every query-SKU pair
     # It then optionally normalizes the data (we will not use this in class, but it's there for future use where we don't use XGB, since XGB doesn't need normalization since it's calculating splits)
-    # We also apply any click models we've implemented to then assign a grade/relevance score for each and every row.  See click_models.py.
+    #
+    # We also apply any click models we've implemented to then assign a grade/relevance score for each and every row. See click_models.py.
+
     # Click models can also optionally downsample to create a more balanced training set.
-    # Finally, we output two files: 1) training.xgb -- the file to feed to XGB for training
+    # Finally, we output two files:
+    # 1) training.xgb -- the file to feed to XGB for training
     # 2) training.xgb.csv -- a CSV version of the training data that is easier to work with in Pandas than the XGB file.
-    #       This CSV file can be useful for debugging purposes.
+    #    This CSV file can be useful for debugging purposes.
     #
     # More about SVMRank file format: https://elasticsearch-learning-to-rank.readthedocs.io/en/latest/core-concepts.html#logging-features-completing-the-training-set
     #
@@ -298,6 +301,7 @@ if __name__ == "__main__":
                 the_feature_set = json.load(json_file)
                 # Log our features for the training set
                 print("Logging features")
+                # args.ltr_terms_field = sku
                 features_df = data_prepper.log_features(impressions_df, terms_field=args.ltr_terms_field)
                 # Calculate some stats so we can normalize values.
                 # Since LTR only supports min/max, mean/std. dev and sigmoid, we can only do that
@@ -343,6 +347,8 @@ if __name__ == "__main__":
     if args.xgb:
         # Defaults
 
+        # args.xgb - path to training.xgb file with all weights
+        # args.xgb_conf - 'week1/conf/xgb-conf.json'
         bst, xgb_params = xgbu.train(args.xgb, args.xgb_rounds, args.xgb_conf)
         print("Dumping out model using feature map: %s" % args.xgb_feat_map)
         model = bst.get_dump(fmap=("%s/%s" % (output_dir, args.xgb_feat_map)), dump_format='json')
@@ -375,6 +381,8 @@ if __name__ == "__main__":
         test_data = pd.read_csv(args.xgb_test, parse_dates=['click_time', 'query_time'])
         train_df = None
         # we use the training file for priors, but we must make sure we don't have leaks
+        # args.xgb_test   - '/Users/vitalii.mishchenko/Documents/personal/opensearch/ltr_output/test.csv'
+        # args.train_file - '/Users/vitalii.mishchenko/Documents/personal/opensearch/ltr_output/train.csv'
         if args.train_file:  # these should be pre-filtered, assuming we used our splitter, so let's not waste time filtering here
             train_df = pd.read_csv(args.train_file, parse_dates=['click_time', 'query_time'])
         else:
@@ -409,6 +417,7 @@ if __name__ == "__main__":
         new_queries_df = pd.read_csv("%s/%s.new_queries" % (output_dir, args.xgb_test_output))
         su.analyze_results(results_df, no_results_df, new_queries_df, opensearch, args.index, args.xgb_model_name,
                            args.ltr_store, train_df, test_df, output_dir, precision=args.precision, analyze_explains=args.analyze_explains, max_explains=args.max_explains)
+
     # Given a query in --all_clicks, output to the screen all of the documents that matched this query.  Can be useful for debugging.
     if args.lookup_query:
         query = args.lookup_query
@@ -416,12 +425,14 @@ if __name__ == "__main__":
                         explain=args.lookup_explain,
                         source=["name", "shortDescription", "longDescription", "salesRankShortTerm",
                                 "salesRankMediumTerm", "salesRankLongTerm", "features"])
+
     # Given --lookup_product SKU, output that document to the terminal.  Useful for debuggging
     if args.lookup_product:
         sku = args.lookup_product
         doc = su.lookup_product(sku, opensearch, index_name)
         print("Retrieved doc:\n %s" % json.dumps(doc, indent=4))
         # opensearch.get(index_name, sku)
+
     # Loop through *ALL* unique SKUs from --all_clicks and validate they exist in the index by using the --lookup_product option to retrieve the document.
     # Outputs a data frame as CSV named validity.csv which tracks whether a SKU is in the index or not.  Can be used for filtering --all_clicks for training et. al.
     if args.verify_products:

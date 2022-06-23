@@ -20,18 +20,22 @@ def plots(xgb_model, xgb_model_name, xgb_feat_map, xgb_plot):
         print("Plotting feature importance")
         impt_plt = plot_importance(bst, fmap=xgb_feat_map)
         impt_plt.figure.savefig("%s/%s_importance.png" % (xgb_plot, model_name), dpi=300)
-    except:
+    except Exception as e:
+        # install "brew install graphviz" for mac
         print("Unable to plot our models")
 
 
 # xgb_train_data is a string path to our training file
 def train(xgb_train_data, num_rounds=5, xgb_conf=None ):
     xgb_params = {'objective': 'reg:logistic'}
-    bst = None
     if xgb_conf is not None:
         with open(xgb_conf) as json_file:
             xgb_params = json.load(json_file)
     print("Training XG Boost on %s for %s rounds with params: %s" % (xgb_train_data, num_rounds, xgb_params))
     ##### Step 3.a
-    print("IMPLEMENT ME: train()")
+    # convert file path to xgboost specific DMatrix
+    dtrain = xgb.DMatrix(xgb_train_data)
+    # https://xgboost.readthedocs.io/en/stable/python/python_intro.html#training
+    bst = xgb.train(xgb_params, dtrain,
+                    num_rounds)
     return bst, xgb_params
