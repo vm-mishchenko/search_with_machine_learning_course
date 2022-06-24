@@ -7,6 +7,8 @@ def binary_func(x):
         return 1
     return 0
 
+# Ranges were picked arbitrarily in an attempt to balance out our grades,
+# but it doesn’t work all that well if the prior changes.
 def step(x):
     if x < 0.05: return 0
     elif x >= 0.05 and x < 0.10: return 0.5
@@ -16,7 +18,6 @@ def step(x):
 
 # Given a click model type, transform the "grade" into an appropriate value between 0 and 1, inclusive
 # This operates on the data frame and adds a "grade" column
-#
 def apply_click_model(data_frame, click_model_type="heuristic", downsample=True, prior=1000, alpha=30, beta=70, quantiles=10):
     if click_model_type == "binary":
         print("Binary click model")

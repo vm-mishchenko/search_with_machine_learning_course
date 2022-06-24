@@ -1,5 +1,4 @@
 # Some handy utilities for dealing with searches
-
 import json
 
 import query_utils as qu
@@ -10,8 +9,7 @@ import os
 
 
 # Given a Test DataFrame, run the queries against the OpenSearch
-
-
+# prior_clicks_df - train clicks dataset
 def evaluate_test_set(test_data, prior_clicks_df, opensearch, xgb_model_name, ltr_store, index, num_queries=100,
                       size=500, rescore_size=500, precision=10, main_query_weight=1, rescore_query_weight=2):
     # (ranks_df, features_df) = data_prepper.get_judgments(test_data, True) # judgments as a Pandas DataFrame
@@ -19,7 +17,7 @@ def evaluate_test_set(test_data, prior_clicks_df, opensearch, xgb_model_name, lt
         print("Precision can't be greater than the fetch size, changing the precision to be same as size")
         precision = size
     test_data = test_data.sample(frac=1).reset_index(drop=True)  # shuffle things
-    query_gb = test_data.groupby("query", sort=False) #small
+    query_test_gb = test_data.groupby("query", sort=False) #small
     prior_clicks_gb = prior_clicks_df.groupby(["query"]) #large
     source = ["sku", "name"]
 
@@ -36,21 +34,25 @@ def evaluate_test_set(test_data, prior_clicks_df, opensearch, xgb_model_name, lt
     score = []
     found = [] # boolean indicating whether this result was a match or not
     new = [] # boolean indicating whether this query was in the training set or not
-    results = {"query": q, "sku": sku, "rank": rank, "type": type, "found": found, "new": new, "score": score}
+    results = {"query": q, "sku": sku, "rank": rank, "type": type,
+               "found": found, "new": new, "score": score}
 
     print("Running %s test queries." % num_queries)
     ctr = 0
 
-    for key in query_gb.groups.keys():
+    for query_test in query_test_gb.groups.keys():
         if ctr >= num_queries:
             print("We've executed %s queries. Finishing." % ctr)
             break
         if ctr % 50 == 0:
-            print("Progress[%s]: %s" % (ctr, key))
+            print("Progress[%s]: %s" % (ctr, query_test))
         ctr += 1
-        test_clicks_for_query = query_gb.get_group(key) # this is the set of docs in our test set that have clicks
+        # this is the set of docs in our test set that have clicks
+        test_clicks_for_query = query_test_gb.get_group(query_test)
         # this is the set of skus that were clicked w/o dupes
         # since we are using prior clicks to learn from and boost, we cannot use them for judgment
+
+        # this is skus in our test set that have clicks for current query
         test_skus_for_query = test_clicks_for_query.sku.drop_duplicates()
         prior_doc_ids = None
         prior_doc_id_weights = None
@@ -58,33 +60,43 @@ def evaluate_test_set(test_data, prior_clicks_df, opensearch, xgb_model_name, lt
         prior_clicks_for_query = None
         seen = False
         try:
-            prior_clicks_for_query = prior_clicks_gb.get_group(key)
+            # select all clicks for particular query from `train` dataset
+            prior_clicks_for_query = prior_clicks_gb.get_group(query_test)
             if prior_clicks_for_query is not None and len(prior_clicks_for_query) > 0:
                 prior_doc_ids = prior_clicks_for_query.sku.drop_duplicates()
-                prior_doc_id_weights = prior_clicks_for_query.sku.value_counts() # histogram gives us the click counts for all the doc_ids
+                # histogram gives us the click counts for all the doc_ids
+                prior_doc_id_weights = prior_clicks_for_query.sku.value_counts()
                 query_times_seen = prior_clicks_for_query.sku.count()
                 seen = True
         except KeyError as ke:
             # nothing to do here, we just haven't seen this query before in our training set
             pass
 
+
         click_prior_query = qu.create_prior_queries(prior_doc_ids, prior_doc_id_weights, query_times_seen)
-        simple_query_obj = qu.create_simple_baseline(key, click_prior_query, filters=None, size=size, highlight=False, include_aggs=False, source=source)
-        # don't care about no results here
-        __judge_hits(test_skus_for_query, index, key, no_simple, opensearch, simple_query_obj, "simple", results, seen)
+
+
+        # Run simple
+        simple_query_obj = qu.create_simple_baseline(query_test, click_prior_query, filters=None, size=size, highlight=False, include_aggs=False, source=source)
+        __judge_hits(test_skus_for_query, index, query_test, no_simple, opensearch, simple_query_obj, "simple", results, seen)
+
+
         # Run hand-tuned
-        hand_tuned_query_obj = qu.create_query(key, click_prior_query, filters=None, size=size, highlight=False, include_aggs=False, source=source)
+        hand_tuned_query_obj = qu.create_query(query_test, click_prior_query, filters=None, size=size, highlight=False, include_aggs=False, source=source)
+        __judge_hits(test_skus_for_query, index, query_test, no_hand_tuned, opensearch, hand_tuned_query_obj, "hand_tuned", results, seen)
 
-        __judge_hits(test_skus_for_query, index, key, no_hand_tuned, opensearch, hand_tuned_query_obj, "hand_tuned", results, seen)
+
+        # Run LTR simple
         # NOTE: very important, we cannot look at the test set for click weights, but we can look at the train set.
-
-        ltr_simple_query_obj = lu.create_rescore_ltr_query(key, simple_query_obj, click_prior_query, xgb_model_name, ltr_store, rescore_size=rescore_size,
+        ltr_simple_query_obj = lu.create_rescore_ltr_query(query_test, simple_query_obj, click_prior_query, xgb_model_name, ltr_store, rescore_size=rescore_size,
                                                            main_query_weight=main_query_weight, rescore_query_weight=rescore_query_weight)
-        __judge_hits(test_skus_for_query, index, key, no_ltr_simple, opensearch, ltr_simple_query_obj, "ltr_simple", results, seen)
-        ltr_hand_query_obj = lu.create_rescore_ltr_query(key, hand_tuned_query_obj, click_prior_query, xgb_model_name, ltr_store,
+        __judge_hits(test_skus_for_query, index, query_test, no_ltr_simple, opensearch, ltr_simple_query_obj, "ltr_simple", results, seen)
+
+
+        # Run LTR hand-tuned
+        ltr_hand_query_obj = lu.create_rescore_ltr_query(query_test, hand_tuned_query_obj, click_prior_query, xgb_model_name, ltr_store,
                                                          rescore_size=rescore_size, main_query_weight=main_query_weight, rescore_query_weight=rescore_query_weight)
-        #print(ltr_hand_query_obj)
-        __judge_hits(test_skus_for_query, index, key, no_ltr_hand_tuned, opensearch, ltr_hand_query_obj, "ltr_hand_tuned", results, seen)
+        __judge_hits(test_skus_for_query, index, query_test, no_ltr_hand_tuned, opensearch, ltr_hand_query_obj, "ltr_hand_tuned", results, seen)
 
     return pd.DataFrame(results), no_results
 
@@ -149,22 +161,30 @@ def calculate_precision(results, type, num_queries_no_results, precision=10):
 
 
 def calculate_mrr(results, type, num_queries_no_results):
+    # total number of all unique queries from test set
     num_q_total = len(results["query"].unique()) + num_queries_no_results
+    # all found results for current query model, e.g. simple, ltr, etc.
+    # "found" bit says whether the hit from current query model (e.g. simple, ltr, etc.) was clicked in test set
     typed_results = results[(results["type"] == type) & (results["found"] == True)]
+
+    # get all min ranks for current current query model
     gb = typed_results.groupby(["query"])
     min_ranks = gb['rank'].min()
-    r_ranks = 1 / min_ranks
-    return r_ranks.sum() / num_q_total
+
+    # calculate MRR
+    r_reciprocal = 1 / min_ranks
+    return r_reciprocal.sum() / num_q_total
 
 
 def analyze_results(results_df, no_results_df, new_queries_df, opensearch, index, ltr_model_name, ltr_store_name, train_df, test_df, output_dir, precision=10, analyze_explains=False, max_explains=100):
     print("Queries not seen during training: [%s]\n%s\n\n" % (len(new_queries_df), new_queries_df))
-    # MRR: mean reciprocal rank, closer to 1 is better, closer to zero is worse
 
-    print("Simple MRR is %.3f" % (calculate_mrr(results_df, "simple", len(no_results_df["simple"]))))
-    print("LTR Simple MRR is %.3f" % (calculate_mrr(results_df, "ltr_simple", len(no_results_df["ltr_simple"]))))
-    print("Hand tuned MRR is %.3f" % (calculate_mrr(results_df, "hand_tuned", len(no_results_df["hand_tuned"]))))
-    print("LTR Hand Tuned MRR is %.3f" % (calculate_mrr(results_df, "ltr_hand_tuned", len(no_results_df["ltr_hand_tuned"]))))
+    # MRR: mean reciprocal rank, closer to 1 is better, closer to zero is worse
+    print("%.3f: Simple MRR" % (calculate_mrr(results_df, "simple", len(no_results_df["simple"]))))
+    print("%.3f: LTR Simple MRR" % (calculate_mrr(results_df, "ltr_simple", len(no_results_df["ltr_simple"]))))
+    print("%.3f: Hand tuned MRR" % (calculate_mrr(results_df, "hand_tuned", len(no_results_df["hand_tuned"]))))
+    print("%.3f: LTR Hand Tuned MRR" % (calculate_mrr(results_df, "ltr_hand_tuned", len(no_results_df["ltr_hand_tuned"]))))
+
     # Caveat emmptor: precision is hard to define here, we're inferring a prior click as meaning the result is relevant.
     # This is self-serving, but really this whole thing is just trying to learn clicks
     print("")
@@ -172,6 +192,7 @@ def analyze_results(results_df, no_results_df, new_queries_df, opensearch, index
     print("LTR simple p@%s is %.3f" % (precision, calculate_precision(results_df, "ltr_simple", len(no_results_df["ltr_simple"]), precision)))
     print("Hand tuned p@%s is %.3f" % (precision, calculate_precision(results_df, "hand_tuned", len(no_results_df["hand_tuned"]), precision)))
     print("LTR hand tuned p@%s is %.3f" % (precision, calculate_precision(results_df, "ltr_hand_tuned", len(no_results_df["ltr_hand_tuned"]), precision)))
+
     # Do some comparisons between the sets
     simple_df = results_df[results_df["type"] == "simple"]
     ltr_simple_df = results_df[results_df["type"] == "ltr_simple"]
@@ -192,7 +213,7 @@ def analyze_results(results_df, no_results_df, new_queries_df, opensearch, index
     analysis_output_dir = "%s/analysis" % output_dir
     if os.path.isdir(analysis_output_dir) == False:
         os.mkdir(analysis_output_dir)
-    # OUtput our analysis
+    # Output our analysis
     simple_better.to_csv("%s/simple_better.csv" % analysis_output_dir, index=False)
     ltr_simple_better.to_csv("%s/ltr_simple_better.csv" % analysis_output_dir, index=False)
     simple_ltr_equal.to_csv("%s/simple_ltr_equal.csv" % analysis_output_dir, index=False)

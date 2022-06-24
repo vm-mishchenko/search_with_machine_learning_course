@@ -1,3 +1,13 @@
+## Run Full LTR
+```shell
+# Main query weight: 0
+./ltr-end-to-end.sh -y -m 0
+
+# "quantiles" click model
+./ltr-end-to-end.sh -y -m 0 -c quantiles
+```
+
+
 ## Start Docker compose
 ```shell
 cd docker
