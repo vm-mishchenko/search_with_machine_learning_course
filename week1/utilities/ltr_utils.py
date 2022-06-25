@@ -18,11 +18,12 @@ def create_rescore_ltr_query(user_query: str, query_obj, click_prior_query: str,
                 "sltr": {
                     "params": {
                         "keywords": user_query,
-                        "keywords_split": user_query.split()
+                        "keywords_split": user_query.split(),
+                        "click_prior_query": click_prior_query
                     },
                     "model": ltr_model_name,
                     # Since we are using a named store, as opposed to simply '_ltr', we need to pass it in
-                    "store": ltr_store_name
+                    "store": ltr_store_name,
                 }
             },
             "query_weight" : main_query_weight,
@@ -97,7 +98,8 @@ def create_feature_log_query(query, doc_ids, click_prior_query, featureset_name,
                             "store": ltr_store_name,
                             "params": {
                                 "keywords": query, # e.g. dogs
-                                "keywords_split": query.split()
+                                "keywords_split": query.split(),
+                                "click_prior_query": click_prior_query
                             }
                         }
                     }

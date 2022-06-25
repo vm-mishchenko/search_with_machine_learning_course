@@ -198,6 +198,7 @@ def analyze_results(results_df, no_results_df, new_queries_df, opensearch, index
     ltr_simple_df = results_df[results_df["type"] == "ltr_simple"]
     hand_tuned_df = results_df[results_df["type"] == "hand_tuned"]
     ltr_hand_tuned_df = results_df[results_df["type"] == "ltr_hand_tuned"]
+
     # Do some merging so we can compare
     simple_join = pd.merge(simple_df, ltr_simple_df, on=["query", "sku"], suffixes=("_simple", "_ltr"))
     simple_better = simple_join[(simple_join["rank_simple"] < simple_join["rank_ltr"]) & (simple_join["found_simple"] == True)]
@@ -213,6 +214,7 @@ def analyze_results(results_df, no_results_df, new_queries_df, opensearch, index
     analysis_output_dir = "%s/analysis" % output_dir
     if os.path.isdir(analysis_output_dir) == False:
         os.mkdir(analysis_output_dir)
+
     # Output our analysis
     simple_better.to_csv("%s/simple_better.csv" % analysis_output_dir, index=False)
     ltr_simple_better.to_csv("%s/ltr_simple_better.csv" % analysis_output_dir, index=False)
@@ -220,11 +222,14 @@ def analyze_results(results_df, no_results_df, new_queries_df, opensearch, index
     ht_better.to_csv("%s/ht_better.csv" % analysis_output_dir, index=False)
     ltr_ht_better.to_csv("%s/ltr_ht_better.csv" % analysis_output_dir, index=False)
     ht_ltr_equal.to_csv("%s/ht_ltr_equal.csv" % analysis_output_dir, index=False)
+
     # Output some subsamples where we did better on LTR AND the rank is in the top 20
     ltr_simple_top_20 = ltr_simple_better[ltr_simple_better["rank_ltr"] < 20]
     ltr_simple_top_20.to_csv("%s/simple_ltr_better_r20.csv" % analysis_output_dir, index=False)
     ltr_ht_top_20 = ltr_ht_better[ltr_ht_better["rank_ltr"] < 20]
     ltr_ht_top_20.to_csv("%s/ht_ltr_better_r20.csv" % analysis_output_dir, index=False)
+
+
     if analyze_explains:
         train_gb = train_df.groupby("query")
         print("Comparing simple vs LTR explains")

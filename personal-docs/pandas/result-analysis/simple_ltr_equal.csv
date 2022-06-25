@@ -1,0 +1,7 @@
+query,sku,rank_simple,type_simple,found_simple,new_simple,score_simple,rank_ltr,type_ltr,found_ltr,new_ltr,score_ltr
+560LMT,2193939,1,simple,True,True,2074.5007,1,ltr_simple,True,True,0.9741213
+sling box,8548832,2,simple,True,False,0.55266577,2,ltr_simple,True,False,0.9966414
+sling box,9004258,3,simple,True,False,0.46423686,3,ltr_simple,True,False,0.9966414
+kvm,9246997,7,simple,True,False,660.3798,7,ltr_simple,True,False,0.9293684
+philips,2762307,242,simple,True,False,410.46188,242,ltr_simple,True,False,0.777913
+dvr,9895549,33,simple,True,False,482.53964,33,ltr_simple,True,False,0.82931656

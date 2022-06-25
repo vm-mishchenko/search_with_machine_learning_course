@@ -6,6 +6,14 @@
 # "quantiles" click model
 # `click model` responsible for calculating `judgement` for each query+doc
 ./ltr-end-to-end.sh -y -m 0 -c quantiles
+
+# --analyze_explains - run the queries from LTR queries that performed WORSE than the non-LTR query 
+# --analyze - Calculate a variety of stats and other things about the results
+# outputs `simple_ltr_explains.csv` file
+python week1/utilities/build_ltr.py \
+  --analyze \
+  --output_dir /Users/vitalii.mishchenko/Documents/personal/opensearch/ltr_output \
+  --analyze_explains
 ```
 
 
@@ -56,7 +64,7 @@ deactivate
 ```
 
 
-## Check Indexing logs 
+## Check Indexing logs
 ```shell
 # check products logs
 tail -f /Users/vitalii.mishchenko/Documents/personal/opensearch/data/logs/index_products.log
@@ -83,7 +91,7 @@ git pull upstream main
 pip install -r requirements.txt
 ```
 
-## Draw model 
+## Draw model
 ```shell
 brew install graphviz
 ```

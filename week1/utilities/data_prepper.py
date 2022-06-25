@@ -259,7 +259,7 @@ class DataPrepper:
                            "shortDescription_match_phrase",
                            "longDescription_match_phrase",
                            "salesRankShortTerm",
-                           "sku_terms",
+                           "click_prior",
                            ]
         for feature_name in custom_features:
             feature_results[feature_name] = []

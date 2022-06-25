@@ -1,0 +1,505 @@
+query,sku,rank_ht,type_ht,found_ht,new_ht,score_ht,rank_ltr,type_ltr,found_ltr,new_ltr,score_ltr
+USB to hdmi converter,2731344,122,hand_tuned,True,False,0.010632615,209,ltr_hand_tuned,True,False,0.76515156
+iPod touch,3109302,1,hand_tuned,True,False,2502.0288,3,ltr_hand_tuned,True,False,1.3701575
+iPod touch,1207936,6,hand_tuned,True,False,915.89,403,ltr_hand_tuned,True,False,0.7102725
+iPod touch,3458419,7,hand_tuned,True,False,838.9059,139,ltr_hand_tuned,True,False,0.847387
+iPod touch,2237282,8,hand_tuned,True,False,545.3353,248,ltr_hand_tuned,True,False,0.7717667
+iPod touch,3458437,9,hand_tuned,True,False,448.4947,196,ltr_hand_tuned,True,False,0.81617844
+iPod touch,8967166,10,hand_tuned,True,False,401.57065,304,ltr_hand_tuned,True,False,0.7399627
+iPod touch,3460035,12,hand_tuned,True,False,255.24377,499,ltr_hand_tuned,True,False,0.5884292
+iPod touch,2670081,14,hand_tuned,True,False,121.442894,218,ltr_hand_tuned,True,False,0.7988268
+iPod touch,3459394,23,hand_tuned,True,False,38.188053,207,ltr_hand_tuned,True,False,0.80860054
+iPod touch,3441058,54,hand_tuned,True,False,1.8588634,157,ltr_hand_tuned,True,False,0.83349
+iPod touch,1207432,59,hand_tuned,True,False,1.2605122,227,ltr_hand_tuned,True,False,0.7874714
+iPod touch,1207881,62,hand_tuned,True,False,1.1141902,252,ltr_hand_tuned,True,False,0.76633877
+iPod touch,1207257,73,hand_tuned,True,False,0.34937605,404,ltr_hand_tuned,True,False,0.7102725
+iPod touch,1658265,108,hand_tuned,True,False,0.11326636,222,ltr_hand_tuned,True,False,0.7882971
+iPod touch,3559541,142,hand_tuned,True,False,0.11326574,417,ltr_hand_tuned,True,False,0.69833213
+iPod touch,1404106,153,hand_tuned,True,False,0.11326574,463,ltr_hand_tuned,True,False,0.69833213
+iPod touch,1377123,184,hand_tuned,True,False,0.10718347,247,ltr_hand_tuned,True,False,0.77465534
+iPod touch,1328189,204,hand_tuned,True,False,0.107183084,307,ltr_hand_tuned,True,False,0.7351945
+iPod touch,1328383,207,hand_tuned,True,False,0.10718297,398,ltr_hand_tuned,True,False,0.7200053
+iPod touch,9899706,212,hand_tuned,True,False,0.10718297,366,ltr_hand_tuned,True,False,0.7228852
+smallville,13863562,1,hand_tuned,True,False,0.0832569,11,ltr_hand_tuned,True,False,0.88742304
+smallville,7504701,4,hand_tuned,True,False,0.05695212,9,ltr_hand_tuned,True,False,0.9025547
+smallville,5319078,10,hand_tuned,True,False,0.053568505,26,ltr_hand_tuned,True,False,0.84224623
+smallville,3224054,11,hand_tuned,True,False,0.053565606,27,ltr_hand_tuned,True,False,0.84224623
+smallville,8955473,17,hand_tuned,True,False,0.05056248,18,ltr_hand_tuned,True,False,0.8687367
+zonealarm,3140362,19,hand_tuned,True,False,0.0029004242,23,ltr_hand_tuned,True,False,0.79692453
+zonealarm,1256446,26,hand_tuned,True,False,3.7e-06,31,ltr_hand_tuned,True,False,0.7557279
+zonealarm,9506652,27,hand_tuned,True,False,1.8999999e-06,32,ltr_hand_tuned,True,False,0.71666735
+wi,1945531,1,hand_tuned,True,False,994.33136,5,ltr_hand_tuned,True,False,1.1151695
+wi,2339322,2,hand_tuned,True,False,950.73157,95,ltr_hand_tuned,True,False,0.86660314
+wi,2329467,23,hand_tuned,True,False,200.99452,34,ltr_hand_tuned,True,False,0.963182
+dvd case,7506326,5,hand_tuned,True,False,6.5129557,42,ltr_hand_tuned,True,False,0.80336857
+dvd case,1791231,107,hand_tuned,True,False,0.021465946,303,ltr_hand_tuned,True,False,0.7441004
+dvd case,9216742,108,hand_tuned,True,False,0.021328123,371,ltr_hand_tuned,True,False,0.73134077
+dvd case,7876738,375,hand_tuned,True,False,0.002883724,384,ltr_hand_tuned,True,False,0.73134077
+dragonball z,8776434,13,hand_tuned,True,False,0.079066895,156,ltr_hand_tuned,True,False,0.88742304
+dragonball z,6002434,15,hand_tuned,True,False,0.07466462,123,ltr_hand_tuned,True,False,0.88742304
+dragonball z,6002416,17,hand_tuned,True,False,0.07466322,122,ltr_hand_tuned,True,False,0.88742304
+dragonball z,6758895,37,hand_tuned,True,False,0.06711024,318,ltr_hand_tuned,True,False,0.82667446
+dragonball z,9308055,141,hand_tuned,True,False,0.055007685,299,ltr_hand_tuned,True,False,0.8843493
+dragonball z,9160962,228,hand_tuned,True,False,0.05128409,301,ltr_hand_tuned,True,False,0.8843493
+lcd tv,2893174,12,hand_tuned,True,False,0.60003006,139,ltr_hand_tuned,True,False,0.8674004
+ac,8881695,10,hand_tuned,True,False,349.17368,35,ltr_hand_tuned,True,False,0.83615243
+ac,9812309,20,hand_tuned,True,False,225.66379,281,ltr_hand_tuned,True,False,0.7661542
+ac,9463163,66,hand_tuned,True,False,11.517194,463,ltr_hand_tuned,True,False,0.7238247
+ac,9355743,115,hand_tuned,True,False,3.8557503,500,ltr_hand_tuned,True,False,0.6613117
+ac,1200742,326,hand_tuned,True,False,0.043795105,450,ltr_hand_tuned,True,False,0.73490095
+Alienware,1407228,14,hand_tuned,True,False,0.053999163,27,ltr_hand_tuned,True,False,0.8545424
+Alienware,3655632,22,hand_tuned,True,False,0.048469212,29,ltr_hand_tuned,True,False,0.84224623
+Alienware,3612116,48,hand_tuned,True,False,0.041625105,92,ltr_hand_tuned,True,False,0.7260541
+spider-man 3,16726054,23,hand_tuned,True,False,0.12097483,58,ltr_hand_tuned,True,False,0.88742304
+spider-man 3,9237202,73,hand_tuned,True,False,0.050629828,218,ltr_hand_tuned,True,False,0.74489707
+spider-man 3,3078086,215,hand_tuned,True,False,0.0016428158,423,ltr_hand_tuned,True,False,0.69833213
+software,8856865,4,hand_tuned,True,False,62.416527,20,ltr_hand_tuned,True,False,0.89769274
+software,1063041,5,hand_tuned,True,False,61.886223,268,ltr_hand_tuned,True,False,0.74548405
+software,1520158,13,hand_tuned,True,False,41.097244,166,ltr_hand_tuned,True,False,0.7868605
+software,1303056,26,hand_tuned,True,False,22.969156,55,ltr_hand_tuned,True,False,0.85466886
+software,1303083,39,hand_tuned,True,False,16.044168,121,ltr_hand_tuned,True,False,0.7948045
+#,8856865,1,hand_tuned,True,False,0.1017685,5,ltr_hand_tuned,True,False,0.89769274
+#,1520158,2,hand_tuned,True,False,0.10107167,21,ltr_hand_tuned,True,False,0.7948045
+#,8915178,4,hand_tuned,True,False,0.047344744,36,ltr_hand_tuned,True,False,0.71945816
+#,1982034,5,hand_tuned,True,False,0.046776056,39,ltr_hand_tuned,True,False,0.69014
+#,1972308,7,hand_tuned,True,False,0.028515974,22,ltr_hand_tuned,True,False,0.7874714
+#,8234047,18,hand_tuned,True,False,3.4000002e-06,24,ltr_hand_tuned,True,False,0.7874714
+wireless speaker,2968053,63,hand_tuned,True,False,0.06971336,113,ltr_hand_tuned,True,False,0.82667446
+wireless speaker,2053402,245,hand_tuned,True,False,0.0063433317,389,ltr_hand_tuned,True,False,0.7399627
+xbox live,1272605,1,hand_tuned,True,False,1187.4669,173,ltr_hand_tuned,True,False,0.77600867
+xbox live,1272086,2,hand_tuned,True,False,887.0683,3,ltr_hand_tuned,True,False,1.1008273
+xbox live,1272483,3,hand_tuned,True,False,707.5846,4,ltr_hand_tuned,True,False,1.1008273
+xbox live,1272271,5,hand_tuned,True,False,245.1913,172,ltr_hand_tuned,True,False,0.77600867
+xbox live,1162184,13,hand_tuned,True,False,38.791264,90,ltr_hand_tuned,True,False,0.8503898
+xbox live,1219686,16,hand_tuned,True,False,19.924427,24,ltr_hand_tuned,True,False,0.98024446
+ipod,9084206,1,hand_tuned,True,False,679.2608,460,ltr_hand_tuned,True,False,0.6870135
+ipod,3109302,2,hand_tuned,True,False,657.0241,3,ltr_hand_tuned,True,False,1.1970283
+ipod,8771929,4,hand_tuned,True,False,537.8436,5,ltr_hand_tuned,True,False,1.1294594
+ipod,1114133,5,hand_tuned,True,False,527.88934,425,ltr_hand_tuned,True,False,0.7053001
+ipod,3109339,9,hand_tuned,True,False,430.5558,70,ltr_hand_tuned,True,False,0.81499934
+ipod,9412619,10,hand_tuned,True,False,410.5708,127,ltr_hand_tuned,True,False,0.78481966
+ipod,8913599,12,hand_tuned,True,False,367.9229,406,ltr_hand_tuned,True,False,0.7053001
+ipod,1469032,13,hand_tuned,True,False,362.0225,429,ltr_hand_tuned,True,False,0.7053001
+ipod,1161798,14,hand_tuned,True,False,347.84058,44,ltr_hand_tuned,True,False,0.8576267
+ipod,9845563,15,hand_tuned,True,False,347.40228,83,ltr_hand_tuned,True,False,0.80685645
+ipod,1222744,19,hand_tuned,True,False,313.9937,411,ltr_hand_tuned,True,False,0.7053001
+ipod,1161934,20,hand_tuned,True,False,303.87332,45,ltr_hand_tuned,True,False,0.8576267
+ipod,8732794,32,hand_tuned,True,False,251.721,491,ltr_hand_tuned,True,False,0.64770514
+ipod,1161843,34,hand_tuned,True,False,246.54594,128,ltr_hand_tuned,True,False,0.77955395
+ipod,1207936,35,hand_tuned,True,False,239.38782,405,ltr_hand_tuned,True,False,0.7053001
+ipod,1161816,51,hand_tuned,True,False,116.94428,110,ltr_hand_tuned,True,False,0.79184973
+ipod,8967166,52,hand_tuned,True,False,105.66449,291,ltr_hand_tuned,True,False,0.73490095
+ipod,1144355,56,hand_tuned,True,False,102.68025,81,ltr_hand_tuned,True,False,0.8077931
+ipod,9845545,63,hand_tuned,True,False,76.53235,294,ltr_hand_tuned,True,False,0.733242
+ipod,2629446,67,hand_tuned,True,False,67.86245,226,ltr_hand_tuned,True,False,0.7441004
+ipod,3143147,74,hand_tuned,True,False,60.200436,277,ltr_hand_tuned,True,False,0.7441004
+ipod,1207432,77,hand_tuned,True,False,52.775078,456,ltr_hand_tuned,True,False,0.6963372
+ipod,1161898,82,hand_tuned,True,False,45.575546,278,ltr_hand_tuned,True,False,0.7424427
+ipod,1200742,84,hand_tuned,True,False,42.835217,285,ltr_hand_tuned,True,False,0.73490095
+ipod,8915178,117,hand_tuned,True,False,20.016485,314,ltr_hand_tuned,True,False,0.71945816
+ipod,9222352,135,hand_tuned,True,False,11.502308,159,ltr_hand_tuned,True,False,0.76633877
+ipod,1015382,146,hand_tuned,True,False,9.366428,401,ltr_hand_tuned,True,False,0.7053001
+ipod,1160608,279,hand_tuned,True,False,0.55137813,465,ltr_hand_tuned,True,False,0.6762862
+ipod,3109357,297,hand_tuned,True,False,0.26520702,326,ltr_hand_tuned,True,False,0.7177318
+ipod,9845475,314,hand_tuned,True,False,0.11504904,324,ltr_hand_tuned,True,False,0.7177318
+ipod,1950279,405,hand_tuned,True,False,0.03661886,413,ltr_hand_tuned,True,False,0.7053001
+ipod,8033629,461,hand_tuned,True,False,0.033022225,488,ltr_hand_tuned,True,False,0.66286457
+ipod,9899697,469,hand_tuned,True,False,0.03282203,481,ltr_hand_tuned,True,False,0.67490625
+ipod,2613093,487,hand_tuned,True,False,0.032820325,494,ltr_hand_tuned,True,False,0.6345517
+camera cases,9773712,1,hand_tuned,True,False,174.92746,44,ltr_hand_tuned,True,False,0.93244886
+casio,17007828,21,hand_tuned,True,False,0.06376491,70,ltr_hand_tuned,True,False,0.86112213
+casio,9468453,25,hand_tuned,True,False,0.06376331,72,ltr_hand_tuned,True,False,0.86112213
+casio,9939878,33,hand_tuned,True,False,0.06376331,77,ltr_hand_tuned,True,False,0.86112213
+casio,1558044,44,hand_tuned,True,False,0.058790587,46,ltr_hand_tuned,True,False,0.8843493
+casio,3395221,60,hand_tuned,True,False,0.05453737,88,ltr_hand_tuned,True,False,0.84242386
+casio,8791042,61,hand_tuned,True,False,0.05453737,93,ltr_hand_tuned,True,False,0.84224623
+casio,3106138,74,hand_tuned,True,False,0.050858837,87,ltr_hand_tuned,True,False,0.84458286
+casio,3106226,88,hand_tuned,True,False,0.05085804,496,ltr_hand_tuned,True,False,0.67732644
+casio,9820826,103,hand_tuned,True,False,0.04764458,294,ltr_hand_tuned,True,False,0.7560249
+casio,3106687,124,hand_tuned,True,False,0.04764378,195,ltr_hand_tuned,True,False,0.7701187
+casio,3106723,228,hand_tuned,True,False,0.04229734,254,ltr_hand_tuned,True,False,0.76532114
+casio,8021936,329,hand_tuned,True,False,0.005200052,467,ltr_hand_tuned,True,False,0.71666735
+apple tv,2965074,3,hand_tuned,True,False,15.174544,67,ltr_hand_tuned,True,False,0.83767015
+apple tv,9225411,10,hand_tuned,True,False,0.15981558,12,ltr_hand_tuned,True,False,1.029478
+Bluetooth headphones,2264036,1,hand_tuned,True,False,862.69836,2,ltr_hand_tuned,True,False,1.2739178
+Bluetooth headphones,9246862,3,hand_tuned,True,False,307.8188,4,ltr_hand_tuned,True,False,1.1634983
+Bluetooth headphones,1232474,12,hand_tuned,True,False,0.12538305,130,ltr_hand_tuned,True,False,0.8393214
+Bluetooth headphones,9492426,15,hand_tuned,True,False,0.11485643,129,ltr_hand_tuned,True,False,0.8393214
+Bluetooth headphones,1114791,21,hand_tuned,True,False,0.103027925,79,ltr_hand_tuned,True,False,0.8771709
+Bluetooth headphones,1535284,34,hand_tuned,True,False,0.0860471,67,ltr_hand_tuned,True,False,0.88742304
+Bluetooth headphones,3724696,35,hand_tuned,True,False,0.086044796,68,ltr_hand_tuned,True,False,0.88742304
+Bluetooth headphones,9740214,118,hand_tuned,True,False,0.0050633494,125,ltr_hand_tuned,True,False,0.8414646
+Bluetooth headphones,9740232,119,hand_tuned,True,False,0.0050593494,430,ltr_hand_tuned,True,False,0.71045595
+Bluetooth headphones,9740223,120,hand_tuned,True,False,0.0050590495,144,ltr_hand_tuned,True,False,0.8348655
+iPod speaker,1114764,4,hand_tuned,True,False,21.34742,20,ltr_hand_tuned,True,False,0.9501557
+iPod speaker,2239323,5,hand_tuned,True,False,17.358116,15,ltr_hand_tuned,True,False,0.96965265
+iPod speaker,2205034,8,hand_tuned,True,False,4.401386,100,ltr_hand_tuned,True,False,0.8435783
+iPod speaker,2256595,13,hand_tuned,True,False,0.15691687,188,ltr_hand_tuned,True,False,0.78741467
+iPod speaker,1160608,15,hand_tuned,True,False,0.1375755,99,ltr_hand_tuned,True,False,0.8447512
+iPod speaker,9084206,22,hand_tuned,True,False,0.093683146,119,ltr_hand_tuned,True,False,0.82582074
+iPod speaker,8732794,81,hand_tuned,True,False,0.039821766,209,ltr_hand_tuned,True,False,0.77129066
+iPod speaker,2205052,105,hand_tuned,True,False,0.023877423,148,ltr_hand_tuned,True,False,0.79692453
+iPod speaker,1997075,178,hand_tuned,True,False,0.0068025454,498,ltr_hand_tuned,True,False,0.660663
+iPod speaker,1433135,184,hand_tuned,True,False,0.006699211,308,ltr_hand_tuned,True,False,0.73710275
+iPod speaker,2878045,227,hand_tuned,True,False,0.005965845,434,ltr_hand_tuned,True,False,0.71045595
+iphone 4s,3562527,3,hand_tuned,True,False,907.9342,14,ltr_hand_tuned,True,False,0.9871361
+iphone 4s,3566966,6,hand_tuned,True,False,767.7349,16,ltr_hand_tuned,True,False,0.9644505
+iphone 4s,3566775,8,hand_tuned,True,False,481.65314,13,ltr_hand_tuned,True,False,1.0112756
+iphone 4s,1990451,12,hand_tuned,True,False,174.52109,88,ltr_hand_tuned,True,False,0.86993843
+iphone 4s,1401749,28,hand_tuned,True,False,27.97562,274,ltr_hand_tuned,True,False,0.749188
+iphone 4s,1230537,51,hand_tuned,True,False,0.111864425,135,ltr_hand_tuned,True,False,0.82582074
+iphone 4s,3815157,53,hand_tuned,True,False,0.10779864,166,ltr_hand_tuned,True,False,0.79381883
+iphone 4s,3815041,58,hand_tuned,True,False,0.09003657,87,ltr_hand_tuned,True,False,0.87382823
+iphone 4s,1114133,60,hand_tuned,True,False,0.08650495,369,ltr_hand_tuned,True,False,0.7053001
+iphone 4s,3825057,61,hand_tuned,True,False,0.08526511,91,ltr_hand_tuned,True,False,0.8641181
+iphone 4s,3721653,65,hand_tuned,True,False,0.07879418,115,ltr_hand_tuned,True,False,0.8296854
+iphone 4s,3814088,79,hand_tuned,True,False,0.074532785,93,ltr_hand_tuned,True,False,0.8555297
+iphone 4s,1155475,144,hand_tuned,True,False,0.06587905,302,ltr_hand_tuned,True,False,0.73490095
+iphone 4s,3825048,158,hand_tuned,True,False,0.055537593,172,ltr_hand_tuned,True,False,0.7874714
+iphone 4s,3725859,249,hand_tuned,True,False,0.008294456,499,ltr_hand_tuned,True,False,0.660663
+iphone 4s,3812566,263,hand_tuned,True,False,0.007847282,460,ltr_hand_tuned,True,False,0.69833213
+iphone 4s,3540428,392,hand_tuned,True,False,0.0053132228,397,ltr_hand_tuned,True,False,0.69833213
+iphone 4s,3540446,397,hand_tuned,True,False,0.004993885,398,ltr_hand_tuned,True,False,0.69833213
+nintendo,2803428,2,hand_tuned,True,False,1016.24725,38,ltr_hand_tuned,True,False,0.9320103
+nintendo,1503576,14,hand_tuned,True,False,429.74722,44,ltr_hand_tuned,True,False,0.89989173
+nintendo,3303069,67,hand_tuned,True,False,13.817555,468,ltr_hand_tuned,True,False,0.7103814
+dsl modems,3219089,5,hand_tuned,True,False,13.967982,22,ltr_hand_tuned,True,False,0.9190011
+dsl modems,3720169,7,hand_tuned,True,False,9.878632,58,ltr_hand_tuned,True,False,0.82784384
+Fast 5,19493508,210,hand_tuned,True,False,1.4077881e-05,335,ltr_hand_tuned,True,False,0.7228852
+Electric shaver,1230185,54,hand_tuned,True,False,1.2298714e-05,60,ltr_hand_tuned,True,False,0.76616657
+Electric shaver,8834844,60,hand_tuned,True,False,1.18e-05,499,ltr_hand_tuned,True,False,0.6926199
+god of war,1072246,1,hand_tuned,True,False,75.77009,7,ltr_hand_tuned,True,False,1.0276729
+god of war,9869879,10,hand_tuned,True,False,0.08382371,46,ltr_hand_tuned,True,False,0.82667446
+god of war,2638357,28,hand_tuned,True,False,0.06690552,77,ltr_hand_tuned,True,False,0.7661688
+lowepro,9773712,3,hand_tuned,True,False,975.6389,32,ltr_hand_tuned,True,False,0.953165
+lowepro,9773749,4,hand_tuned,True,False,962.1002,11,ltr_hand_tuned,True,False,1.0185447
+lowepro,7037253,7,hand_tuned,True,False,698.03766,33,ltr_hand_tuned,True,False,0.953165
+lowepro,1180538,8,hand_tuned,True,False,524.613,426,ltr_hand_tuned,True,False,0.6613117
+lowepro,1934184,16,hand_tuned,True,False,3.8622642,34,ltr_hand_tuned,True,False,0.95164573
+lowepro,1934402,18,hand_tuned,True,False,0.8896725,39,ltr_hand_tuned,True,False,0.92000794
+lowepro,1446235,95,hand_tuned,True,False,0.050967768,417,ltr_hand_tuned,True,False,0.67732644
+Playstation,2670179,16,hand_tuned,True,False,420.51193,37,ltr_hand_tuned,True,False,0.9184709
+Playstation,8965998,49,hand_tuned,True,False,64.296,383,ltr_hand_tuned,True,False,0.76488125
+Playstation,3061366,50,hand_tuned,True,False,60.794685,437,ltr_hand_tuned,True,False,0.7277852
+Playstation,2891051,51,hand_tuned,True,False,60.188652,66,ltr_hand_tuned,True,False,0.88183403
+Playstation,2137159,59,hand_tuned,True,False,24.83117,131,ltr_hand_tuned,True,False,0.79692453
+Playstation,2704076,76,hand_tuned,True,False,4.3336554,251,ltr_hand_tuned,True,False,0.7661542
+Playstation,2833059,88,hand_tuned,True,False,1.546736,248,ltr_hand_tuned,True,False,0.76633877
+Playstation,1972853,109,hand_tuned,True,False,0.39778212,414,ltr_hand_tuned,True,False,0.7447915
+kvm,6191569,1,hand_tuned,True,False,8.51954,6,ltr_hand_tuned,True,False,0.98783165
+kvm,9788238,24,hand_tuned,True,False,0.04751248,30,ltr_hand_tuned,True,False,0.7874693
+iPhone 4s accessories,3725859,245,hand_tuned,True,True,0.0022598745,499,ltr_hand_tuned,True,True,0.660663
+Mac,1502268,1,hand_tuned,True,False,1062.2491,464,ltr_hand_tuned,True,False,0.7215559
+Mac,1019306,5,hand_tuned,True,False,736.0446,169,ltr_hand_tuned,True,False,0.79692453
+Mac,3103238,6,hand_tuned,True,False,636.5679,13,ltr_hand_tuned,True,False,0.9859429
+Mac,9954445,8,hand_tuned,True,False,488.1049,163,ltr_hand_tuned,True,False,0.79692453
+Mac,1303092,12,hand_tuned,True,False,373.93655,455,ltr_hand_tuned,True,False,0.7321588
+Mac,2658095,16,hand_tuned,True,False,198.70262,61,ltr_hand_tuned,True,False,0.8632233
+Mac,6957304,17,hand_tuned,True,False,193.3189,31,ltr_hand_tuned,True,False,0.89989173
+Mac,2658068,180,hand_tuned,True,False,1.2733799,261,ltr_hand_tuned,True,False,0.7766792
+Mac,1784371,217,hand_tuned,True,False,0.42268828,341,ltr_hand_tuned,True,False,0.76633877
+camcorders,2053606,17,hand_tuned,True,False,41.11936,385,ltr_hand_tuned,True,False,0.71945816
+camcorders,1227075,19,hand_tuned,True,False,40.864548,38,ltr_hand_tuned,True,False,0.8296756
+camcorders,7956599,39,hand_tuned,True,False,13.537764,41,ltr_hand_tuned,True,False,0.8199725
+camcorders,2009041,190,hand_tuned,True,False,2.1748188,462,ltr_hand_tuned,True,False,0.69160354
+philips,9468952,2,hand_tuned,True,False,420.5864,22,ltr_hand_tuned,True,False,1.0291755
+philips,9832597,6,hand_tuned,True,False,205.06175,58,ltr_hand_tuned,True,False,0.9742602
+philips,9466053,14,hand_tuned,True,False,11.348354,199,ltr_hand_tuned,True,False,0.7967374
+philips,2022228,18,hand_tuned,True,False,3.869409,172,ltr_hand_tuned,True,False,0.83057207
+philips,3475155,37,hand_tuned,True,False,0.05398723,195,ltr_hand_tuned,True,False,0.8068341
+philips,2150052,56,hand_tuned,True,False,0.05384994,80,ltr_hand_tuned,True,False,0.91254675
+philips,2150089,58,hand_tuned,True,False,0.05384994,187,ltr_hand_tuned,True,False,0.8134475
+philips,3035098,99,hand_tuned,True,False,0.046587028,281,ltr_hand_tuned,True,False,0.7701187
+philips,3035113,102,hand_tuned,True,False,0.046585027,282,ltr_hand_tuned,True,False,0.7701187
+philips,2596332,159,hand_tuned,True,False,0.04658403,291,ltr_hand_tuned,True,False,0.7701187
+philips,2047571,180,hand_tuned,True,False,0.043642886,222,ltr_hand_tuned,True,False,0.7866078
+philips,5751947,247,hand_tuned,True,False,0.04104719,359,ltr_hand_tuned,True,False,0.76532114
+philips,2762088,431,hand_tuned,True,False,0.036726397,476,ltr_hand_tuned,True,False,0.7358907
+philips,1997075,472,hand_tuned,True,False,0.036684778,493,ltr_hand_tuned,True,False,0.7260541
+cordless phone,2147968,1,hand_tuned,True,False,959.5102,199,ltr_hand_tuned,True,False,0.8627946
+cordless phone,2147886,2,hand_tuned,True,False,827.3226,417,ltr_hand_tuned,True,False,0.7726091
+cordless phone,9774384,3,hand_tuned,True,False,762.5129,59,ltr_hand_tuned,True,False,0.9274944
+cordless phone,2173287,4,hand_tuned,True,False,553.9145,84,ltr_hand_tuned,True,False,0.9007883
+cordless phone,9774083,7,hand_tuned,True,False,482.31332,13,ltr_hand_tuned,True,False,1.0284189
+cordless phone,2146869,11,hand_tuned,True,False,276.06433,404,ltr_hand_tuned,True,False,0.7956119
+cordless phone,2174037,12,hand_tuned,True,False,208.10992,85,ltr_hand_tuned,True,False,0.9005552
+cordless phone,2146599,14,hand_tuned,True,False,177.09267,135,ltr_hand_tuned,True,False,0.8827887
+cordless phone,1174895,15,hand_tuned,True,False,146.9807,66,ltr_hand_tuned,True,False,0.91229004
+cordless phone,9774366,16,hand_tuned,True,False,146.1819,60,ltr_hand_tuned,True,False,0.9274944
+cordless phone,8959013,54,hand_tuned,True,False,0.077847175,83,ltr_hand_tuned,True,False,0.9009287
+cordless phone,9857107,112,hand_tuned,True,False,0.06972321,186,ltr_hand_tuned,True,False,0.8687367
+cordless phone,1210376,160,hand_tuned,True,False,0.067733556,283,ltr_hand_tuned,True,False,0.83995354
+cordless phone,2090466,419,hand_tuned,True,False,0.057500605,456,ltr_hand_tuned,True,False,0.7661688
+Amazon kindle,2506173,1,hand_tuned,True,False,2944.6604,8,ltr_hand_tuned,True,False,1.0258358
+Amazon kindle,2506146,2,hand_tuned,True,False,1630.3174,6,ltr_hand_tuned,True,False,1.0258358
+Amazon kindle,2506155,4,hand_tuned,True,False,1514.4155,7,ltr_hand_tuned,True,False,1.0258358
+Amazon kindle,1268972,14,hand_tuned,True,False,0.168292,41,ltr_hand_tuned,True,False,0.8527816
+Amazon kindle,1277791,22,hand_tuned,True,False,0.09038798,34,ltr_hand_tuned,True,False,0.88742304
+Amazon kindle,1268963,27,hand_tuned,True,False,0.0894147,69,ltr_hand_tuned,True,False,0.7765682
+dsc-h7,2553082,44,hand_tuned,True,False,2.8258837e-05,273,ltr_hand_tuned,True,False,0.7437102
+dsc-h7,2553073,45,hand_tuned,True,False,2.55e-05,81,ltr_hand_tuned,True,False,0.76616657
+dsc-h7,2553091,46,hand_tuned,True,False,2.36e-05,82,ltr_hand_tuned,True,False,0.76616657
+dsc-h7,9294337,73,hand_tuned,True,False,6.615141e-06,492,ltr_hand_tuned,True,False,0.7053001
+batman,7429384,4,hand_tuned,True,False,341.37515,31,ltr_hand_tuned,True,False,0.8986756
+batman,8880044,9,hand_tuned,True,False,28.813566,25,ltr_hand_tuned,True,False,0.92311186
+batman,7649547,18,hand_tuned,True,False,0.87516034,430,ltr_hand_tuned,True,False,0.7536354
+batman,8290565,22,hand_tuned,True,False,0.36517382,437,ltr_hand_tuned,True,False,0.7536354
+batman,7949508,23,hand_tuned,True,False,0.27265486,434,ltr_hand_tuned,True,False,0.7536354
+batman,17584437,30,hand_tuned,True,False,0.06669394,39,ltr_hand_tuned,True,False,0.8843493
+batman,1151391,50,hand_tuned,True,False,0.061049696,91,ltr_hand_tuned,True,False,0.8353138
+batman,3568267,125,hand_tuned,True,False,0.05221639,223,ltr_hand_tuned,True,False,0.7756579
+batman,9867808,131,hand_tuned,True,False,0.05221639,164,ltr_hand_tuned,True,False,0.7874693
+batman,3521364,192,hand_tuned,True,False,0.04869364,225,ltr_hand_tuned,True,False,0.7701187
+batman,1405663,306,hand_tuned,True,False,0.04290502,308,ltr_hand_tuned,True,False,0.7701187
+batman,3098165,432,hand_tuned,True,False,0.03577319,486,ltr_hand_tuned,True,False,0.7238247
+batman,18955231,443,hand_tuned,True,False,0.03466364,476,ltr_hand_tuned,True,False,0.73134077
+batman,3116162,455,hand_tuned,True,False,0.03307453,497,ltr_hand_tuned,True,False,0.7005611
+mint cleaner,3104228,34,hand_tuned,True,False,0.0054114005,36,ltr_hand_tuned,True,False,0.8725747
+sd800is,7802844,7,hand_tuned,True,False,6.81e-05,31,ltr_hand_tuned,True,False,0.71666735
+Printers,9942413,1,hand_tuned,True,False,700.786,491,ltr_hand_tuned,True,False,0.654137
+Printers,2877498,14,hand_tuned,True,False,86.51685,53,ltr_hand_tuned,True,False,0.7866731
+Printers,1982034,18,hand_tuned,True,False,75.76411,214,ltr_hand_tuned,True,False,0.7544607
+Printers,8891853,27,hand_tuned,True,False,60.89285,451,ltr_hand_tuned,True,False,0.69014
+Printers,9695505,79,hand_tuned,True,False,17.807032,441,ltr_hand_tuned,True,False,0.6963372
+Printers,7249827,98,hand_tuned,True,False,10.86898,422,ltr_hand_tuned,True,False,0.7053001
+Printers,7131123,130,hand_tuned,True,False,3.299486,488,ltr_hand_tuned,True,False,0.6628329
+Printers,3207057,131,hand_tuned,True,False,3.1743414,453,ltr_hand_tuned,True,False,0.6900685
+s-video cable,9699098,1,hand_tuned,True,False,2.1331465,55,ltr_hand_tuned,True,False,0.8941385
+s-video cable,7006679,4,hand_tuned,True,False,0.17884259,33,ltr_hand_tuned,True,False,0.9057294
+s-video cable,9759585,198,hand_tuned,True,False,0.006231501,383,ltr_hand_tuned,True,False,0.69833213
+s-video cable,9955505,211,hand_tuned,True,False,0.0048682583,421,ltr_hand_tuned,True,False,0.69833213
+s-video cable,9881207,345,hand_tuned,True,False,2.3392835e-05,420,ltr_hand_tuned,True,False,0.69833213
+external hardrive,1305503,4,hand_tuned,True,False,0.08783117,39,ltr_hand_tuned,True,False,0.81685454
+external hardrive,1305063,6,hand_tuned,True,False,0.082849324,65,ltr_hand_tuned,True,False,0.79692453
+external hardrive,2266052,34,hand_tuned,True,False,0.0042235362,162,ltr_hand_tuned,True,False,0.73490095
+external hardrive,3088732,68,hand_tuned,True,False,9.038963e-06,131,ltr_hand_tuned,True,False,0.7520871
+external hardrive,9262479,70,hand_tuned,True,False,8.391455e-06,111,ltr_hand_tuned,True,False,0.76633877
+frigidaire,9282812,1,hand_tuned,True,False,723.69617,51,ltr_hand_tuned,True,False,0.83994013
+frigidaire,9723545,11,hand_tuned,True,False,12.521223,174,ltr_hand_tuned,True,False,0.7661542
+frigidaire,1239247,161,hand_tuned,True,False,0.039935015,500,ltr_hand_tuned,True,False,0.69160354
+frigidaire,4210302,166,hand_tuned,True,False,0.037810545,447,ltr_hand_tuned,True,False,0.7526628
+laser printer,1183687,12,hand_tuned,True,False,0.112481445,171,ltr_hand_tuned,True,False,0.85962874
+laser printer,9105381,45,hand_tuned,True,False,0.08242731,108,ltr_hand_tuned,True,False,0.88742304
+laser printer,9771217,94,hand_tuned,True,False,0.07160827,172,ltr_hand_tuned,True,False,0.8592344
+laser printer,1196666,130,hand_tuned,True,False,0.061933275,137,ltr_hand_tuned,True,False,0.8843493
+laser printer,9846996,258,hand_tuned,True,False,0.007838884,373,ltr_hand_tuned,True,False,0.7520871
+entourage,7853691,9,hand_tuned,True,False,0.066550925,17,ltr_hand_tuned,True,False,0.86112213
+entourage,8011732,11,hand_tuned,True,False,0.062093183,15,ltr_hand_tuned,True,False,0.86112213
+entourage,18888388,18,hand_tuned,True,False,0.054681297,41,ltr_hand_tuned,True,False,0.7874693
+gps,3054047,1,hand_tuned,True,False,1025.7764,3,ltr_hand_tuned,True,False,1.2991105
+gps,3054092,2,hand_tuned,True,False,859.0574,27,ltr_hand_tuned,True,False,0.93471086
+gps,3054038,3,hand_tuned,True,False,794.3477,5,ltr_hand_tuned,True,False,1.2502401
+gps,3054083,4,hand_tuned,True,False,783.43146,26,ltr_hand_tuned,True,False,0.93471086
+gps,3130339,5,hand_tuned,True,False,751.2402,107,ltr_hand_tuned,True,False,0.79653025
+gps,3054065,7,hand_tuned,True,False,653.8394,50,ltr_hand_tuned,True,False,0.8667474
+gps,2192075,9,hand_tuned,True,False,500.4511,29,ltr_hand_tuned,True,False,0.9305355
+gps,2884094,10,hand_tuned,True,False,484.42764,69,ltr_hand_tuned,True,False,0.8275127
+gps,2033127,14,hand_tuned,True,False,255.18942,125,ltr_hand_tuned,True,False,0.78530765
+gps,9894222,15,hand_tuned,True,False,228.56714,105,ltr_hand_tuned,True,False,0.7967374
+gps,8231861,18,hand_tuned,True,False,127.840324,56,ltr_hand_tuned,True,False,0.8451293
+gps,2192066,20,hand_tuned,True,False,108.162476,478,ltr_hand_tuned,True,False,0.6132144
+gps,1934041,24,hand_tuned,True,False,40.73984,367,ltr_hand_tuned,True,False,0.7053001
+gps,1149632,77,hand_tuned,True,False,2.8066669,99,ltr_hand_tuned,True,False,0.79692453
+gps,1315246,110,hand_tuned,True,False,0.3869744,368,ltr_hand_tuned,True,False,0.7053001
+gps,2173144,132,hand_tuned,True,False,0.09589803,377,ltr_hand_tuned,True,False,0.7053001
+gps,1073193,156,hand_tuned,True,False,0.053003572,495,ltr_hand_tuned,True,False,0.5623668
+gps,9267321,245,hand_tuned,True,False,0.048868887,274,ltr_hand_tuned,True,False,0.73265386
+gps,9852545,262,hand_tuned,True,False,0.048868276,395,ltr_hand_tuned,True,False,0.6781366
+gps,2204275,281,hand_tuned,True,False,0.04544936,484,ltr_hand_tuned,True,False,0.5623668
+gps,2551057,283,hand_tuned,True,False,0.04544916,297,ltr_hand_tuned,True,False,0.73043114
+gps,9467846,356,hand_tuned,True,False,0.045333855,422,ltr_hand_tuned,True,False,0.66350776
+gps,9107281,359,hand_tuned,True,False,0.045333553,391,ltr_hand_tuned,True,False,0.6781366
+dvd rw,9642774,5,hand_tuned,True,False,157.66078,78,ltr_hand_tuned,True,False,0.80860054
+dvd rw,9975469,76,hand_tuned,True,False,20.107662,369,ltr_hand_tuned,True,False,0.7321588
+dvd rw,9245168,190,hand_tuned,True,False,4.952252,426,ltr_hand_tuned,True,False,0.7053001
+dvd rw,1791259,226,hand_tuned,True,False,3.3522933,438,ltr_hand_tuned,True,False,0.7053001
+dvd rw,1831106,380,hand_tuned,True,False,0.09849586,500,ltr_hand_tuned,True,False,0.6349308
+Hp laptop,8881695,3,hand_tuned,True,False,85.944,214,ltr_hand_tuned,True,False,0.8233837
+windows xp,1303126,6,hand_tuned,True,False,20.252968,44,ltr_hand_tuned,True,False,0.8182837
+dvi adaptee,7960986,1,hand_tuned,True,True,0.11609679,133,ltr_hand_tuned,True,True,0.78741467
+canon,8758114,3,hand_tuned,True,False,581.9044,6,ltr_hand_tuned,True,False,0.99015
+canon,1214909,11,hand_tuned,True,False,394.74942,479,ltr_hand_tuned,True,False,0.6963372
+canon,3558321,65,hand_tuned,True,False,17.943478,441,ltr_hand_tuned,True,False,0.7323453
+canon,2419053,74,hand_tuned,True,False,5.346943,421,ltr_hand_tuned,True,False,0.75214547
+canon,6889584,93,hand_tuned,True,False,0.20687298,470,ltr_hand_tuned,True,False,0.7053001
+canon,908218,106,hand_tuned,True,False,0.051629595,162,ltr_hand_tuned,True,False,0.7874693
+canon,945570,108,hand_tuned,True,False,0.051629595,164,ltr_hand_tuned,True,False,0.7874693
+canon,8976192,365,hand_tuned,True,False,0.037697237,428,ltr_hand_tuned,True,False,0.73606014
+Fiber optic cable,9699131,2,hand_tuned,True,False,0.5224951,6,ltr_hand_tuned,True,False,0.9877108
+wireless router,8998506,1,hand_tuned,True,False,1798.9834,8,ltr_hand_tuned,True,False,1.2980698
+wireless router,1208844,2,hand_tuned,True,False,936.9692,12,ltr_hand_tuned,True,False,1.1197296
+wireless router,2089255,3,hand_tuned,True,False,759.82245,13,ltr_hand_tuned,True,False,1.1197296
+wireless router,2210106,4,hand_tuned,True,False,753.5338,31,ltr_hand_tuned,True,False,1.0343391
+wireless router,2225047,5,hand_tuned,True,False,718.15,15,ltr_hand_tuned,True,False,1.11358
+wireless router,2089361,6,hand_tuned,True,False,696.9084,14,ltr_hand_tuned,True,False,1.1197296
+wireless router,2089307,7,hand_tuned,True,False,603.3759,28,ltr_hand_tuned,True,False,1.0409138
+wireless router,9331403,8,hand_tuned,True,False,582.813,35,ltr_hand_tuned,True,False,1.0130867
+wireless router,3219043,9,hand_tuned,True,False,447.3159,90,ltr_hand_tuned,True,False,0.90235263
+wireless router,2490384,10,hand_tuned,True,False,111.09862,125,ltr_hand_tuned,True,False,0.8960118
+wireless router,2089103,22,hand_tuned,True,False,31.370998,171,ltr_hand_tuned,True,False,0.86602294
+wireless router,2969404,34,hand_tuned,True,False,0.09960797,67,ltr_hand_tuned,True,False,0.9265176
+wireless router,1868084,132,hand_tuned,True,False,0.06618735,216,ltr_hand_tuned,True,False,0.827889
+wireless router,3604366,324,hand_tuned,True,False,0.040559903,454,ltr_hand_tuned,True,False,0.69833213
+pans labyrinth,8545256,58,hand_tuned,True,False,1.9160349e-05,370,ltr_hand_tuned,True,False,0.69833213
+pans labyrinth,1511496,59,hand_tuned,True,False,1.6091746e-05,277,ltr_hand_tuned,True,False,0.7228852
+pans labyrinth,15181704,111,hand_tuned,True,False,1.1060348e-05,434,ltr_hand_tuned,True,False,0.69833213
+pans labyrinth,2810284,167,hand_tuned,True,False,7.4733885e-06,248,ltr_hand_tuned,True,False,0.7228852
+Uncharted 3,2877929,1,hand_tuned,True,False,355.32938,4,ltr_hand_tuned,True,False,1.1563693
+Uncharted 3,2613621,4,hand_tuned,True,False,0.099872716,463,ltr_hand_tuned,True,False,0.7103814
+Uncharted 3,19610462,9,hand_tuned,True,False,0.07829524,27,ltr_hand_tuned,True,False,0.88742304
+Uncharted 3,3550143,13,hand_tuned,True,False,0.07364108,20,ltr_hand_tuned,True,False,0.8978459
+Uncharted 3,9999168200050097,14,hand_tuned,True,False,0.07055766,18,ltr_hand_tuned,True,False,0.9009287
+Uncharted 3,2670179,16,hand_tuned,True,False,0.06569485,30,ltr_hand_tuned,True,False,0.8674004
+Uncharted 3,3550161,24,hand_tuned,True,False,0.057227,43,ltr_hand_tuned,True,False,0.827889
+Uncharted 3,1122178,175,hand_tuned,True,False,2.130907e-05,401,ltr_hand_tuned,True,False,0.74630755
+power inverter,2979061,1,hand_tuned,True,False,701.2309,10,ltr_hand_tuned,True,False,0.92881024
+power inverter,9812309,2,hand_tuned,True,False,700.032,57,ltr_hand_tuned,True,False,0.8765678
+dvr,1216961,9,hand_tuned,True,False,0.06138129,25,ltr_hand_tuned,True,False,0.86112213
+dvr,1216989,15,hand_tuned,True,False,0.057402562,18,ltr_hand_tuned,True,False,0.8843493
+dvr,9999163500050001,17,hand_tuned,True,False,0.05399447,76,ltr_hand_tuned,True,False,0.8068341
+dvr,1234409,23,hand_tuned,True,False,0.05096108,28,ltr_hand_tuned,True,False,0.84458286
+dvr,9895521,49,hand_tuned,True,False,0.043618962,122,ltr_hand_tuned,True,False,0.7830957
+dvr,2392064,53,hand_tuned,True,False,0.04164225,124,ltr_hand_tuned,True,False,0.7830957
+dvr,1403116,59,hand_tuned,True,False,0.03979712,193,ltr_hand_tuned,True,False,0.76532114
+dvr,9960067,60,hand_tuned,True,False,0.03979662,456,ltr_hand_tuned,True,False,0.7260541
+dvr,9789843,76,hand_tuned,True,False,0.02057559,89,ltr_hand_tuned,True,False,0.79692453
+Tangled,1254679,30,hand_tuned,True,False,0.07060713,34,ltr_hand_tuned,True,False,0.8843493
+iPhone cases,3133099,2,hand_tuned,True,False,54.410477,9,ltr_hand_tuned,True,False,0.9456562
+iPhone cases,3133123,3,hand_tuned,True,False,45.788734,12,ltr_hand_tuned,True,False,0.92296064
+iPhone cases,1155475,10,hand_tuned,True,False,26.550148,251,ltr_hand_tuned,True,False,0.7399627
+iPhone cases,1551333,16,hand_tuned,True,False,16.582464,174,ltr_hand_tuned,True,False,0.77847767
+iPhone cases,8988884,18,hand_tuned,True,False,10.430586,392,ltr_hand_tuned,True,False,0.7102725
+iPhone cases,2070139,21,hand_tuned,True,False,5.971485,258,ltr_hand_tuned,True,False,0.734303
+iPhone cases,2023139,22,hand_tuned,True,False,4.301579,164,ltr_hand_tuned,True,False,0.78741467
+iPhone cases,2962429,23,hand_tuned,True,False,4.059968,90,ltr_hand_tuned,True,False,0.82784384
+iPhone cases,1974688,30,hand_tuned,True,False,1.5803511,259,ltr_hand_tuned,True,False,0.7321588
+iPhone cases,1950181,36,hand_tuned,True,False,0.5976407,391,ltr_hand_tuned,True,False,0.7102725
+iPhone cases,1950233,40,hand_tuned,True,False,0.11582831,397,ltr_hand_tuned,True,False,0.7053001
+iPhone cases,1230537,41,hand_tuned,True,False,0.111864425,91,ltr_hand_tuned,True,False,0.82582074
+iPhone cases,2533201,44,hand_tuned,True,False,0.10444295,223,ltr_hand_tuned,True,False,0.749188
+iPhone cases,1990451,45,hand_tuned,True,False,0.104366384,92,ltr_hand_tuned,True,False,0.82582074
+iPhone cases,1776227,47,hand_tuned,True,False,0.098672666,129,ltr_hand_tuned,True,False,0.79692453
+iPhone cases,2381711,103,hand_tuned,True,False,0.02783849,166,ltr_hand_tuned,True,False,0.78741467
+iPhone cases,1155679,135,hand_tuned,True,False,0.013713725,390,ltr_hand_tuned,True,False,0.7102725
+iPhone cases,1155439,217,hand_tuned,True,False,0.002356185,225,ltr_hand_tuned,True,False,0.749188
+iPhone cases,9797363,273,hand_tuned,True,False,0.0020718647,377,ltr_hand_tuned,True,False,0.71045595
+iPhone cases,2527033,278,hand_tuned,True,False,0.0019366723,357,ltr_hand_tuned,True,False,0.7228852
+iPhone cases,2266061,279,hand_tuned,True,False,0.0019178253,379,ltr_hand_tuned,True,False,0.71045595
+iPhone cases,2549771,284,hand_tuned,True,False,0.0019137255,477,ltr_hand_tuned,True,False,0.69833213
+iPhone cases,1256473,285,hand_tuned,True,False,0.0019133253,500,ltr_hand_tuned,True,False,0.660663
+iPhone cases,2533052,294,hand_tuned,True,False,0.0019129254,373,ltr_hand_tuned,True,False,0.71932864
+iPhone cases,2532372,296,hand_tuned,True,False,0.0019129254,421,ltr_hand_tuned,True,False,0.69833213
+iPhone cases,1946063,319,hand_tuned,True,False,0.0019129254,459,ltr_hand_tuned,True,False,0.69833213
+iPhone cases,1545562,335,hand_tuned,True,False,0.0019129254,471,ltr_hand_tuned,True,False,0.69833213
+iPhone cases,2961706,342,hand_tuned,True,False,0.0019129254,474,ltr_hand_tuned,True,False,0.69833213
+iPhone cases,3003909,357,hand_tuned,True,False,0.0019129254,489,ltr_hand_tuned,True,False,0.69833213
+ozzy osbourne,1154916,29,hand_tuned,True,False,0.10448456,168,ltr_hand_tuned,True,False,0.7033545
+ozzy osbourne,2466139,59,hand_tuned,True,False,1.07000005e-05,166,ltr_hand_tuned,True,False,0.71666735
+cordless phones,2147968,1,hand_tuned,True,False,160.78563,191,ltr_hand_tuned,True,False,0.8627946
+cordless phones,2146869,11,hand_tuned,True,False,43.856655,438,ltr_hand_tuned,True,False,0.7956119
+cordless phones,2147813,21,hand_tuned,True,False,7.78758,192,ltr_hand_tuned,True,False,0.8627946
+cordless phones,7687639,29,hand_tuned,True,False,1.0499009,487,ltr_hand_tuned,True,False,0.73768157
+cordless phones,9186025,31,hand_tuned,True,False,0.5523122,424,ltr_hand_tuned,True,False,0.81147903
+cordless phones,4680278,201,hand_tuned,True,False,0.014293623,474,ltr_hand_tuned,True,False,0.7458568
+sean kingston,8417171,1,hand_tuned,True,False,0.14059508,6,ltr_hand_tuned,True,False,1.0052719
+sean kingston,16491636,2,hand_tuned,True,False,0.14058717,10,ltr_hand_tuned,True,False,0.88742304
+sean kingston,8643667,23,hand_tuned,True,False,1.18e-05,78,ltr_hand_tuned,True,False,0.7557279
+iPhone 4 cases,3133099,4,hand_tuned,True,False,41.898205,18,ltr_hand_tuned,True,False,0.9456562
+iPhone 4 cases,1155475,6,hand_tuned,True,False,37.1793,129,ltr_hand_tuned,True,False,0.8182837
+iPhone 4 cases,3133123,7,hand_tuned,True,False,35.25269,8,ltr_hand_tuned,True,False,0.98650014
+iPhone 4 cases,1551333,9,hand_tuned,True,False,32.463047,23,ltr_hand_tuned,True,False,0.9221503
+iPhone 4 cases,1990451,10,hand_tuned,True,False,31.630344,17,ltr_hand_tuned,True,False,0.9456562
+iPhone 4 cases,1950233,18,hand_tuned,True,False,24.740017,203,ltr_hand_tuned,True,False,0.78741467
+iPhone 4 cases,2070139,35,hand_tuned,True,False,10.654491,152,ltr_hand_tuned,True,False,0.7988268
+iPhone 4 cases,1401749,38,hand_tuned,True,False,5.214798,119,ltr_hand_tuned,True,False,0.82784384
+iPhone 4 cases,2023139,41,hand_tuned,True,False,3.914766,205,ltr_hand_tuned,True,False,0.78741467
+iPhone 4 cases,2962429,42,hand_tuned,True,False,3.499897,118,ltr_hand_tuned,True,False,0.82784384
+iPhone 4 cases,1974688,51,hand_tuned,True,False,1.5114284,204,ltr_hand_tuned,True,False,0.78741467
+iPhone 4 cases,1950181,56,hand_tuned,True,False,0.50414884,202,ltr_hand_tuned,True,False,0.78741467
+iPhone 4 cases,1155615,57,hand_tuned,True,False,0.24822515,116,ltr_hand_tuned,True,False,0.82784384
+iPhone 4 cases,2533201,63,hand_tuned,True,False,0.088079326,114,ltr_hand_tuned,True,False,0.82784384
+iPhone 4 cases,2381711,153,hand_tuned,True,False,0.023024036,207,ltr_hand_tuned,True,False,0.78741467
+iPhone 4 cases,1155679,161,hand_tuned,True,False,0.02020069,200,ltr_hand_tuned,True,False,0.78741467
+iPhone 4 cases,2527033,233,hand_tuned,True,False,0.0048780204,403,ltr_hand_tuned,True,False,0.69833213
+iPhone 4 cases,3540395,243,hand_tuned,True,False,0.004511372,331,ltr_hand_tuned,True,False,0.73710275
+iPhone 4 cases,3540428,244,hand_tuned,True,False,0.004511372,341,ltr_hand_tuned,True,False,0.7228852
+iPhone 4 cases,3540322,246,hand_tuned,True,False,0.004448459,339,ltr_hand_tuned,True,False,0.7228852
+iPhone 4 cases,3439355,255,hand_tuned,True,False,0.003932479,479,ltr_hand_tuned,True,False,0.69833213
+iPhone 4 cases,3439328,261,hand_tuned,True,False,0.0038081147,481,ltr_hand_tuned,True,False,0.69833213
+iPhone 4 cases,1256464,280,hand_tuned,True,False,0.003581745,417,ltr_hand_tuned,True,False,0.69833213
+iPhone 4 cases,3386877,290,hand_tuned,True,False,0.0033328517,406,ltr_hand_tuned,True,False,0.69833213
+iPhone 4 cases,1026209,293,hand_tuned,True,False,0.0032873345,363,ltr_hand_tuned,True,False,0.71045595
+iPhone 4 cases,2872193,307,hand_tuned,True,False,0.0031442733,408,ltr_hand_tuned,True,False,0.69833213
+iPhone 4 cases,3046321,308,hand_tuned,True,False,0.0031326867,493,ltr_hand_tuned,True,False,0.69833213
+iPhone 4 cases,3216028,312,hand_tuned,True,False,0.0030937034,482,ltr_hand_tuned,True,False,0.69833213
+iPhone 4 cases,3216091,313,hand_tuned,True,False,0.0030930035,483,ltr_hand_tuned,True,False,0.69833213
+iPhone 4 cases,2871334,320,hand_tuned,True,False,0.0029822642,409,ltr_hand_tuned,True,False,0.69833213
+iPhone 4 cases,1256473,442,hand_tuned,True,False,0.0016134174,499,ltr_hand_tuned,True,False,0.660663
+iPhone 4 cases,2961706,465,hand_tuned,True,False,0.0016130175,477,ltr_hand_tuned,True,False,0.69833213
+iPhone 4 cases,2070087,470,hand_tuned,True,False,0.0016112803,498,ltr_hand_tuned,True,False,0.660663
+play station,3061302,2,hand_tuned,True,False,1325.7668,4,ltr_hand_tuned,True,False,1.0300717
+play station,2375201,10,hand_tuned,True,False,912.548,456,ltr_hand_tuned,True,False,0.73490095
+play station,2978363,105,hand_tuned,True,False,0.25485784,117,ltr_hand_tuned,True,False,0.76633877
+led zeppelin,2431107,241,hand_tuned,True,False,7.9e-06,293,ltr_hand_tuned,True,False,0.7557279
+cd changer,1676121,1,hand_tuned,True,False,23.903513,34,ltr_hand_tuned,True,False,0.8266069
+cd changer,17953519,151,hand_tuned,True,False,0.0060555707,483,ltr_hand_tuned,True,False,0.69833213
+cd changer,19202752,204,hand_tuned,True,False,0.004657664,488,ltr_hand_tuned,True,False,0.69833213
+cd changer,8761627,373,hand_tuned,True,False,0.0008707409,484,ltr_hand_tuned,True,False,0.69833213
+hd-dvd,9837617,6,hand_tuned,True,False,32.745766,97,ltr_hand_tuned,True,False,0.8561366
+hd-dvd,3244597,22,hand_tuned,True,False,1.8624933,435,ltr_hand_tuned,True,False,0.749188
+hd-dvd,8631634,325,hand_tuned,True,False,0.08134158,459,ltr_hand_tuned,True,False,0.7228852
+james bond,2672495,88,hand_tuned,True,False,0.075639464,100,ltr_hand_tuned,True,False,0.82667446
+james bond,1722057,116,hand_tuned,True,False,0.035276424,123,ltr_hand_tuned,True,False,0.79692453
+james bond,1170835,159,hand_tuned,True,False,0.0032400384,201,ltr_hand_tuned,True,False,0.73474276
+Docking stations,1551069,13,hand_tuned,True,False,0.12812972,55,ltr_hand_tuned,True,False,0.89910454
+vcr,8971008,1,hand_tuned,True,False,411.3832,474,ltr_hand_tuned,True,False,0.7154783
+vcr,9642774,3,hand_tuned,True,False,236.25397,12,ltr_hand_tuned,True,False,0.8670178
+vcr,9571643,73,hand_tuned,True,False,0.049517833,496,ltr_hand_tuned,True,False,0.6781366
+vcr,9338148,259,hand_tuned,True,False,0.032886337,479,ltr_hand_tuned,True,False,0.7118939
+bluetooth headsets,3062286,4,hand_tuned,True,False,222.92232,14,ltr_hand_tuned,True,False,1.0712168
+bluetooth headsets,1790038,7,hand_tuned,True,False,118.318665,65,ltr_hand_tuned,True,False,0.96049935
+bluetooth headsets,2085055,14,hand_tuned,True,False,12.519409,28,ltr_hand_tuned,True,False,1.0258358
+bluetooth headsets,1326039,16,hand_tuned,True,False,9.546032,175,ltr_hand_tuned,True,False,0.8992324
+bluetooth headsets,9246862,39,hand_tuned,True,False,0.07762615,195,ltr_hand_tuned,True,False,0.8771709
+bluetooth headsets,2538181,51,hand_tuned,True,False,0.018001307,70,ltr_hand_tuned,True,False,0.9389178
+bluetooth headsets,3217364,57,hand_tuned,True,False,0.016425626,150,ltr_hand_tuned,True,False,0.9009287
+bluetooth headsets,2769719,66,hand_tuned,True,False,0.016414529,188,ltr_hand_tuned,True,False,0.88742304
+bluetooth headsets,9446897,143,hand_tuned,True,False,0.013968884,189,ltr_hand_tuned,True,False,0.88742304
+bluetooth headsets,1415824,145,hand_tuned,True,False,0.013968884,167,ltr_hand_tuned,True,False,0.9009287
+satelite radio,9530215,1,hand_tuned,True,False,0.27179205,10,ltr_hand_tuned,True,False,0.8674004
+satelite radio,8116585,64,hand_tuned,True,False,0.0045589963,66,ltr_hand_tuned,True,False,0.7874714
+satelite radio,3130199,83,hand_tuned,True,False,0.00030722632,102,ltr_hand_tuned,True,False,0.76633877
+satelite radio,1271615,112,hand_tuned,True,False,2.1386055e-05,438,ltr_hand_tuned,True,False,0.73134077
+satelite radio,8052901,116,hand_tuned,True,False,1.7156372e-05,491,ltr_hand_tuned,True,False,0.6928388
+satelite radio,1265984,117,hand_tuned,True,False,1.6625516e-05,265,ltr_hand_tuned,True,False,0.7557279
+satelite radio,9244427,126,hand_tuned,True,False,1.2325517e-05,221,ltr_hand_tuned,True,False,0.7557279
+satelite radio,1265766,127,hand_tuned,True,False,1.2325517e-05,264,ltr_hand_tuned,True,False,0.7557279
+satelite radio,8300705,144,hand_tuned,True,False,1.1225517e-05,497,ltr_hand_tuned,True,False,0.6926199
+Photo frame,1175215,125,hand_tuned,True,False,0.07864451,176,ltr_hand_tuned,True,False,0.83995354
+sony camera,8695263,35,hand_tuned,True,False,5.0479593,178,ltr_hand_tuned,True,False,0.76633877
+sony camera,9771941,42,hand_tuned,True,False,1.1662918,127,ltr_hand_tuned,True,False,0.8099264
+the bigs,9367534,46,hand_tuned,True,False,0.08271994,422,ltr_hand_tuned,True,False,0.79620385
+laptop bag,9538814,1,hand_tuned,True,False,0.2658749,180,ltr_hand_tuned,True,False,0.7889732
+laptop bag,9926189,2,hand_tuned,True,False,0.1626164,167,ltr_hand_tuned,True,False,0.79692453
+laptop bag,7847574,16,hand_tuned,True,False,0.075975835,97,ltr_hand_tuned,True,False,0.81685454
+laptop bag,9946313,18,hand_tuned,True,False,0.07535781,246,ltr_hand_tuned,True,False,0.76633877
+laptop bag,9926125,159,hand_tuned,True,False,0.043792818,166,ltr_hand_tuned,True,False,0.79692453
+Captain America,3548706,1,hand_tuned,True,False,0.6224804,2,ltr_hand_tuned,True,False,0.9979422
+Captain America,19498673,5,hand_tuned,True,False,0.102442466,13,ltr_hand_tuned,True,False,0.88742304
+Captain America,2815114,9,hand_tuned,True,False,0.085030414,47,ltr_hand_tuned,True,False,0.7765682
+Captain America,3033036,14,hand_tuned,True,False,0.08502742,36,ltr_hand_tuned,True,False,0.7985529
+Captain America,2833129,15,hand_tuned,True,False,0.0796757,35,ltr_hand_tuned,True,False,0.7985529
+Captain America,3447653,16,hand_tuned,True,False,0.0796545,48,ltr_hand_tuned,True,False,0.7765682
+Captain America,3033054,20,hand_tuned,True,False,0.074928574,49,ltr_hand_tuned,True,False,0.7765682
+Captain America,1487671,38,hand_tuned,True,False,0.0048260405,414,ltr_hand_tuned,True,False,0.69833213
+sony headphones,2197043,1,hand_tuned,True,False,204.00319,2,ltr_hand_tuned,True,False,1.2872325
+sony headphones,2204196,5,hand_tuned,True,False,115.949684,28,ltr_hand_tuned,True,False,0.9792776
+sony headphones,2197061,6,hand_tuned,True,False,111.807785,13,ltr_hand_tuned,True,False,1.0507733
+sony headphones,2204211,7,hand_tuned,True,False,111.25914,29,ltr_hand_tuned,True,False,0.9792776
+sony headphones,8964855,8,hand_tuned,True,False,93.84185,71,ltr_hand_tuned,True,False,0.8960118
+sony headphones,9495263,10,hand_tuned,True,False,76.77618,33,ltr_hand_tuned,True,False,0.9705299
+sony headphones,5335657,11,hand_tuned,True,False,74.24362,35,ltr_hand_tuned,True,False,0.96696174
+sony headphones,8241422,12,hand_tuned,True,False,63.292202,22,ltr_hand_tuned,True,False,0.9952769
+sony headphones,9236258,14,hand_tuned,True,False,48.0555,103,ltr_hand_tuned,True,False,0.86930424
+sony headphones,3316072,21,hand_tuned,True,False,0.11031955,152,ltr_hand_tuned,True,False,0.8309005
+sony headphones,9999165700050035,270,hand_tuned,True,False,0.004402827,485,ltr_hand_tuned,True,False,0.69833213

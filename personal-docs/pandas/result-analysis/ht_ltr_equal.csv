@@ -1,0 +1,16 @@
+query,sku,rank_ht,type_ht,found_ht,new_ht,score_ht,rank_ltr,type_ltr,found_ltr,new_ltr,score_ltr
+iPod touch,3109339,4,hand_tuned,True,False,1639.6096,4,ltr_hand_tuned,True,False,1.3270946
+wireless speaker,2989098,1,hand_tuned,True,False,774.75525,1,ltr_hand_tuned,True,False,1.2594359
+560LMT,2193939,1,hand_tuned,True,True,0.20745008,1,ltr_hand_tuned,True,True,0.9741213
+iphone 4s,3487648,1,hand_tuned,True,False,1189.2352,1,ltr_hand_tuned,True,False,1.1987069
+iphone 4s,3487784,2,hand_tuned,True,False,1079.2762,2,ltr_hand_tuned,True,False,1.1170893
+iphone 4s,3562379,4,hand_tuned,True,False,844.15704,4,ltr_hand_tuned,True,False,1.094748
+iphone 4s,3814033,80,hand_tuned,True,False,0.074532785,80,ltr_hand_tuned,True,False,0.88907236
+iphone 4s,3540304,394,hand_tuned,True,False,0.004993885,394,ltr_hand_tuned,True,False,0.69833213
+iphone 4s,3540359,396,hand_tuned,True,False,0.004993885,396,ltr_hand_tuned,True,False,0.69833213
+laser printer,1148536,6,hand_tuned,True,False,3.6458547,6,ltr_hand_tuned,True,False,1.0393927
+wireless router,9283063,463,hand_tuned,True,False,0.0067221085,463,ltr_hand_tuned,True,False,0.69833213
+Uncharted 3,1708812,2,hand_tuned,True,False,19.146397,2,ltr_hand_tuned,True,False,1.1992216
+power inverter,2979043,3,hand_tuned,True,False,4.8888173,3,ltr_hand_tuned,True,False,1.056799
+power inverter,2979089,4,hand_tuned,True,False,2.0608249,4,ltr_hand_tuned,True,False,1.0258358
+iPhone cases,9528709,365,hand_tuned,True,False,0.0018943046,365,ltr_hand_tuned,True,False,0.7228852

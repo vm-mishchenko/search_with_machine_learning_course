@@ -1,0 +1,376 @@
+query,sku,rank_simple,type_simple,found_simple,new_simple,score_simple,rank_ltr,type_ltr,found_ltr,new_ltr,score_ltr
+USB to hdmi converter,2731344,1,simple,True,False,106.32615,126,ltr_simple,True,False,0.76515156
+iPod touch,9899697,1,simple,True,False,1277.9524,21,ltr_simple,True,False,0.9624938
+iPod touch,1658265,28,simple,True,False,1132.6636,198,ltr_simple,True,False,0.7882971
+iPod touch,2670081,30,simple,True,False,1132.6626,195,ltr_simple,True,False,0.7988268
+iPod touch,3559541,63,simple,True,False,1132.6573,419,ltr_simple,True,False,0.69833213
+iPod touch,3460035,71,simple,True,False,1132.6573,499,ltr_simple,True,False,0.5884292
+iPod touch,1404106,76,simple,True,False,1132.6573,465,ltr_simple,True,False,0.69833213
+iPod touch,9530224,77,simple,True,False,1086.6741,116,ltr_simple,True,False,0.8901819
+iPod touch,1377123,107,simple,True,False,1071.8347,218,ltr_simple,True,False,0.77465534
+iPod touch,1328189,127,simple,True,False,1071.8308,273,ltr_simple,True,False,0.7351945
+iPod touch,1328383,130,simple,True,False,1071.8297,407,ltr_simple,True,False,0.7200053
+iPod touch,9899706,135,simple,True,False,1071.8297,333,ltr_simple,True,False,0.7228852
+iPod touch,1207936,346,simple,True,False,967.9945,411,ltr_simple,True,False,0.7102725
+smallville,13863562,1,simple,True,False,832.569,11,ltr_simple,True,False,0.88742304
+smallville,7504701,4,simple,True,False,569.5212,9,ltr_simple,True,False,0.9025547
+smallville,5319078,10,simple,True,False,535.68506,26,ltr_simple,True,False,0.84224623
+smallville,3224054,11,simple,True,False,535.65607,27,ltr_simple,True,False,0.84224623
+smallville,8955473,17,simple,True,False,505.6248,18,ltr_simple,True,False,0.8687367
+zonealarm,1256446,21,simple,True,False,0.037,31,ltr_simple,True,False,0.7557279
+zonealarm,9506652,23,simple,True,False,0.019,32,ltr_simple,True,False,0.71666735
+wi,18807979,6,simple,True,False,542.04315,28,ltr_simple,True,False,0.9547766
+wi,1438149,26,simple,True,False,495.64896,60,ltr_simple,True,False,0.88934064
+wi,7028539,80,simple,True,False,415.23135,192,ltr_simple,True,False,0.7701187
+dvd case,9216742,20,simple,True,False,213.28123,352,ltr_simple,True,False,0.73134077
+dvd case,6621863,80,simple,True,False,33.34072,232,ltr_simple,True,False,0.74815965
+dvd case,7876738,136,simple,True,False,28.83724,367,ltr_simple,True,False,0.73134077
+dvd case,5662106,188,simple,True,False,25.659113,277,ltr_simple,True,False,0.73134077
+dragonball z,8776434,13,simple,True,False,790.66895,156,ltr_simple,True,False,0.88742304
+dragonball z,6002434,15,simple,True,False,746.64624,123,ltr_simple,True,False,0.88742304
+dragonball z,6002416,17,simple,True,False,746.6322,122,ltr_simple,True,False,0.88742304
+dragonball z,6758895,37,simple,True,False,671.1024,318,ltr_simple,True,False,0.82667446
+dragonball z,9308055,141,simple,True,False,550.07684,299,ltr_simple,True,False,0.8843493
+dragonball z,9160962,228,simple,True,False,512.8409,301,ltr_simple,True,False,0.8843493
+ac,7045805,51,simple,True,False,341.9093,61,ltr_simple,True,False,0.8098346
+ac,9355743,146,simple,True,False,300.11566,500,ltr_simple,True,False,0.6613117
+ac,2663167,159,simple,True,False,298.96814,170,ltr_simple,True,False,0.76532114
+Alienware,1407228,14,simple,True,False,539.99164,27,ltr_simple,True,False,0.8545424
+Alienware,3655632,22,simple,True,False,484.6921,29,ltr_simple,True,False,0.84224623
+Alienware,3612116,48,simple,True,False,416.25104,92,ltr_simple,True,False,0.7260541
+spider-man 3,16726054,22,simple,True,False,1209.7483,47,ltr_simple,True,False,0.88742304
+spider-man 3,9237202,37,simple,True,False,506.29828,129,ltr_simple,True,False,0.74489707
+spider-man 3,3078086,80,simple,True,False,16.428158,391,ltr_simple,True,False,0.69833213
+software,18189167,50,simple,True,False,495.77457,84,ltr_simple,True,False,0.7874693
+software,2327584,137,simple,True,False,436.59814,393,ltr_simple,True,False,0.71942544
+software,9611393,203,simple,True,False,391.85333,388,ltr_simple,True,False,0.7286438
+wireless speaker,1211757,3,simple,True,False,744.2529,7,ltr_simple,True,False,0.9907007
+wireless speaker,2968053,8,simple,True,False,697.1336,73,ltr_simple,True,False,0.82667446
+wireless speaker,2053402,98,simple,True,False,63.43263,270,ltr_simple,True,False,0.7399627
+wireless speaker,9825206,294,simple,True,False,0.09690151,445,ltr_simple,True,False,0.71666735
+Sony cyber-shot dsc-tx10,2255038,45,simple,True,True,24.120102,92,ltr_simple,True,True,0.88907236
+xbox live,1272605,12,simple,True,False,610.89386,140,ltr_simple,True,False,0.77600867
+xbox live,1272271,16,simple,True,False,610.8749,139,ltr_simple,True,False,0.77600867
+xbox live,3118203,42,simple,True,False,481.0811,74,ltr_simple,True,False,0.86149484
+xbox live,1401794,57,simple,True,False,396.76227,70,ltr_simple,True,False,0.86922365
+ipod,8033629,108,simple,True,False,328.20425,479,ltr_simple,True,False,0.66286457
+ipod,2613093,109,simple,True,False,328.20325,482,ltr_simple,True,False,0.6345517
+ipod,9899697,114,simple,True,False,328.20224,467,ltr_simple,True,False,0.67490625
+ipod,9084206,164,simple,True,False,328.20032,438,ltr_simple,True,False,0.6870135
+ipod,8189042,171,simple,True,False,328.1993,262,ltr_simple,True,False,0.71608233
+ipod,15198992,194,simple,True,False,309.7913,313,ltr_simple,True,False,0.7118939
+ipod,1658265,389,simple,True,False,293.3327,462,ltr_simple,True,False,0.67612314
+camera cases,9773712,36,simple,True,False,91.35716,40,ltr_simple,True,False,0.93244886
+casio,17007828,4,simple,True,False,637.6491,70,ltr_simple,True,False,0.86112213
+casio,9468453,8,simple,True,False,637.6331,72,ltr_simple,True,False,0.86112213
+casio,9939878,16,simple,True,False,637.6331,77,ltr_simple,True,False,0.86112213
+casio,1558044,27,simple,True,False,587.9059,46,ltr_simple,True,False,0.8843493
+casio,3395221,44,simple,True,False,545.3737,88,ltr_simple,True,False,0.84242386
+casio,8791042,45,simple,True,False,545.3737,93,ltr_simple,True,False,0.84224623
+casio,3106138,57,simple,True,False,508.58838,87,ltr_simple,True,False,0.84458286
+casio,3106226,71,simple,True,False,508.58038,496,ltr_simple,True,False,0.67732644
+casio,9820826,88,simple,True,False,476.4458,294,ltr_simple,True,False,0.7560249
+casio,3106687,110,simple,True,False,476.4378,194,ltr_simple,True,False,0.7701187
+casio,3106723,226,simple,True,False,422.97342,254,ltr_simple,True,False,0.76532114
+casio,8021936,327,simple,True,False,52.000523,468,ltr_simple,True,False,0.71666735
+Sony vaio 13,3519978,1,simple,True,False,55.38832,49,ltr_simple,True,False,0.9333189
+apple tv,1074778,2,simple,True,False,836.8832,20,ltr_simple,True,False,0.8978459
+apple tv,2965074,6,simple,True,False,35.734787,45,ltr_simple,True,False,0.83767015
+apple tv,8791319,14,simple,True,False,29.584263,32,ltr_simple,True,False,0.8674004
+apple tv,15179977,83,simple,True,False,0.07217509,188,ltr_simple,True,False,0.73134077
+Bluetooth headphones,1535284,4,simple,True,False,860.47095,68,ltr_simple,True,False,0.88742304
+Bluetooth headphones,3724696,5,simple,True,False,860.44794,69,ltr_simple,True,False,0.88742304
+Bluetooth headphones,9740214,33,simple,True,False,50.633495,122,ltr_simple,True,False,0.8414646
+Bluetooth headphones,9740232,34,simple,True,False,50.593494,434,ltr_simple,True,False,0.71045595
+Bluetooth headphones,9740223,35,simple,True,False,50.590496,135,ltr_simple,True,False,0.8348655
+Bluetooth headphones,1247988,58,simple,True,False,0.1087152,128,ltr_simple,True,False,0.83825165
+iPod speaker,1997075,19,simple,True,False,68.02545,497,ltr_simple,True,False,0.660663
+iPod speaker,1433135,25,simple,True,False,66.99211,253,ltr_simple,True,False,0.73710275
+iPod speaker,9251454,34,simple,True,False,63.55992,35,ltr_simple,True,False,0.8870492
+iPod speaker,1160608,44,simple,True,False,63.12869,72,ltr_simple,True,False,0.8447512
+iPod speaker,2256595,58,simple,True,False,63.08552,125,ltr_simple,True,False,0.78741467
+iPod speaker,2878045,66,simple,True,False,59.65845,447,ltr_simple,True,False,0.71045595
+iphone 4s,3721653,2,simple,True,False,787.94183,115,ltr_simple,True,False,0.8296854
+iphone 4s,3566775,11,simple,True,False,745.3279,12,ltr_simple,True,False,1.0112756
+iphone 4s,3566902,12,simple,True,False,745.3279,51,ltr_simple,True,False,0.9314571
+iphone 4s,3566948,13,simple,True,False,745.3279,15,ltr_simple,True,False,0.9718886
+iphone 4s,3566966,14,simple,True,False,745.3279,16,ltr_simple,True,False,0.9644505
+iphone 4s,3814088,17,simple,True,False,745.3279,92,ltr_simple,True,False,0.8555297
+iphone 4s,3814033,18,simple,True,False,745.3279,80,ltr_simple,True,False,0.88907236
+iphone 4s,3812945,25,simple,True,False,707.09424,47,ltr_simple,True,False,0.9333189
+iphone 4s,3813256,30,simple,True,False,707.089,79,ltr_simple,True,False,0.88907236
+iphone 4s,3812972,31,simple,True,False,707.089,48,ltr_simple,True,False,0.9333189
+iphone 4s,3725859,176,simple,True,False,82.94456,499,ltr_simple,True,False,0.660663
+iphone 4s,3812566,208,simple,True,False,78.472824,459,ltr_simple,True,False,0.69833213
+iphone 4s,1401749,211,simple,True,False,78.472824,262,ltr_simple,True,False,0.749188
+iphone 4s,3540428,346,simple,True,False,53.13223,396,ltr_simple,True,False,0.69833213
+iphone 4s,3540304,348,simple,True,False,49.938847,393,ltr_simple,True,False,0.69833213
+iphone 4s,3540359,350,simple,True,False,49.938847,395,ltr_simple,True,False,0.69833213
+iphone 4s,3540446,351,simple,True,False,49.938847,397,ltr_simple,True,False,0.69833213
+Fast 5,19493508,171,simple,True,False,0.14077881,314,ltr_simple,True,False,0.7228852
+Electric shaver,1230185,48,simple,True,False,0.122987136,54,ltr_simple,True,False,0.76616657
+Electric shaver,8834844,54,simple,True,False,0.118,499,ltr_simple,True,False,0.6926199
+god of war,1072246,2,simple,True,False,839.11597,7,ltr_simple,True,False,1.0276729
+god of war,9869879,3,simple,True,False,838.2371,44,ltr_simple,True,False,0.82667446
+god of war,3294752,6,simple,True,False,788.6323,9,ltr_simple,True,False,0.98098385
+god of war,2638357,19,simple,True,False,669.0552,56,ltr_simple,True,False,0.7661688
+lowepro,1446235,78,simple,True,False,509.67767,417,ltr_simple,True,False,0.67732644
+lowepro,1180538,164,simple,True,False,477.3318,426,ltr_simple,True,False,0.6613117
+Playstation,3061366,142,simple,True,False,405.19278,477,ltr_simple,True,False,0.7277852
+kvm,9788238,24,simple,True,False,475.1248,30,ltr_simple,True,False,0.7874693
+iPhone 4s accessories,3725859,159,simple,True,True,22.598745,499,ltr_simple,True,True,0.660663
+iPhone 4s accessories,3540428,350,simple,True,True,16.989296,360,ltr_simple,True,True,0.69833213
+iPhone 4s accessories,3540359,353,simple,True,True,16.24412,359,ltr_simple,True,True,0.69833213
+iPhone 4s accessories,3540446,354,simple,True,True,16.24412,361,ltr_simple,True,True,0.69833213
+Mac,1502268,77,simple,True,False,492.2341,491,ltr_simple,True,False,0.7215559
+philips,3475155,12,simple,True,False,539.8723,192,ltr_simple,True,False,0.8068341
+philips,1257912,13,simple,True,False,538.5094,15,ltr_simple,True,False,1.0571094
+philips,2150052,32,simple,True,False,538.4994,79,ltr_simple,True,False,0.91254675
+philips,2150089,34,simple,True,False,538.4994,184,ltr_simple,True,False,0.8134475
+philips,3035098,77,simple,True,False,465.87027,277,ltr_simple,True,False,0.7701187
+philips,3035113,80,simple,True,False,465.85028,278,ltr_simple,True,False,0.7701187
+philips,2596332,140,simple,True,False,465.84027,287,ltr_simple,True,False,0.7701187
+philips,2047571,161,simple,True,False,436.42886,218,ltr_simple,True,False,0.7866078
+philips,5751947,230,simple,True,False,410.4719,360,ltr_simple,True,False,0.76532114
+philips,2762088,421,simple,True,False,367.26398,477,ltr_simple,True,False,0.7358907
+philips,1997075,462,simple,True,False,366.84778,494,ltr_simple,True,False,0.7260541
+cordless phone,8959013,3,simple,True,False,778.47174,76,ltr_simple,True,False,0.9009287
+cordless phone,2146869,85,simple,True,False,677.3506,429,ltr_simple,True,False,0.7956119
+cordless phone,1210376,102,simple,True,False,677.3356,282,ltr_simple,True,False,0.83995354
+cordless phone,2147968,129,simple,True,False,642.0971,196,ltr_simple,True,False,0.8627946
+cordless phone,2090466,357,simple,True,False,575.00604,468,ltr_simple,True,False,0.7661688
+cordless phone,2147886,426,simple,True,False,551.92957,435,ltr_simple,True,False,0.7726091
+Hp 940,9598027,4,simple,True,True,116.07963,18,ltr_simple,True,True,0.88742304
+lg led,2127489,7,simple,True,False,63.62982,18,ltr_simple,True,False,0.96084064
+lg led,2436379,26,simple,True,False,63.51882,60,ltr_simple,True,False,0.88907236
+Amazon kindle,2506173,1,simple,True,False,1005.95154,8,ltr_simple,True,False,1.0258358
+Amazon kindle,1277791,3,simple,True,False,903.87976,33,ltr_simple,True,False,0.88742304
+Amazon kindle,1268972,6,simple,True,False,894.21594,39,ltr_simple,True,False,0.8527816
+Amazon kindle,1268963,10,simple,True,False,894.147,62,ltr_simple,True,False,0.7765682
+dsc-h7,2553082,3,simple,True,False,0.28258836,277,ltr_simple,True,False,0.7437102
+dsc-h7,2553073,4,simple,True,False,0.255,70,ltr_simple,True,False,0.76616657
+dsc-h7,2553091,5,simple,True,False,0.236,71,ltr_simple,True,False,0.76616657
+dsc-h7,9294337,25,simple,True,False,0.06615141,493,ltr_simple,True,False,0.7053001
+batman,17584437,3,simple,True,False,666.9394,38,ltr_simple,True,False,0.8843493
+batman,1151391,23,simple,True,False,610.49695,90,ltr_simple,True,False,0.8353138
+batman,8855474,24,simple,True,False,610.49695,41,ltr_simple,True,False,0.8843493
+batman,3568267,99,simple,True,False,522.1639,222,ltr_simple,True,False,0.7756579
+batman,9867808,106,simple,True,False,522.1639,163,ltr_simple,True,False,0.7874693
+batman,3521364,169,simple,True,False,486.93637,224,ltr_simple,True,False,0.7701187
+batman,9460353,262,simple,True,False,429.05722,275,ltr_simple,True,False,0.7701187
+batman,1405663,283,simple,True,False,429.0502,307,ltr_simple,True,False,0.7701187
+batman,7949508,351,simple,True,False,404.97662,434,ltr_simple,True,False,0.7536354
+batman,8290565,354,simple,True,False,404.97662,437,ltr_simple,True,False,0.7536354
+batman,7649547,391,simple,True,False,383.46094,430,ltr_simple,True,False,0.7536354
+batman,18955231,439,simple,True,False,346.6364,476,ltr_simple,True,False,0.73134077
+batman,3116162,452,simple,True,False,330.7453,497,ltr_simple,True,False,0.7005611
+batman,3098165,468,simple,True,False,24.915482,486,ltr_simple,True,False,0.7238247
+mint cleaner,3104237,1,simple,True,False,92.81329,7,ltr_simple,True,False,0.96859956
+mint cleaner,3104228,2,simple,True,False,54.114006,36,ltr_simple,True,False,0.8725747
+sd800is,7802844,3,simple,True,False,0.681,31,ltr_simple,True,False,0.71666735
+Printers,9942413,74,simple,True,False,467.96402,488,ltr_simple,True,False,0.654137
+s-video cable,9699098,1,simple,True,False,1788.4908,50,ltr_simple,True,False,0.8941385
+s-video cable,7006679,3,simple,True,False,1788.4259,30,ltr_simple,True,False,0.9057294
+s-video cable,9759585,66,simple,True,False,62.315006,315,ltr_simple,True,False,0.69833213
+s-video cable,9955505,71,simple,True,False,48.682583,382,ltr_simple,True,False,0.69833213
+s-video cable,9881207,130,simple,True,False,0.23392835,381,ltr_simple,True,False,0.69833213
+s-video cable,8124353,202,simple,True,False,0.11529386,352,ltr_simple,True,False,0.69833213
+external hardrive,1251981,1,simple,True,False,0.21078157,32,ltr_simple,True,False,0.8345764
+external hardrive,9459622,3,simple,True,False,0.15020439,52,ltr_simple,True,False,0.80819863
+external hardrive,3088732,5,simple,True,False,0.09038963,114,ltr_simple,True,False,0.7520871
+external hardrive,9262479,6,simple,True,False,0.08391455,102,ltr_simple,True,False,0.76633877
+frigidaire,4210302,164,simple,True,False,377.88922,445,ltr_simple,True,False,0.7526628
+laser printer,9105381,23,simple,True,False,824.2731,108,ltr_simple,True,False,0.88742304
+laser printer,1196666,96,simple,True,False,619.33276,138,ltr_simple,True,False,0.8843493
+laser printer,9846996,186,simple,True,False,78.38885,385,ltr_simple,True,False,0.7520871
+entourage,7853691,8,simple,True,False,665.5093,17,ltr_simple,True,False,0.86112213
+entourage,8011732,10,simple,True,False,620.9318,15,ltr_simple,True,False,0.86112213
+entourage,18888388,17,simple,True,False,546.813,41,ltr_simple,True,False,0.7874693
+gps,1073193,17,simple,True,False,530.0357,495,ltr_simple,True,False,0.5623668
+gps,9937316,67,simple,True,False,488.72687,226,ltr_simple,True,False,0.76238835
+gps,2884094,71,simple,True,False,488.68985,77,ltr_simple,True,False,0.8275127
+gps,9267321,107,simple,True,False,488.68887,269,ltr_simple,True,False,0.73265386
+gps,9852545,127,simple,True,False,488.68277,394,ltr_simple,True,False,0.6781366
+gps,2204275,146,simple,True,False,454.49362,484,ltr_simple,True,False,0.5623668
+gps,2551057,148,simple,True,False,454.4916,292,ltr_simple,True,False,0.73043114
+gps,3179472,225,simple,True,False,453.34256,353,ltr_simple,True,False,0.71626925
+gps,9467846,226,simple,True,False,453.33856,422,ltr_simple,True,False,0.66350776
+gps,9107281,229,simple,True,False,453.33554,390,ltr_simple,True,False,0.6781366
+gps,2551084,286,simple,True,False,453.33456,340,ltr_simple,True,False,0.71626925
+gps,2192084,321,simple,True,False,428.9287,379,ltr_simple,True,False,0.6919899
+gps,2192066,323,simple,True,False,428.92572,478,ltr_simple,True,False,0.6132144
+dvd rw,5878972,71,simple,True,False,460.67447,149,ltr_simple,True,False,0.7715992
+dvd rw,1831106,311,simple,True,False,350.42352,500,ltr_simple,True,False,0.6349308
+Hp laptop,3439063,23,simple,True,False,302.4927,105,ltr_simple,True,False,0.90244377
+Hp laptop,2284864,25,simple,True,False,271.38898,90,ltr_simple,True,False,0.9213296
+Hp laptop,1636167,47,simple,True,False,243.2759,97,ltr_simple,True,False,0.9192103
+Hp laptop,9637558,52,simple,True,False,99.02804,101,ltr_simple,True,False,0.9134761
+Hp laptop,1458072,78,simple,True,False,77.51903,115,ltr_simple,True,False,0.9000035
+Hp laptop,1010396,223,simple,True,False,52.59288,254,ltr_simple,True,False,0.7882971
+Hp laptop,3061339,257,simple,True,False,50.349045,293,ltr_simple,True,False,0.7351945
+Hp laptop,3779861,377,simple,True,False,41.752922,381,ltr_simple,True,False,0.7228852
+dvi adaptee,7960986,12,simple,True,True,0.07387861,43,ltr_simple,True,True,0.78741467
+canon,908218,7,simple,True,False,516.29596,157,ltr_simple,True,False,0.7874693
+canon,945570,9,simple,True,False,516.29596,159,ltr_simple,True,False,0.7874693
+canon,8976192,274,simple,True,False,376.97238,444,ltr_simple,True,False,0.73606014
+canon,9065174,377,simple,True,False,356.86554,443,ltr_simple,True,False,0.73606014
+wireless router,1004986,14,simple,True,False,791.8764,45,ltr_simple,True,False,0.96854734
+wireless router,1868084,60,simple,True,False,661.87354,197,ltr_simple,True,False,0.827889
+wireless router,9678584,129,simple,True,False,542.66785,180,ltr_simple,True,False,0.84458286
+wireless router,2103504,198,simple,True,False,433.57126,239,ltr_simple,True,False,0.79712397
+wireless router,3604366,229,simple,True,False,405.59903,442,ltr_simple,True,False,0.69833213
+wireless router,2196035,251,simple,True,False,359.61566,321,ltr_simple,True,False,0.74937564
+wireless router,9283063,333,simple,True,False,67.221085,451,ltr_simple,True,False,0.69833213
+wireless router,2095629,387,simple,True,False,51.377445,459,ltr_simple,True,False,0.69833213
+pans labyrinth,8545256,15,simple,True,False,0.19160348,370,ltr_simple,True,False,0.69833213
+pans labyrinth,1511496,16,simple,True,False,0.16091746,252,ltr_simple,True,False,0.7228852
+pans labyrinth,9473429,17,simple,True,False,0.15118177,20,ltr_simple,True,False,0.8291401
+pans labyrinth,1511511,19,simple,True,False,0.1268737,30,ltr_simple,True,False,0.79344285
+pans labyrinth,15181704,67,simple,True,False,0.110603474,434,ltr_simple,True,False,0.69833213
+pans labyrinth,2810284,122,simple,True,False,0.07473388,223,ltr_simple,True,False,0.7228852
+Uncharted 3,1708812,1,simple,True,False,788.7729,2,ltr_simple,True,False,1.1992216
+Uncharted 3,19610462,2,simple,True,False,782.9524,14,ltr_simple,True,False,0.88742304
+Uncharted 3,3550143,3,simple,True,False,736.41077,13,ltr_simple,True,False,0.8978459
+Uncharted 3,9999168200050097,4,simple,True,False,705.5766,12,ltr_simple,True,False,0.9009287
+Uncharted 3,3550161,7,simple,True,False,572.27,23,ltr_simple,True,False,0.827889
+Uncharted 3,8547888,12,simple,True,False,42.8304,25,ltr_simple,True,False,0.8141521
+power inverter,9890369,49,simple,True,False,831.8032,51,ltr_simple,True,False,0.88742304
+dvr,1216961,3,simple,True,False,613.8129,22,ltr_simple,True,False,0.86112213
+dvr,1216989,9,simple,True,False,574.02563,15,ltr_simple,True,False,0.8843493
+dvr,9999163500050001,12,simple,True,False,539.9447,66,ltr_simple,True,False,0.8068341
+dvr,1234409,18,simple,True,False,509.6108,25,ltr_simple,True,False,0.84458286
+dvr,9895521,44,simple,True,False,436.18964,92,ltr_simple,True,False,0.7830957
+dvr,2392064,48,simple,True,False,416.4225,94,ltr_simple,True,False,0.7830957
+dvr,1403116,54,simple,True,False,397.9712,167,ltr_simple,True,False,0.76532114
+dvr,9960067,55,simple,True,False,397.96622,461,ltr_simple,True,False,0.7260541
+dvr,3199409,393,simple,True,False,0.048517674,481,ltr_simple,True,False,0.71666735
+dvr,9959583,407,simple,True,False,0.021,470,ltr_simple,True,False,0.71666735
+dvr,9714459,408,simple,True,False,0.020135004,496,ltr_simple,True,False,0.6926199
+Tangled,1254679,19,simple,True,False,706.07135,34,ltr_simple,True,False,0.8843493
+iPhone cases,9796982,20,simple,True,False,26.760607,25,ltr_simple,True,False,0.88907236
+iPhone cases,2070139,49,simple,True,False,22.623293,171,ltr_simple,True,False,0.734303
+iPhone cases,1155475,53,simple,True,False,20.782402,163,ltr_simple,True,False,0.7399627
+iPhone cases,1155466,54,simple,True,False,20.775402,78,ltr_simple,True,False,0.82822955
+iPhone cases,1155439,81,simple,True,False,20.7674,162,ltr_simple,True,False,0.749188
+iPhone cases,9797363,96,simple,True,False,20.718647,365,ltr_simple,True,False,0.71045595
+iPhone cases,2527033,100,simple,True,False,19.366722,296,ltr_simple,True,False,0.7228852
+iPhone cases,2266061,101,simple,True,False,19.178253,367,ltr_simple,True,False,0.71045595
+iPhone cases,1950181,102,simple,True,False,19.152254,377,ltr_simple,True,False,0.7102725
+iPhone cases,2549771,107,simple,True,False,19.137255,474,ltr_simple,True,False,0.69833213
+iPhone cases,1256473,108,simple,True,False,19.133253,500,ltr_simple,True,False,0.660663
+iPhone cases,8988884,111,simple,True,False,19.133253,378,ltr_simple,True,False,0.7102725
+iPhone cases,2533052,116,simple,True,False,19.129253,358,ltr_simple,True,False,0.71932864
+iPhone cases,2532372,118,simple,True,False,19.129253,395,ltr_simple,True,False,0.69833213
+iPhone cases,2533201,119,simple,True,False,19.129253,160,ltr_simple,True,False,0.749188
+iPhone cases,2642128,121,simple,True,False,19.129253,128,ltr_simple,True,False,0.7842403
+iPhone cases,1155679,139,simple,True,False,19.129253,376,ltr_simple,True,False,0.7102725
+iPhone cases,1946063,143,simple,True,False,19.129253,435,ltr_simple,True,False,0.69833213
+iPhone cases,1545562,159,simple,True,False,19.129253,467,ltr_simple,True,False,0.69833213
+iPhone cases,2961706,167,simple,True,False,19.129253,470,ltr_simple,True,False,0.69833213
+iPhone cases,3003909,184,simple,True,False,19.129253,486,ltr_simple,True,False,0.69833213
+iPhone cases,9528709,192,simple,True,False,18.943047,343,ltr_simple,True,False,0.7228852
+iPhone cases,2614056,200,simple,True,False,17.749731,210,ltr_simple,True,False,0.7228852
+iPhone cases,1806067,207,simple,True,False,17.74173,350,ltr_simple,True,False,0.7228852
+iPhone cases,1256464,209,simple,True,False,17.73873,302,ltr_simple,True,False,0.7228852
+iPhone cases,2629886,212,simple,True,False,17.73473,262,ltr_simple,True,False,0.7228852
+iPhone cases,3725859,379,simple,True,False,17.73073,497,ltr_simple,True,False,0.6845882
+ozzy osbourne,1154916,28,simple,True,False,1044.8456,168,ltr_simple,True,False,0.7033545
+ozzy osbourne,2466139,57,simple,True,False,0.107,166,ltr_simple,True,False,0.71666735
+cordless phones,9186025,1,simple,True,False,757.1741,426,ltr_simple,True,False,0.81147903
+cordless phones,7687639,96,simple,True,False,472.10312,500,ltr_simple,True,False,0.73768157
+cordless phones,4680278,133,simple,True,False,115.63671,499,ltr_simple,True,False,0.7458568
+cordless phones,2146869,198,simple,True,False,107.60655,438,ltr_simple,True,False,0.7956119
+cordless phones,2147813,199,simple,True,False,107.60655,205,ltr_simple,True,False,0.8627946
+sean kingston,8417171,1,simple,True,False,1405.9508,5,ltr_simple,True,False,1.0052719
+sean kingston,16491636,2,simple,True,False,1405.8717,9,ltr_simple,True,False,0.88742304
+sean kingston,8643667,14,simple,True,False,0.118,77,ltr_simple,True,False,0.7557279
+iPhone 4 cases,2527033,5,simple,True,False,48.780205,342,ltr_simple,True,False,0.69833213
+iPhone 4 cases,2705039,8,simple,True,False,45.150326,80,ltr_simple,True,False,0.8414646
+iPhone 4 cases,3540395,9,simple,True,False,45.113724,182,ltr_simple,True,False,0.73710275
+iPhone 4 cases,3540428,10,simple,True,False,45.113724,191,ltr_simple,True,False,0.7228852
+iPhone 4 cases,3540322,12,simple,True,False,44.48459,189,ltr_simple,True,False,0.7228852
+iPhone 4 cases,2070139,16,simple,True,False,40.365116,134,ltr_simple,True,False,0.7988268
+iPhone 4 cases,3439355,18,simple,True,False,39.324787,459,ltr_simple,True,False,0.69833213
+iPhone 4 cases,3439328,22,simple,True,False,38.081146,465,ltr_simple,True,False,0.69833213
+iPhone 4 cases,2871325,34,simple,True,False,36.538578,98,ltr_simple,True,False,0.8348655
+iPhone 4 cases,1256464,38,simple,True,False,35.81745,364,ltr_simple,True,False,0.69833213
+iPhone 4 cases,3386877,46,simple,True,False,33.328518,351,ltr_simple,True,False,0.69833213
+iPhone 4 cases,1026209,50,simple,True,False,32.873344,219,ltr_simple,True,False,0.71045595
+iPhone 4 cases,2589505,56,simple,True,False,32.106575,105,ltr_simple,True,False,0.8348655
+iPhone 4 cases,3046312,58,simple,True,False,31.957684,157,ltr_simple,True,False,0.783351
+iPhone 4 cases,3046454,59,simple,True,False,31.957684,103,ltr_simple,True,False,0.8348655
+iPhone 4 cases,2872193,64,simple,True,False,31.442732,353,ltr_simple,True,False,0.69833213
+iPhone 4 cases,3046321,65,simple,True,False,31.326868,483,ltr_simple,True,False,0.69833213
+iPhone 4 cases,3216028,68,simple,True,False,30.937035,466,ltr_simple,True,False,0.69833213
+iPhone 4 cases,3216091,69,simple,True,False,30.930035,467,ltr_simple,True,False,0.69833213
+iPhone 4 cases,2871334,76,simple,True,False,29.822641,355,ltr_simple,True,False,0.69833213
+iPhone 4 cases,1155475,77,simple,True,False,29.10248,132,ltr_simple,True,False,0.8182837
+iPhone 4 cases,1155439,78,simple,True,False,29.08548,111,ltr_simple,True,False,0.82784384
+iPhone 4 cases,1155466,79,simple,True,False,29.08548,85,ltr_simple,True,False,0.8366147
+iPhone 4 cases,1155615,81,simple,True,False,29.08348,110,ltr_simple,True,False,0.82784384
+iPhone 4 cases,1155679,87,simple,True,False,28.177912,144,ltr_simple,True,False,0.78741467
+iPhone 4 cases,1256419,170,simple,True,False,17.00117,363,ltr_simple,True,False,0.69833213
+iPhone 4 cases,2684069,181,simple,True,False,16.134174,248,ltr_simple,True,False,0.69833213
+iPhone 4 cases,1256473,183,simple,True,False,16.134174,497,ltr_simple,True,False,0.660663
+iPhone 4 cases,2642085,191,simple,True,False,16.130175,285,ltr_simple,True,False,0.69833213
+iPhone 4 cases,2961706,207,simple,True,False,16.130175,454,ltr_simple,True,False,0.69833213
+iPhone 4 cases,2070087,212,simple,True,False,16.112803,496,ltr_simple,True,False,0.660663
+iPhone 4 cases,2266098,250,simple,True,False,15.344126,304,ltr_simple,True,False,0.69833213
+iPhone 4 cases,1806067,254,simple,True,False,15.333026,488,ltr_simple,True,False,0.69833213
+iPhone 4 cases,3003909,256,simple,True,False,15.324126,476,ltr_simple,True,False,0.69833213
+iPhone 4 cases,2672098,262,simple,True,False,15.322026,306,ltr_simple,True,False,0.69833213
+iPhone 4 cases,1515605,347,simple,True,False,15.316027,369,ltr_simple,True,False,0.69833213
+iPhone 4 cases,3233131,369,simple,True,False,15.316027,456,ltr_simple,True,False,0.69833213
+iPhone 4 cases,3725859,421,simple,True,False,15.285679,499,ltr_simple,True,False,0.660663
+led zeppelin,2431107,146,simple,True,False,0.079,246,ltr_simple,True,False,0.7557279
+cd changer,1676121,7,simple,True,False,589.98804,32,ltr_simple,True,False,0.8266069
+cd changer,17953519,109,simple,True,False,60.555706,475,ltr_simple,True,False,0.69833213
+cd changer,19202752,150,simple,True,False,46.576637,483,ltr_simple,True,False,0.69833213
+cd changer,8761627,268,simple,True,False,8.707409,476,ltr_simple,True,False,0.69833213
+hd-dvd,8631634,291,simple,True,False,813.4158,463,ltr_simple,True,False,0.7228852
+james bond,2672495,88,simple,True,False,756.39465,100,ltr_simple,True,False,0.82667446
+james bond,1170835,149,simple,True,False,32.400383,181,ltr_simple,True,False,0.73474276
+vcr,7073542,1,simple,True,False,662.7307,14,ltr_simple,True,False,0.86112213
+vcr,9571643,27,simple,True,False,495.1783,496,ltr_simple,True,False,0.6781366
+vcr,8971008,109,simple,True,False,416.3756,474,ltr_simple,True,False,0.7154783
+vcr,9338148,227,simple,True,False,328.86337,479,ltr_simple,True,False,0.7118939
+bluetooth headsets,2538181,10,simple,True,False,180.01306,65,ltr_simple,True,False,0.9389178
+bluetooth headsets,3217364,17,simple,True,False,164.25627,144,ltr_simple,True,False,0.9009287
+bluetooth headsets,1247988,19,simple,True,False,164.16727,33,ltr_simple,True,False,0.99284166
+bluetooth headsets,2992183,21,simple,True,False,164.15628,44,ltr_simple,True,False,0.970957
+bluetooth headsets,2769719,26,simple,True,False,164.14528,180,ltr_simple,True,False,0.88742304
+bluetooth headsets,2235275,27,simple,True,False,164.14528,40,ltr_simple,True,False,0.970957
+bluetooth headsets,9446897,109,simple,True,False,139.68884,181,ltr_simple,True,False,0.88742304
+bluetooth headsets,1415824,111,simple,True,False,139.68884,161,ltr_simple,True,False,0.9009287
+bluetooth headsets,1246352,127,simple,True,False,139.67784,134,ltr_simple,True,False,0.9009287
+bluetooth headsets,1415388,134,simple,True,False,139.67784,158,ltr_simple,True,False,0.9009287
+bluetooth headsets,1415715,135,simple,True,False,139.67784,160,ltr_simple,True,False,0.9009287
+satelite radio,1271615,7,simple,True,False,0.21386054,423,ltr_simple,True,False,0.73134077
+satelite radio,9530215,8,simple,True,False,0.19825517,10,ltr_simple,True,False,0.8674004
+satelite radio,8052901,9,simple,True,False,0.17156371,493,ltr_simple,True,False,0.6928388
+satelite radio,1265984,10,simple,True,False,0.16625516,267,ltr_simple,True,False,0.7557279
+satelite radio,9244427,18,simple,True,False,0.12325516,219,ltr_simple,True,False,0.7557279
+satelite radio,1265766,19,simple,True,False,0.12325516,265,ltr_simple,True,False,0.7557279
+satelite radio,9342106,31,simple,True,False,0.11581485,116,ltr_simple,True,False,0.76616657
+satelite radio,8300705,33,simple,True,False,0.11225516,499,ltr_simple,True,False,0.6926199
+satelite radio,7897001,57,simple,True,False,0.103499666,62,ltr_simple,True,False,0.7775074
+Photo frame,1175215,103,simple,True,False,786.44507,173,ltr_simple,True,False,0.83995354
+sony camera,9772225,24,simple,True,False,67.74792,126,ltr_simple,True,False,0.8348655
+the bigs,9367534,9,simple,True,False,827.19934,462,ltr_simple,True,False,0.79620385
+laptop bag,9477096,139,simple,True,False,17.739971,144,ltr_simple,True,False,0.7557279
+laptop bag,1166802,185,simple,True,False,0.12681541,203,ltr_simple,True,False,0.7481067
+Captain America,19498673,4,simple,True,False,1024.4247,13,ltr_simple,True,False,0.88742304
+Captain America,2815114,6,simple,True,False,850.30414,37,ltr_simple,True,False,0.7765682
+Captain America,3033036,11,simple,True,False,850.2742,28,ltr_simple,True,False,0.7985529
+Captain America,2833129,12,simple,True,False,796.75696,27,ltr_simple,True,False,0.7985529
+Captain America,3447653,13,simple,True,False,796.545,38,ltr_simple,True,False,0.7765682
+Captain America,3033054,17,simple,True,False,749.2857,39,ltr_simple,True,False,0.7765682
+Captain America,1487671,30,simple,True,False,48.260403,414,ltr_simple,True,False,0.69833213
+sony headphones,2204169,6,simple,True,False,112.79504,22,ltr_simple,True,False,1.0035975
+sony headphones,2968044,11,simple,True,False,100.29093,88,ltr_simple,True,False,0.8843493
+sony headphones,2512378,15,simple,True,False,100.20293,61,ltr_simple,True,False,0.9166113
+sony headphones,2515083,17,simple,True,False,100.20293,129,ltr_simple,True,False,0.8368039
+sony headphones,8964855,50,simple,True,False,78.05506,72,ltr_simple,True,False,0.8960118
+sony headphones,8703389,51,simple,True,False,70.09715,70,ltr_simple,True,False,0.8960118
+sony headphones,9999165700050035,123,simple,True,False,44.02827,481,ltr_simple,True,False,0.69833213
+sony headphones,9227561,138,simple,True,False,39.752213,169,ltr_simple,True,False,0.8141521

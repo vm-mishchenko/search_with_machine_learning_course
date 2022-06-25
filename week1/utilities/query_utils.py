@@ -12,6 +12,7 @@ def create_stats_query(aggs, extended=True):
     return agg_obj
 
 # expects clicks and impressions to be in the row
+# using during feature logging as one of the feature
 def create_prior_queries_from_group(click_group): # total impressions isn't currently used, but it mayb worthwhile at some point
     click_prior_query = ""
     # Create a string that looks like:  "query": "1065813^100 OR 8371111^89", where the left side is the doc id and the right side is the weight.  In our case, the number of clicks a document received in the training set
@@ -19,7 +20,8 @@ def create_prior_queries_from_group(click_group): # total impressions isn't curr
         for item in click_group.itertuples():
             try:
                 impressions = max(item.clicks / item.num_impressions, 0.001)
-                click_prior_query += "%s^%.3f  " % (item.doc_id, impressions)
+                impressions_adjusted_for_queries = impressions / len(click_group)
+                click_prior_query += "%s^%.3f  " % (item.doc_id, impressions_adjusted_for_queries)
             except KeyError as ke:
                 pass # nothing to do in this case, it just means we can't find priors for this doc
     return click_prior_query
