@@ -4,6 +4,7 @@
 ./ltr-end-to-end.sh -y -m 0
 
 # "quantiles" click model
+# `click model` responsible for calculating `judgement` for each query+doc
 ./ltr-end-to-end.sh -y -m 0 -c quantiles
 ```
 

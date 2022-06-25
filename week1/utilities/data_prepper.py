@@ -249,7 +249,20 @@ class DataPrepper:
         feature_results["doc_id"] = []  # capture the doc id so we can join later
         feature_results["query_id"] = []  # ^^^
         feature_results["sku"] = []
-        feature_results["name_match"] = []
+        # custom features
+        custom_features = [
+                           "name_match",
+                           "name_match_phrase",
+                           "customerReviewAverage",
+                           "customerReviewCount",
+                           "artistName_match_phrase",
+                           "shortDescription_match_phrase",
+                           "longDescription_match_phrase",
+                           "salesRankShortTerm",
+                           "sku_terms",
+                           ]
+        for feature_name in custom_features:
+            feature_results[feature_name] = []
 
         hits = response['hits']['hits']
         hit_dict = {}
@@ -261,11 +274,23 @@ class DataPrepper:
           feature_results["query_id"].append(query_id)
           feature_results["sku"].append(doc_id)
 
-          name_match = 0
           hit_doc = hit_dict.get(str(doc_id))
-          if hit_doc is not None:
-              name_match = hit_doc['fields']['_ltrlog'][0].get('log_entry')[0].get('value')
-          feature_results["name_match"].append(name_match)
+
+          for feature_name in custom_features:
+            # extract weights from hit_doc
+            hit_feature_name_to_weight_dict = {}
+            if hit_doc is not None:
+                for hit_feature in hit_doc['fields']['_ltrlog'][0].get('log_entry'):
+                    hit_feature_name_to_weight_dict[hit_feature['name']] = hit_feature.get('value')
+
+            # get weighs from hit_doc if exists
+            if hit_feature_name_to_weight_dict.get(feature_name) is not None:
+                feature_weight = hit_feature_name_to_weight_dict.get(feature_name)
+            else:
+                # otherwise return default 0 value
+                feature_weight = 0
+
+            feature_results[feature_name].append(feature_weight)
 
         frame = pd.DataFrame(feature_results)
         return frame.astype({'doc_id': 'int64', 'query_id': 'int64', 'sku': 'int64'})

@@ -17,7 +17,8 @@ def create_rescore_ltr_query(user_query: str, query_obj, click_prior_query: str,
             "rescore_query": {
                 "sltr": {
                     "params": {
-                        "keywords": user_query
+                        "keywords": user_query,
+                        "keywords_split": user_query.split()
                     },
                     "model": ltr_model_name,
                     # Since we are using a named store, as opposed to simply '_ltr', we need to pass it in
@@ -42,7 +43,8 @@ def create_sltr_simple_query(user_query, query_obj, click_prior_query, ltr_model
         "sltr": {
             "params": {
                 "keywords": user_query,
-                "click_prior_query": click_prior_query
+                "click_prior_query": click_prior_query,
+                "keywords_split": user_query.split()
             },
             "model": ltr_model_name,
             # Since we are using a named store, as opposed to simply '_ltr', we need to pass it in
@@ -61,7 +63,8 @@ def create_sltr_hand_tuned_query(user_query, query_obj, click_prior_query, ltr_m
         "sltr": {
             "params": {
                 "keywords": user_query,
-                "click_prior_query": click_prior_query
+                "click_prior_query": click_prior_query,
+                "keywords_split": user_query.split()
             },
             "model": ltr_model_name,
             # Since we are using a named store, as opposed to simply '_ltr', we need to pass it in
@@ -93,7 +96,8 @@ def create_feature_log_query(query, doc_ids, click_prior_query, featureset_name,
                             "featureset": featureset_name,
                             "store": ltr_store_name,
                             "params": {
-                                "keywords": query # e.g. dogs
+                                "keywords": query, # e.g. dogs
+                                "keywords_split": query.split()
                             }
                         }
                     }
