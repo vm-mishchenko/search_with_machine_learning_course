@@ -1,0 +1,160 @@
+{
+  "size": 500,
+  "sort": [
+    {
+      "_score": {
+        "order": "desc"
+      }
+    }
+  ],
+  "query": {
+    "function_score": {
+      "query": {
+        "bool": {
+          "must": [],
+          "should": [
+            {
+              "match": {
+                "name": {
+                  "query": "video cameras",
+                  "fuzziness": "1",
+                  "prefix_length": 2,
+                  "boost": 0.01
+                }
+              }
+            },
+            {
+              "match_phrase": {
+                "name.hyphens": {
+                  "query": "video cameras",
+                  "slop": 1,
+                  "boost": 50
+                }
+              }
+            },
+            {
+              "multi_match": {
+                "query": "video cameras",
+                "type": "phrase",
+                "slop": "6",
+                "minimum_should_match": "2<75%",
+                "fields": [
+                  "name^10",
+                  "name.hyphens^10",
+                  "shortDescription^5",
+                  "longDescription^5",
+                  "department^0.5",
+                  "sku",
+                  "manufacturer",
+                  "features",
+                  "categoryPath"
+                ]
+              }
+            },
+            {
+              "terms": {
+                "sku": [
+                  "video",
+                  "cameras"
+                ],
+                "boost": 50
+              }
+            },
+            {
+              "match": {
+                "name.hyphens": {
+                  "query": "video cameras",
+                  "operator": "OR",
+                  "minimum_should_match": "2<75%"
+                }
+              }
+            },
+            {
+              "query_string": {
+                "query": "1159311^0.139  9926783^0.028  2328186^0.028  1364435^0.056  9720275^0.028  2181067^0.028  2781159^0.028  1421112^0.056  1150586^0.083  9984337^0.028  1004722^0.056  2052403^0.056  2022343^0.056  2052494^0.028  2051186^0.028  8310847^0.028  7956599^0.028  1223834^0.028  9928354^0.028  1309005^0.028  2721198^0.028  2049039^0.056  2052228^0.028  1159232^0.028  ",
+                "fields": [
+                  "_id"
+                ]
+              }
+            }
+          ],
+          "minimum_should_match": 1
+        }
+      },
+      "boost_mode": "multiply",
+      "score_mode": "sum",
+      "functions": [
+        {
+          "filter": {
+            "exists": {
+              "field": "salesRankShortTerm"
+            }
+          },
+          "gauss": {
+            "salesRankShortTerm": {
+              "origin": "1.0",
+              "scale": "100"
+            }
+          }
+        },
+        {
+          "filter": {
+            "exists": {
+              "field": "salesRankMediumTerm"
+            }
+          },
+          "gauss": {
+            "salesRankMediumTerm": {
+              "origin": "1.0",
+              "scale": "1000"
+            }
+          }
+        },
+        {
+          "filter": {
+            "exists": {
+              "field": "salesRankLongTerm"
+            }
+          },
+          "gauss": {
+            "salesRankLongTerm": {
+              "origin": "1.0",
+              "scale": "1000"
+            }
+          }
+        },
+        {
+          "script_score": {
+            "script": "0.0001"
+          }
+        }
+      ]
+    }
+  },
+  "_source": [
+    "sku",
+    "name"
+  ],
+  "rescore": {
+    "window_size": 500,
+    "query": {
+      "rescore_query": {
+        "sltr": {
+          "params": {
+            "keywords": "video cameras",
+            "keywords_split": [
+              "video",
+              "cameras"
+            ],
+            "click_prior_query": "1159311^0.139  9926783^0.028  2328186^0.028  1364435^0.056  9720275^0.028  2181067^0.028  2781159^0.028  1421112^0.056  1150586^0.083  9984337^0.028  1004722^0.056  2052403^0.056  2022343^0.056  2052494^0.028  2051186^0.028  8310847^0.028  7956599^0.028  1223834^0.028  9928354^0.028  1309005^0.028  2721198^0.028  2049039^0.056  2052228^0.028  1159232^0.028  ",
+            "most_clicked_category_id": "abcat0403004"
+          },
+          "model": "ltr_model",
+          "store": "week1"
+        }
+      },
+      "query_weight": 1,
+      "rescore_query_weight": 2
+    }
+  }
+}
