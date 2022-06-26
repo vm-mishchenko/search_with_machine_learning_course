@@ -226,6 +226,23 @@
             "categoryPathIds": "{{most_clicked_category_id}}"
           }
         }
+      },
+      {
+        "name": "regularPrice",
+        "template_language": "mustache",
+        "template": {
+          "function_score": {
+            "functions": [{
+              "field_value_factor": {
+                "field": "regularPrice",
+                "missing": 0
+              }
+            }],
+            "query": {
+              "match_all": {}
+            }
+          }
+        }
       }
     ]
   }
