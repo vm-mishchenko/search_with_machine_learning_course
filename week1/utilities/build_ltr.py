@@ -178,7 +178,7 @@ if __name__ == "__main__":
     feat_name = args.featureset_name
     index_name = args.index
     # Prep our data
-    data_prepper = dp.DataPrepper(opensearch, feat_name, index_name, ltr_store_name)
+    data_prepper = dp.DataPrepper(opensearch, feat_name, index_name, ltr_store_name, args.featureset)
     if args.split_input:
         # Split based on date.  All of our train data will be before a given date, and all test data will be after.
         # This simulates the real world and allows us to safely use prior clicks in our baseline retrieval and models

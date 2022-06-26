@@ -150,6 +150,46 @@
         }
       },
       {
+        "name": "salesRankLongTerm",
+        "template_language": "mustache",
+        "template": {
+          "function_score": {
+            "functions": [
+              {
+                "filter": {
+                  "exists": {
+                    "field": "salesRankLongTerm"
+                  }
+                },
+                "gauss": {
+                  "salesRankLongTerm": {
+                    "origin": "1.0",
+                    "scale": "1000"
+                  }
+                }
+              },
+              {
+                "filter": {
+                  "bool": {
+                    "must_not": {
+                      "exists": {
+                        "field": "salesRankLongTerm"
+                      }
+                    }
+                  }
+                },
+                "script_score": {
+                  "script": "if (doc['salesRankLongTerm'] == null || doc['salesRankLongTerm'].size() == 0  ) {return 0.0}"
+                }
+              }
+            ],
+            "query": {
+              "match_all": {}
+            }
+          }
+        }
+      },
+      {
         "name": "click_prior",
         "params": [
           "click_prior_query"
@@ -159,6 +199,34 @@
           "query_string": {
             "query": "{{click_prior_query}}",
             "fields": ["_id"]
+          }
+        }
+      },
+      {
+        "name": "name_hyphens",
+        "params": [
+          "keywords"
+        ],
+        "template_language": "mustache",
+        "template": {
+          "match": {
+            "name.hyphens": {
+              "query": "{{keywords}}",
+              "operator": "OR",
+              "minimum_should_match": "2<75%"
+            }
+          }
+        }
+      },
+      {
+        "name": "sku_term",
+        "params": [
+          "keywords"
+        ],
+        "template_language": "mustache",
+        "template": {
+          "term": {
+            "sku.keyword": "{{keywords}}"
           }
         }
       }

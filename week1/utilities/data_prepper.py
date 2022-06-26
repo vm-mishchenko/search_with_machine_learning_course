@@ -6,6 +6,8 @@ import pandas as pd
 import query_utils as qu
 from opensearchpy import RequestError
 import os
+import json
+
 
 # from importlib import reload
 
@@ -13,14 +15,16 @@ class DataPrepper:
     opensearch = None
     index_name = "bbuy_products"
     ltr_store_name = "week1"
+    featureset_path = None
 
 
     def __init__(self, opensearch_client, featureset_name="bbuy_product_featureset", index_name="bbuy_products",
-                 ltr_store_name="week1") -> None:
+                 ltr_store_name="week1", featureset_path=None) -> None:
         self.opensearch = opensearch_client
         self.featureset_name = featureset_name
         self.index_name = index_name
         self.ltr_store_name = ltr_store_name
+        self.featureset_path = featureset_path
 
     def __get_query_id(self, query, query_ids_map, query_counter):
         qid = query_ids_map.get(query, None)
@@ -249,18 +253,14 @@ class DataPrepper:
         feature_results["doc_id"] = []  # capture the doc id so we can join later
         feature_results["query_id"] = []  # ^^^
         feature_results["sku"] = []
-        # custom features
-        custom_features = [
-                           "name_match",
-                           "name_match_phrase",
-                           "customerReviewAverage",
-                           "customerReviewCount",
-                           "artistName_match_phrase",
-                           "shortDescription_match_phrase",
-                           "longDescription_match_phrase",
-                           "salesRankShortTerm",
-                           "click_prior",
-                           ]
+        custom_features=[]
+
+        # load custom features name from "ltr_featureset.json"
+        with open(self.featureset_path) as json_file:
+            the_feature_set = json.load(json_file)
+            for feature_definition in the_feature_set.get('featureset').get('features'):
+                custom_features.append(feature_definition.get('name'))
+
         for feature_name in custom_features:
             feature_results[feature_name] = []
 
