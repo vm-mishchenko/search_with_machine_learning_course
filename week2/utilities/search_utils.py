@@ -296,9 +296,11 @@ def get_feat_names(details):
 def get_explain_query_for_type(query, type, click_prior_query, ltr_model_name, ltr_store_name):
     num_shoulds = 0
     qo = None
+    # todo: implement me
+    most_clicked_category_id = "123"
     if type == "ltr_simple":
         qo = qu.create_simple_baseline(query, click_prior_query, None, include_aggs=False, highlight=False)
-        qo, num_shoulds = lu.create_sltr_simple_query(query, qo, click_prior_query, ltr_model_name, ltr_store_name)
+        qo, num_shoulds = lu.create_sltr_simple_query(query, qo, click_prior_query, most_clicked_category_id, ltr_model_name, ltr_store_name)
     elif type == "ltr_hand_tuned":
         qo = qu.create_query(query, click_prior_query, None, include_aggs=False, highlight=False)
         qo, num_shoulds = lu.create_sltr_hand_tuned_query(query, qo, click_prior_query, ltr_model_name, ltr_store_name)

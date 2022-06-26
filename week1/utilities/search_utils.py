@@ -59,6 +59,7 @@ def evaluate_test_set(test_data, prior_clicks_df, opensearch, xgb_model_name, lt
         query_times_seen = 0 # careful here
         prior_clicks_for_query = None
         seen = False
+        most_clicked_category_id = None
         try:
             # select all clicks for particular query from `train` dataset
             prior_clicks_for_query = prior_clicks_gb.get_group(query_test)
@@ -68,6 +69,8 @@ def evaluate_test_set(test_data, prior_clicks_df, opensearch, xgb_model_name, lt
                 prior_doc_id_weights = prior_clicks_for_query.sku.value_counts()
                 query_times_seen = prior_clicks_for_query.sku.count()
                 seen = True
+
+                most_clicked_category_id = qu.create_most_clicked_category_id(prior_clicks_for_query)
         except KeyError as ke:
             # nothing to do here, we just haven't seen this query before in our training set
             pass
@@ -88,13 +91,13 @@ def evaluate_test_set(test_data, prior_clicks_df, opensearch, xgb_model_name, lt
 
         # Run LTR simple
         # NOTE: very important, we cannot look at the test set for click weights, but we can look at the train set.
-        ltr_simple_query_obj = lu.create_rescore_ltr_query(query_test, simple_query_obj, click_prior_query, xgb_model_name, ltr_store, rescore_size=rescore_size,
+        ltr_simple_query_obj = lu.create_rescore_ltr_query(query_test, simple_query_obj, click_prior_query, most_clicked_category_id, xgb_model_name, ltr_store, rescore_size=rescore_size,
                                                            main_query_weight=main_query_weight, rescore_query_weight=rescore_query_weight)
         __judge_hits(test_skus_for_query, index, query_test, no_ltr_simple, opensearch, ltr_simple_query_obj, "ltr_simple", results, seen)
 
 
         # Run LTR hand-tuned
-        ltr_hand_query_obj = lu.create_rescore_ltr_query(query_test, hand_tuned_query_obj, click_prior_query, xgb_model_name, ltr_store,
+        ltr_hand_query_obj = lu.create_rescore_ltr_query(query_test, hand_tuned_query_obj, click_prior_query, most_clicked_category_id, xgb_model_name, ltr_store,
                                                          rescore_size=rescore_size, main_query_weight=main_query_weight, rescore_query_weight=rescore_query_weight)
         __judge_hits(test_skus_for_query, index, query_test, no_ltr_hand_tuned, opensearch, ltr_hand_query_obj, "ltr_hand_tuned", results, seen)
 
@@ -256,6 +259,7 @@ def compare_explains(join, type, opensearch, index, ltr_model_name, ltr_store_na
         if max_explains == ctr:
             break
         click_prior_query = ""
+        most_clicked_category_id = ""
         try:
             prior_clicks_for_query = train_gb.get_group(item.query)
             if prior_clicks_for_query is not None and len(prior_clicks_for_query) > 0:
@@ -263,6 +267,8 @@ def compare_explains(join, type, opensearch, index, ltr_model_name, ltr_store_na
                 prior_doc_id_weights = prior_clicks_for_query.sku.value_counts() # histogram gives us the click counts for all the doc_ids
                 query_times_seen = prior_clicks_for_query.sku.count()
                 click_prior_query = qu.create_prior_queries(prior_doc_ids, prior_doc_id_weights, query_times_seen)
+
+                most_clicked_category_id = qu.create_most_clicked_category_id(prior_clicks_for_query)
         except KeyError as ke:
             pass #just means we can't find this query in the priors, which is OK
 
@@ -320,12 +326,12 @@ def get_feat_names(details):
         break
     return feat_names
 
-def get_explain_query_for_type(query, type, click_prior_query, ltr_model_name, ltr_store_name):
+def get_explain_query_for_type(query, type, click_prior_query, most_clicked_category_id, ltr_model_name, ltr_store_name):
     num_shoulds = 0
     qo = None
     if type == "ltr_simple":
         qo = qu.create_simple_baseline(query, click_prior_query, None, include_aggs=False, highlight=False)
-        qo, num_shoulds = lu.create_sltr_simple_query(query, qo, click_prior_query, ltr_model_name, ltr_store_name)
+        qo, num_shoulds = lu.create_sltr_simple_query(query, qo, click_prior_query, most_clicked_category_id, ltr_model_name, ltr_store_name)
     elif type == "ltr_hand_tuned":
         qo = qu.create_query(query, click_prior_query, None, include_aggs=False, highlight=False)
         qo, num_shoulds = lu.create_sltr_hand_tuned_query(query, qo, click_prior_query, ltr_model_name, ltr_store_name)

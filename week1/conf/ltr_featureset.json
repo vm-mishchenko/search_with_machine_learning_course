@@ -63,21 +63,6 @@
         }
       },
       {
-        "name": "artistName_match_phrase",
-        "params": [
-          "keywords"
-        ],
-        "template_language": "mustache",
-        "template": {
-          "match_phrase": {
-            "artistName": {
-              "query": "{{keywords}}",
-              "slop": 6
-            }
-          }
-        }
-      },
-      {
         "name": "shortDescription_match_phrase",
         "params": [
           "keywords"
@@ -227,6 +212,18 @@
         "template": {
           "term": {
             "sku.keyword": "{{keywords}}"
+          }
+        }
+      },
+      {
+        "name": "category_id_match",
+        "params": [
+          "most_clicked_category_id"
+        ],
+        "template_language": "mustache",
+        "template": {
+          "match": {
+            "categoryPathIds": "{{most_clicked_category_id}}"
           }
         }
       }

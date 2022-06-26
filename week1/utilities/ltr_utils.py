@@ -3,7 +3,7 @@ import json
 import requests
 
 
-def create_rescore_ltr_query(user_query: str, query_obj, click_prior_query: str, ltr_model_name: str,
+def create_rescore_ltr_query(user_query: str, query_obj, click_prior_query: str, most_clicked_category_id:str, ltr_model_name: str,
                              ltr_store_name: str,
                              active_features=None, # an array of strings
                              rescore_size=500, main_query_weight=1, rescore_query_weight=2):
@@ -11,6 +11,7 @@ def create_rescore_ltr_query(user_query: str, query_obj, click_prior_query: str,
     # add on the rescore
     ##### Step 4.e:
     # https://www.elastic.co/guide/en/elasticsearch/reference/7.10/filter-search-results.html#rescore
+
     query_obj["rescore"] = {
         "window_size": rescore_size,
         "query": {
@@ -19,7 +20,8 @@ def create_rescore_ltr_query(user_query: str, query_obj, click_prior_query: str,
                     "params": {
                         "keywords": user_query,
                         "keywords_split": user_query.split(),
-                        "click_prior_query": click_prior_query
+                        "click_prior_query": click_prior_query,
+                        "most_clicked_category_id": most_clicked_category_id
                     },
                     "model": ltr_model_name,
                     # Since we are using a named store, as opposed to simply '_ltr', we need to pass it in
@@ -37,7 +39,7 @@ def create_rescore_ltr_query(user_query: str, query_obj, click_prior_query: str,
     return query_obj
 
 # take an existing query and add in an SLTR so we can use it for explains to see how much SLTR contributes
-def create_sltr_simple_query(user_query, query_obj, click_prior_query, ltr_model_name, ltr_store_name, active_features=None):
+def create_sltr_simple_query(user_query, query_obj, click_prior_query, most_clicked_category_id, ltr_model_name, ltr_store_name, active_features=None):
     # Create the base query, use a much bigger window
     #add on the rescore
     sltr = {
@@ -45,7 +47,8 @@ def create_sltr_simple_query(user_query, query_obj, click_prior_query, ltr_model
             "params": {
                 "keywords": user_query,
                 "click_prior_query": click_prior_query,
-                "keywords_split": user_query.split()
+                "keywords_split": user_query.split(),
+                "most_clicked_category_id": most_clicked_category_id
             },
             "model": ltr_model_name,
             # Since we are using a named store, as opposed to simply '_ltr', we need to pass it in
@@ -60,12 +63,15 @@ def create_sltr_simple_query(user_query, query_obj, click_prior_query, ltr_model
 def create_sltr_hand_tuned_query(user_query, query_obj, click_prior_query, ltr_model_name, ltr_store_name, active_features=None):
     # Create the base query, use a much bigger window
     #add on the rescore
+    # todo: implemenet me
+    most_clicked_category_id = "123"
     sltr = {
         "sltr": {
             "params": {
                 "keywords": user_query,
                 "click_prior_query": click_prior_query,
-                "keywords_split": user_query.split()
+                "keywords_split": user_query.split(),
+                "most_clicked_category_id": most_clicked_category_id
             },
             "model": ltr_model_name,
             # Since we are using a named store, as opposed to simply '_ltr', we need to pass it in
@@ -77,7 +83,7 @@ def create_sltr_hand_tuned_query(user_query, query_obj, click_prior_query, ltr_m
     query_obj["query"]["function_score"]["query"]["bool"]["should"].append(sltr)
     return query_obj, len(query_obj["query"]["function_score"]["query"]["bool"]["should"])
 
-def create_feature_log_query(query, doc_ids, click_prior_query, featureset_name, ltr_store_name, size=200, terms_field="_id"):
+def create_feature_log_query(query, doc_ids, click_prior_query, most_clicked_category_id, featureset_name, ltr_store_name, size=200, terms_field="_id"):
     ##### Step 3.b:
     return {
         'query': {
@@ -99,7 +105,10 @@ def create_feature_log_query(query, doc_ids, click_prior_query, featureset_name,
                             "params": {
                                 "keywords": query, # e.g. dogs
                                 "keywords_split": query.split(),
-                                "click_prior_query": click_prior_query
+                                # click_prior_query = [sku1^boost, sku2^boost]
+                                # based on previously clicked skus
+                                "click_prior_query": click_prior_query,
+                                "most_clicked_category_id": most_clicked_category_id
                             }
                         }
                     }
@@ -147,7 +156,7 @@ def write_training_file(train_data, output_file, feat_map):
     print("Writing XGB Training file to %s" % (output_file))
     col_names = train_data.keys()
     # We don't want to write everything out, some items we've been tracking are reserved or not needed for the model
-    exclusions = {"query_id", "doc_id", "rank", "query", "sku", "product_name", "grade", "clicks", "num_impressions"}
+    exclusions = {"query_id", "doc_id", "rank", "query", "sku", "product_name", "grade", "clicks", "num_impressions", "category"}
     with open(output_file, 'bw') as output:
         for item in train_data.itertuples(index=False): # skip the first 'index' element from the DF
             # Pull out the specific items from the Pandas named tuple.  The rest goes in the features map.

@@ -91,6 +91,7 @@ class DataPrepper:
         pairs = pairs[(pairs['num_impressions'] >= min_impressions) & (pairs['clicks'] >= min_clicks)]
 
         pairs['doc_id'] = pairs['sku']  # not technically the doc id, but since we aren't doing a search...
+        pairs['category'] = clicks_df['category']  # not technically the doc id, but since we aren't doing a search...
         pairs['product_name'] = "fake"
         query_ids = []
         query_ids_map = {}
@@ -212,7 +213,8 @@ class DataPrepper:
             if isinstance(doc_ids, np.ndarray):
                 doc_ids = doc_ids.tolist()
             click_prior_query = qu.create_prior_queries_from_group(group)
-            ltr_feats_df = self.__log_ltr_query_features(group[:1]["query_id"], key, doc_ids, click_prior_query, no_results,
+            most_clicked_category_id = qu.create_most_clicked_category_id_from_group(group)
+            ltr_feats_df = self.__log_ltr_query_features(group[:1]["query_id"], key, doc_ids, click_prior_query, most_clicked_category_id, no_results,
                                                          terms_field=terms_field)
             if ltr_feats_df is not None:
                 feature_frames.append(ltr_feats_df)
@@ -236,9 +238,9 @@ class DataPrepper:
     #         {'name': 'price_function', 'value': 0.0}]}]
     # For each query, make a request to OpenSearch with SLTR logging on and extract the features
     # key = sku
-    def __log_ltr_query_features(self, query_id, key, query_doc_ids, click_prior_query, no_results, terms_field="_id"):
+    def __log_ltr_query_features(self, query_id, key, query_doc_ids, click_prior_query, most_clicked_category_id, no_results, terms_field="_id"):
 
-        log_query = lu.create_feature_log_query(key, query_doc_ids, click_prior_query, self.featureset_name,
+        log_query = lu.create_feature_log_query(key, query_doc_ids, click_prior_query, most_clicked_category_id, self.featureset_name,
                                                 self.ltr_store_name,
                                                 size=len(query_doc_ids), terms_field=terms_field)
         ##### Step Extract LTR Logged Features:

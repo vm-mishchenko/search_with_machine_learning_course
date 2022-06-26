@@ -27,6 +27,20 @@ def create_prior_queries_from_group(click_group): # total impressions isn't curr
     return click_prior_query
 
 
+def create_most_clicked_category_id_from_group(click_group): # total impressions isn't currently used, but it mayb worthwhile at some point
+    if click_group is None:
+        return ""
+
+    category_id = click_group.groupby('category')['clicks'].agg(['sum']).reset_index().sort_values(by='sum', ascending=False).iloc[0].category
+    return category_id
+
+def create_most_clicked_category_id(prior_clicks_for_query):
+    if prior_clicks_for_query is None:
+        return ""
+
+    category_id = prior_clicks_for_query.groupby('category').query.count().reset_index().sort_values(by='query', ascending=False).iloc[0].category
+    return category_id
+
 # expects clicks from the raw click logs, so value_counts() are being passed in
 def create_prior_queries(doc_ids, doc_id_weights, query_times_seen): # total impressions isn't currently used, but it mayb worthwhile at some point
     click_prior_query = ""
