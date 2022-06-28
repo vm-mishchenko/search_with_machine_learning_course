@@ -3,7 +3,7 @@ wget https://dl.fbaipublicfiles.com/fasttext/data/cooking.stackexchange.tar.gz
 tar xvzf cooking.stackexchange.tar.gz
 
 # Split labeled data into training and test.
-head -n -3000 cooking.stackexchange.txt > cooking.train
+head -n 3000 cooking.stackexchange.txt > cooking.train
 tail -3000 cooking.stackexchange.txt > cooking.test
 
 # Train model
