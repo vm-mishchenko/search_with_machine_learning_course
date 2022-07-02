@@ -90,7 +90,7 @@ R@1     0.998
 # TODO: The next level is to roll up infrequently used labels to their parent or other ancestor categories.
 ```
 
-Level 2: Derive Synonyms from Content
+## Level 2: Derive Synonyms from Content
 ```shell
 # generate fasttext compatible file by running createContentTrainingData.py
 
@@ -108,7 +108,7 @@ cut -d' ' -f2- $FASTEXT_FOLDER/shuffled_labeled_products.txt > $FASTEXT_FOLDER/t
 fasttext skipgram -input $FASTEXT_FOLDER/titles.txt -output $FASTEXT_FOLDER/title_model
 fasttext nn $FASTEXT_FOLDER/title_model.bin
 
-# normalized titles
+# normalized titles (keeps label intact)
 cat $FASTEXT_FOLDER/titles.txt | sed -e "s/\([.\!?,'/()]\)/ \1 /g" | tr "[:upper:]" "[:lower:]" | sed "s/[^[:alnum:]]/ /g" | tr -s ' ' > $FASTEXT_FOLDER/normalized_titles.txt
 fasttext skipgram -input $FASTEXT_FOLDER/normalized_titles.txt -output $FASTEXT_FOLDER/title_model
 fasttext nn $FASTEXT_FOLDER/title_model.bin
@@ -172,3 +172,52 @@ GET bbuy_products/_search
 
 # run utilities/query.py with --synonyms flag to check results with more complex query
 ```
+
+
+## Level 4: Reviews
+```shell
+# run createReviewLabels.py to create "<review> <comments>" dataset
+
+FASTEXT_FOLDER="/Users/vitalii.mishchenko/Documents/personal/opensearch/data/fasttext"
+
+# Shuffle product labels
+shuf $FASTEXT_FOLDER/reviews.txt > $FASTEXT_FOLDER/shuffled_reviews.txt
+
+# Split on training and test data
+head -200000 $FASTEXT_FOLDER/shuffled_reviews.txt > $FASTEXT_FOLDER/reviews.train
+tail -20000 $FASTEXT_FOLDER/shuffled_reviews.txt > $FASTEXT_FOLDER/reviews.test
+
+# train model
+fasttext supervised -input $FASTEXT_FOLDER/reviews.train -output $FASTEXT_FOLDER/review_classifier -lr 1.0 -epoch 25 -wordNgrams 2
+
+# test model with test data
+fasttext test $FASTEXT_FOLDER/review_classifier.bin $FASTEXT_FOLDER/reviews.test
+# result
+P@1     0.695
+R@1     0.695
+
+# after I mapped 0-5 reviews to "positive/neutral/negative" grade
+P@1     0.747
+R@1     0.747
+
+# after I applied stemmer + grade conversion 
+P@1     0.744
+R@1     0.744
+
+# only title parsed
+P@1     0.685
+R@1     0.685
+
+# only comments parsed
+P@1     0.723
+R@1     0.723
+
+# only first 100 characters from comments
+P@1     0.634
+R@1     0.634
+
+# with choosing only adj, adv, noun and verbs + stemming
+P@1     0.74
+R@1     0.74
+```
+
