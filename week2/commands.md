@@ -1,4 +1,4 @@
-## Level 1
+## Level 1: Classifying Product Names to Categories
 ```shell
 # generate fasttext compatible file by running createContentTrainingData.py
 
@@ -90,7 +90,7 @@ R@1     0.998
 # TODO: The next level is to roll up infrequently used labels to their parent or other ancestor categories.
 ```
 
-## Level 2
+Level 2: Derive Synonyms from Content
 ```shell
 # generate fasttext compatible file by running createContentTrainingData.py
 
@@ -122,4 +122,53 @@ fasttext nn $FASTEXT_FOLDER/title_model.bin
 # https://fasttext.cc/docs/en/unsupervised-tutorial.html#advanced-readers-playing-with-the-parameters
 fasttext skipgram -lr 0.05 -dim 300 -maxn 0 -minCount 50 -epoch 25 -input $FASTEXT_FOLDER/normalized_titles.txt -output $FASTEXT_FOLDER/title_model
 fasttext nn $FASTEXT_FOLDER/title_model.bin
+```
+
+## Level 3: Integrating Synonyms with Search
+```shell
+FASTEXT_FOLDER="/Users/vitalii.mishchenko/Documents/personal/opensearch/data/fasttext"
+
+# extract top words from titles
+cat $FASTEXT_FOLDER/normalized_titles.txt | tr " " "\n" | grep "...." | sort | uniq -c | sort -nr | head -1000 | grep -oE '[^ ]+$' > $FASTEXT_FOLDER/top_words.txt
+
+# run generateSynonyms.py
+
+# copy synonyms to opensearch docker image
+docker cp $FASTEXT_FOLDER/synonyms.csv opensearch-node1:/usr/share/opensearch/config/synonyms.csv
+
+# add Synonym mapping field for "name"
+# https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-synonym-tokenfilter.html#analysis-synonym-tokenfilter
+
+# delete previous product index
+DELETE /bbuy_products
+
+# reindex products
+./index-data.sh -r -p /Users/vitalii.mishchenko/Documents/experiments/search_with_machine_learning_course/week2/conf/bbuy_products.json
+
+# check how custom_synonym analyzer works
+# should return "photoshop" and "cs5"
+GET bbuy_products/_analyze
+{
+  "text": "adobe",
+  "analyzer": "custom_synonym"
+}
+
+# check that I can retrieve docs my synonym, e.g.
+# for "composers" query I could retrieve doc with name "JumpStart Artist - Windows"
+# where "composers" is synonym for "artist"
+
+# also number of results against "name.synonyms" field should be bigger than against "name" field 
+GET bbuy_products/_search
+{
+  "query": {
+    "match": {
+      "name.synonyms": {
+        "query": "composers"
+      }
+    }
+  },
+  "_source": "name"
+}
+
+# run utilities/query.py with --synonyms flag to check results with more complex query
 ```
