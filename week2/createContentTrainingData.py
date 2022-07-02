@@ -32,7 +32,7 @@ general.add_argument("--label", default="id", help="id is default and needed for
 general.add_argument("--sample_rate", default=1.0, type=float, help="The rate at which to sample input (default is 1.0)")
 
 # IMPLEMENTED: Setting min_products removes infrequent categories and makes the classifier's task easier.
-general.add_argument("--min_products", default=500, type=int, help="The minimum number of products per category (default is 0).")
+general.add_argument("--min_products", default=1, type=int, help="The minimum number of products per category (default is 0).")
 
 args = parser.parse_args()
 output_file = args.output
@@ -98,7 +98,7 @@ if __name__ == '__main__':
                     category_buffer[cat].append(name)
                   else:
                     # add previously seen names from the buffer
-                    if len(category_buffer.get(cat)) > 0:
+                    if category_buffer.get(cat) is not None and len(category_buffer.get(cat)) > 0:
                       for name in category_buffer.get(cat):
                         output.write(f'__label__{cat} {name}\n')
                       # remove all previous names from memory

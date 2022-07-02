@@ -1,3 +1,4 @@
+## Level 1
 ```shell
 # generate fasttext compatible file by running createContentTrainingData.py
 
@@ -89,3 +90,36 @@ R@1     0.998
 # TODO: The next level is to roll up infrequently used labels to their parent or other ancestor categories.
 ```
 
+## Level 2
+```shell
+# generate fasttext compatible file by running createContentTrainingData.py
+
+FASTEXT_FOLDER="/Users/vitalii.mishchenko/Documents/personal/opensearch/data/fasttext"
+
+# Shuffle product labels
+shuf $FASTEXT_FOLDER/labeled_products.txt > $FASTEXT_FOLDER/shuffled_labeled_products.txt
+
+# Remove labels
+cut -d' ' -f2- $FASTEXT_FOLDER/shuffled_labeled_products.txt > $FASTEXT_FOLDER/titles.txt
+
+# train unsupervised model
+# model represent each word as a vector
+# https://fasttext.cc/docs/en/unsupervised-tutorial.html#training-word-vectors
+fasttext skipgram -input $FASTEXT_FOLDER/titles.txt -output $FASTEXT_FOLDER/title_model
+fasttext nn $FASTEXT_FOLDER/title_model.bin
+
+# normalized titles
+cat $FASTEXT_FOLDER/titles.txt | sed -e "s/\([.\!?,'/()]\)/ \1 /g" | tr "[:upper:]" "[:lower:]" | sed "s/[^[:alnum:]]/ /g" | tr -s ' ' > $FASTEXT_FOLDER/normalized_titles.txt
+fasttext skipgram -input $FASTEXT_FOLDER/normalized_titles.txt -output $FASTEXT_FOLDER/title_model
+fasttext nn $FASTEXT_FOLDER/title_model.bin
+
+# Increase number of epochs to 25
+fasttext skipgram -epoch 25 -input $FASTEXT_FOLDER/normalized_titles.txt -output $FASTEXT_FOLDER/title_model 
+fasttext nn $FASTEXT_FOLDER/title_model.bin
+
+# play with fasttext parameters
+# exclude subword, increase min count, custom learning rate and increase dimension
+# https://fasttext.cc/docs/en/unsupervised-tutorial.html#advanced-readers-playing-with-the-parameters
+fasttext skipgram -lr 0.05 -dim 300 -maxn 0 -minCount 50 -epoch 25 -input $FASTEXT_FOLDER/normalized_titles.txt -output $FASTEXT_FOLDER/title_model
+fasttext nn $FASTEXT_FOLDER/title_model.bin
+```
