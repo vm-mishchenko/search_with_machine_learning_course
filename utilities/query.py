@@ -225,60 +225,77 @@ FASTEXT_FOLDER="/Users/vitalii.mishchenko/Documents/personal/opensearch/data/fas
 MODEL_FILE_NAME="query_classifier.bin"
 model = fasttext.load_model(f'{FASTEXT_FOLDER}{MODEL_FILE_NAME}')
 
-def search(client, user_query, index="bbuy_products", sort="_score", sortDir="desc", synonyms=False):
-    #### W3: classify the query
+def get_boost_category(categories, probabilities, boost_probability_threshold):
+    category_boost=None
 
+    boost_category_list = []
+    for idx, category in enumerate(categories):
+        if probabilities[idx] > boost_probability_threshold:
+            category_name = category.replace("__label__", "")
+            boost_category_list.append(category_name)
+
+    print(f'Predicted boost {len(boost_category_list)} categories')
+    if len(boost_category_list) > 0:
+        for cat in boost_category_list:
+            print(f'-- {category_to_name_df[category_to_name_df["category"] == cat]["name"].values[0]}')
+
+        category_boost = {
+            "filter": {
+                "terms": {
+                    "categoryPathIds.keyword": boost_category_list
+                }
+            },
+            "weight": 2
+        }
+
+    return category_boost
+
+def get_filter_category(categories, probabilities, filter_probability_threshold):
+    category_filter = None
+
+    filter_category_list = []
+    for idx, category in enumerate(categories):
+        if probabilities[idx] > filter_probability_threshold:
+            category_name = category.replace("__label__", "")
+            filter_category_list.append(category_name)
+
+    print(f'Predicted filter {len(filter_category_list)} categories')
+    if len(filter_category_list) > 0:
+        for cat in filter_category_list:
+            print(f'-- {category_to_name_df[category_to_name_df["category"] == cat]["name"].values[0]}')
+
+        # "category_filter" is too restrictive in case when category was predicted incorrectly
+        category_filter = {
+            "terms": {
+                "categoryPathIds.keyword": filter_category_list
+            }
+        }
+    return category_filter
+
+def search(client, user_query, index="bbuy_products", sort="_score", sortDir="desc", synonyms=False):
+    # check whether to apply prediction?
+    # p:iphone -    with prediction
+    # iphone -      without prediction
     apply_prediction = False
     if user_query.startswith("p:"):
         apply_prediction = True
         user_query = user_query.replace("p:", "")
 
+    # ultimately will be passed to create_query()
     category_boost=None
     category_filter=None
+
+    # predict categories based on query and build:
+    #   - category_boost
+    #   - category_filter
     if apply_prediction:
         candidate_count = 4
         filter_probability_threshold = 0.9
         boost_probability_threshold = 0.3
-        normalized_query = normalize_query(user_query)
-        categories, probabilities = model.predict(normalized_query, k=candidate_count)
+        categories, probabilities = model.predict(normalize_query(user_query), k=candidate_count)
 
-        #### W3: create filters
-        boost_category_list = []
-        filter_category_list = []
-        for idx, category in enumerate(categories):
-            if probabilities[idx] > boost_probability_threshold:
-                category_name = category.replace("__label__", "")
-                boost_category_list.append(category_name)
-
-            if probabilities[idx] > filter_probability_threshold:
-                category_name = category.replace("__label__", "")
-                filter_category_list.append(category_name)
-
-        print(f'Predicted boost {len(boost_category_list)} categories')
-        if len(boost_category_list) > 0:
-            for cat in boost_category_list:
-                print(f'-- {category_to_name_df[category_to_name_df["category"] == cat]["name"].values[0]}')
-
-            category_boost = {
-                "filter": {
-                    "terms": {
-                        "categoryPathIds.keyword": boost_category_list
-                    }
-                },
-                "weight": 2
-            }
-
-        print(f'Predicted filter {len(filter_category_list)} categories')
-        if len(filter_category_list) > 0:
-            for cat in filter_category_list:
-                print(f'-- {category_to_name_df[category_to_name_df["category"] == cat]["name"].values[0]}')
-
-            # "category_filter" is too restrictive in case when category was predicted incorrectly
-            category_filter = {
-                "terms": {
-                    "categoryPathIds.keyword": filter_category_list
-                }
-            }
+        category_boost = get_boost_category(categories, probabilities, boost_probability_threshold)
+        category_filter = get_filter_category(categories, probabilities, filter_probability_threshold)
 
     print(f'Search query: {user_query}')
     query_obj = create_query(user_query, click_prior_query=None, filters=None, sort=sort, sortDir=sortDir, source=["name", "shortDescription"], synonyms=synonyms, category_filter=category_filter, category_boost=category_boost)
@@ -289,7 +306,6 @@ def search(client, user_query, index="bbuy_products", sort="_score", sortDir="de
             print_results(response)
     except:
         print('Error during request')
-
 
 def print_results(response):
     print(f'Total hits: {response.get("hits").get("total").get("value")}')
