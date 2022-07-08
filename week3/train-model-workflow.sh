@@ -15,3 +15,5 @@ fasttext supervised -input $FASTEXT_FOLDER/labeled_query_data.train -output $FAS
 
 echo "-----Test model"
 fasttext test $FASTEXT_FOLDER/query_classifier.bin $FASTEXT_FOLDER/labeled_query_data.test
+fasttext test $FASTEXT_FOLDER/query_classifier.bin $FASTEXT_FOLDER/labeled_query_data.test 3
+fasttext test $FASTEXT_FOLDER/query_classifier.bin $FASTEXT_FOLDER/labeled_query_data.test 5

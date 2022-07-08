@@ -24,7 +24,7 @@ normalized_query_data_file_name = r'/Users/vitalii.mishchenko/Documents/personal
 
 parser = argparse.ArgumentParser(description='Process arguments.')
 general = parser.add_argument_group("general")
-general.add_argument("--min_queries", default=15000,  help="The minimum number of queries per category label (default is 1)")
+general.add_argument("--min_queries", default=10000,  help="The minimum number of queries per category label (default is 1)")
 general.add_argument("--output", default=output_file_name, help="the file to output to")
 
 args = parser.parse_args()
