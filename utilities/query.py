@@ -306,6 +306,9 @@ def get_filter_category(categories, probabilities, filter_probability_threshold)
         }
     return category_filter
 
+hardcoded_synonyms = {}
+hardcoded_synonyms['irobot'] = ["vacuum", "robot", "cleaner"]
+
 def search(client, user_query, index="bbuy_products", sort="_score", sortDir="desc", synonyms=False):
     # check whether to apply prediction?
     # p:iphone -    with prediction
@@ -314,6 +317,13 @@ def search(client, user_query, index="bbuy_products", sort="_score", sortDir="de
     if user_query.startswith("p:"):
         apply_prediction = True
         user_query = user_query.replace("p:", "")
+
+    # apply hard-coded synonyms at query time
+    for word in hardcoded_synonyms:
+        if word in user_query.lower():
+            for synonym in hardcoded_synonyms[word]:
+                if synonym not in user_query.lower():
+                    user_query += " " + synonym
 
     # ultimately will be passed to create_query()
     category_boost=None

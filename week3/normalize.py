@@ -16,7 +16,7 @@ def normalize_query(query):
 
   if normalize_cache.get(query) is None:
     # remove special characters
-    normalized_query = re.sub(r"[^a-zA-Z ]", "", query)
+    normalized_query = re.sub(r"[^a-zA-Z0-9 ]", "", query)
 
     # remove excessive spaces
     normalized_query = " ".join(normalized_query.split())
