@@ -73,7 +73,8 @@ def create_prior_queries(doc_ids, doc_id_weights,
 def create_query(user_query, click_prior_query, filters, sort="_score", sortDir="desc", size=10, source=None, synonyms = False, category_filter = None, category_boost=None):
     name_field = "name.synonyms" if synonyms else "name"
     name_analyzer = "custom_synonym" if synonyms else "standard"
-    print(f"Search with synonyms: {synonyms} against {name_field} field")
+    if synonyms:
+        print(f"Search with synonyms")
 
     query_obj = {
         'size': size,
@@ -225,16 +226,49 @@ FASTEXT_FOLDER="/Users/vitalii.mishchenko/Documents/personal/opensearch/data/fas
 MODEL_FILE_NAME="query_classifier.bin"
 model = fasttext.load_model(f'{FASTEXT_FOLDER}{MODEL_FILE_NAME}')
 
-def get_boost_category(categories, probabilities, boost_probability_threshold):
-    category_boost=None
-
+def get_max_boost_category_list(categories, probabilities, boost_probability_threshold):
     boost_category_list = []
+
     for idx, category in enumerate(categories):
         if probabilities[idx] > boost_probability_threshold:
             category_name = category.replace("__label__", "")
             boost_category_list.append(category_name)
+    return boost_category_list
 
-    print(f'Predicted boost {len(boost_category_list)} categories')
+
+def get_boost_category_list_by_max(categories, probabilities, boost_probability_threshold):
+    boost_category_list = []
+
+    for idx, category in enumerate(categories):
+        if probabilities[idx] > boost_probability_threshold:
+            category_name = category.replace("__label__", "")
+            boost_category_list.append(category_name)
+    return boost_category_list
+
+def get_boost_category_list_by_sum(categories, probabilities):
+    boost_category_list = []
+    probability_sum = 0
+    for idx, category in enumerate(categories):
+        if probability_sum >= 1:
+            break
+
+        probability_sum += probabilities[idx]
+        category_name = category.replace("__label__", "")
+        boost_category_list.append(category_name)
+
+    return boost_category_list
+
+def get_boost_category(categories, probabilities, boost_probability_threshold):
+    category_boost=None
+
+    if probabilities.max() > boost_probability_threshold:
+        method = "max"
+        boost_category_list = get_boost_category_list_by_max(categories, probabilities, boost_probability_threshold)
+    else:
+        method = "sum"
+        boost_category_list = get_boost_category_list_by_sum(categories, probabilities)
+
+    print(f'- Boost {len(boost_category_list)} categories by using "{method}" method')
     if len(boost_category_list) > 0:
         for cat in boost_category_list:
             print(f'-- {category_to_name_df[category_to_name_df["category"] == cat]["name"].values[0]}')
@@ -245,7 +279,7 @@ def get_boost_category(categories, probabilities, boost_probability_threshold):
                     "categoryPathIds.keyword": boost_category_list
                 }
             },
-            "weight": 2
+            "weight": 5
         }
 
     return category_boost
@@ -259,7 +293,7 @@ def get_filter_category(categories, probabilities, filter_probability_threshold)
             category_name = category.replace("__label__", "")
             filter_category_list.append(category_name)
 
-    print(f'Predicted filter {len(filter_category_list)} categories')
+    print(f'- Filter {len(filter_category_list)} categories')
     if len(filter_category_list) > 0:
         for cat in filter_category_list:
             print(f'-- {category_to_name_df[category_to_name_df["category"] == cat]["name"].values[0]}')
@@ -290,15 +324,16 @@ def search(client, user_query, index="bbuy_products", sort="_score", sortDir="de
     #   - category_filter
     if apply_prediction:
         candidate_count = 4
-        filter_probability_threshold = 0.9
-        boost_probability_threshold = 0.3
+        filter_probability_threshold = 0.95
+        boost_probability_threshold = 0.5
         categories, probabilities = model.predict(normalize_query(user_query), k=candidate_count)
 
         category_boost = get_boost_category(categories, probabilities, boost_probability_threshold)
         category_filter = get_filter_category(categories, probabilities, filter_probability_threshold)
 
-    print(f'Search query: {user_query}')
-    query_obj = create_query(user_query, click_prior_query=None, filters=None, sort=sort, sortDir=sortDir, source=["name", "shortDescription"], synonyms=synonyms, category_filter=category_filter, category_boost=category_boost)
+    query_obj = create_query(user_query, click_prior_query=None, filters=None, sort=sort, sortDir=sortDir, source=["name", "shortDescription"],
+                             synonyms=synonyms,
+                             category_filter=category_filter, category_boost=category_boost)
     # print(query_obj)
     try:
         response = client.search(query_obj, index=index)
@@ -312,7 +347,7 @@ def print_results(response):
 
     hits = response.get('hits').get('hits')
     for hit in hits:
-        print(f'-- {hit["_source"]["name"][0]}')
+        print(f'-- {hit["_source"]["name"][0]} ({hit["_score"]})')
 
 if __name__ == "__main__":
     host = 'localhost'
