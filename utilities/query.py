@@ -11,6 +11,27 @@ from urllib.parse import urljoin
 import pandas as pd
 import fileinput
 import logging
+import fasttext
+import xml.etree.ElementTree as ET
+import sys
+
+# setting path
+sys.path.append('../week3')
+
+from normalize import normalize_query
+
+# load categories
+categories_file_name = '/Users/vitalii.mishchenko/Documents/personal/opensearch/data/product_data/categories/categories_0001_abcat0010000_to_pcmcat99300050000.xml'
+tree = ET.parse(categories_file_name)
+root = tree.getroot()
+categories = []
+names = []
+for child in root:
+    id = child.find('id').text
+    name = child.find('name').text
+    categories.append(id)
+    names.append(name)
+category_to_name_df = pd.DataFrame(list(zip(categories, names)), columns =['category', 'name'])
 
 
 logger = logging.getLogger(__name__)
@@ -49,10 +70,10 @@ def create_prior_queries(doc_ids, doc_id_weights,
 
 
 # Hardcoded query here.  Better to use search templates or other query config.
-def create_query(user_query, click_prior_query, filters, sort="_score", sortDir="desc", size=10, source=None, synonyms = False):
+def create_query(user_query, click_prior_query, filters, sort="_score", sortDir="desc", size=10, source=None, synonyms = False, category_filter = None, category_boost=None):
     name_field = "name.synonyms" if synonyms else "name"
     name_analyzer = "custom_synonym" if synonyms else "standard"
-    print(f"Search with synonyms: {synonyms}, {name_field}")
+    print(f"Search with synonyms: {synonyms} against {name_field} field")
 
     query_obj = {
         'size': size,
@@ -175,6 +196,13 @@ def create_query(user_query, click_prior_query, filters, sort="_score", sortDir=
             "_score"
         ]
     }
+
+    if category_filter is not None:
+        query_obj["query"]["function_score"]["query"]["bool"]["must"].append(category_filter)
+
+    if category_boost is not None:
+        query_obj["query"]["function_score"]["functions"].append(category_boost)
+
     if click_prior_query is not None and click_prior_query != "":
         query_obj["query"]["function_score"]["query"]["bool"]["should"].append({
             "query_string": {
@@ -193,18 +221,58 @@ def create_query(user_query, click_prior_query, filters, sort="_score", sortDir=
         query_obj["_source"] = source
     return query_obj
 
+FASTEXT_FOLDER="/Users/vitalii.mishchenko/Documents/personal/opensearch/data/fasttext/query/"
+MODEL_FILE_NAME="query_classifier.bin"
+model = fasttext.load_model(f'{FASTEXT_FOLDER}{MODEL_FILE_NAME}')
 
 def search(client, user_query, index="bbuy_products", sort="_score", sortDir="desc", synonyms=False):
     #### W3: classify the query
-    #### W3: create filters and boosts
-    # Note: you may also want to modify the `create_query` method above
-    query_obj = create_query(user_query, click_prior_query=None, filters=None, sort=sort, sortDir=sortDir, source=["name", "shortDescription"], synonyms=synonyms)
-    logging.info(query_obj)
-    response = client.search(query_obj, index=index)
-    if response and response['hits']['hits'] and len(response['hits']['hits']) > 0:
-        print_results(response)
-        # hits = response['hits']['hits']
-        # print(json.dumps(response, indent=2))
+    candidate_count = 1
+    probability_threshold = 0.5
+    normalized_query = normalize_query(user_query)
+    categories, probabilities = model.predict(normalized_query, k=candidate_count)
+
+    #### W3: create filters
+    category_list = []
+    for idx, category in enumerate(categories):
+        if probabilities[idx] < probability_threshold:
+            continue
+
+        category_name = category.replace("__label__", "")
+        category_list.append(category_name)
+
+    print(f'Predicted {len(category_list)} categories')
+
+    category_filter=None
+    category_boost=None
+    if len(category_list) > 0:
+        for cat in category_list:
+            print(f'-- {category_to_name_df[category_to_name_df["category"] == cat]["name"].values[0]}')
+
+        # "category_filter" is too restrictive in case when category was predicted incorrectly
+        # category_filter = {
+        #     "terms": {
+        #         "categoryPathIds.keyword": category_list
+        #     }
+        # }
+
+        category_boost = {
+            "filter": {
+                "terms": {
+                    "categoryPathIds.keyword": category_list
+                }
+            },
+            "weight": 100
+        }
+
+    query_obj = create_query(user_query, click_prior_query=None, filters=None, sort=sort, sortDir=sortDir, source=["name", "shortDescription"], synonyms=synonyms, category_filter=category_filter, category_boost=category_boost)
+    # print(query_obj)
+    try:
+        response = client.search(query_obj, index=index)
+        if response:
+            print_results(response)
+    except:
+        print('Error during request')
 
 
 def print_results(response):
@@ -212,7 +280,7 @@ def print_results(response):
 
     hits = response.get('hits').get('hits')
     for hit in hits:
-        print(hit['_source']['name'][0])
+        print(f'-- {hit["_source"]["name"][0]}')
 
 if __name__ == "__main__":
     host = 'localhost'
