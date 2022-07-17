@@ -13,12 +13,17 @@ import fasttext
 from pathlib import Path
 import requests
 import json
-
+from sentence_transformers import SentenceTransformer
 from time import perf_counter
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 logging.basicConfig(format='%(levelname)s:%(message)s')
+
+# https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
+# It maps sentences & paragraphs to a 384 dimensional dense vector space
+# and can be used for tasks like clustering or semantic search.
+sentenceTransformerModel = SentenceTransformer('all-MiniLM-L6-v2')
 
 # IMPLEMENT ME: import the sentence transformers module!
 
@@ -137,21 +142,38 @@ def index_file(file, index_name, reduced=False):
         if reduced and ('categoryPath' not in doc or 'Best Buy' not in doc['categoryPath'] or 'Movies & Music' in doc['categoryPath']):
             continue
         docs.append({'_index': index_name, '_id':doc['sku'][0], '_source' : doc})
+        names.append(doc.get('name')[0])
         #docs.append({'_index': index_name, '_source': doc})
         docs_indexed += 1
         if docs_indexed % 200 == 0:
             logger.info("Indexing")
+
+            # - create embeddings based on name field
+            # - add vector to the doc
+            embeddings = sentenceTransformerModel.encode(names)
+            for (idx, doc) in enumerate(docs):
+              doc['_source']['name_embeddings'] = embeddings[idx].tolist()
+
             bulk(client, docs, request_timeout=60)
             logger.info(f'{docs_indexed} documents indexed')
             docs = []
             names = []
     if len(docs) > 0:
+        # - create embeddings based on name field
+        # - add vector to the doc
+        embeddings = sentenceTransformerModel.encode(names)
+        for (idx, doc) in enumerate(docs):
+          doc['_source']['name_embeddings'] = embeddings[idx]
+
         bulk(client, docs, request_timeout=60)
         logger.info(f'{docs_indexed} documents indexed')
     return docs_indexed
 
+DATASETS_DIR = '/Users/vitalii.mishchenko/Documents/personal/opensearch/data'
+PRODUCT_DATASET = f'{DATASETS_DIR}/product_data/products'
+
 @click.command()
-@click.option('--source_dir', '-s', help='XML files source directory')
+@click.option('--source_dir', '-s', default=PRODUCT_DATASET, help='XML files source directory')
 @click.option('--index_name', '-i', default="bbuy_products", help="The name of the index to write to")
 @click.option('--reduced', is_flag=True, show_default=True, default=False, help="Removes music, movies, and merchandised products.")
 def main(source_dir: str, index_name: str, reduced: bool):

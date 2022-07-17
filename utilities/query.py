@@ -15,10 +15,18 @@ import fasttext
 import xml.etree.ElementTree as ET
 import sys
 
+from sentence_transformers import SentenceTransformer
+
+
 # setting path
 sys.path.append('../week3')
 
 from normalize import normalize_query
+
+# https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
+# It maps sentences & paragraphs to a 384 dimensional dense vector space
+# and can be used for tasks like clustering or semantic search.
+sentenceTransformerModel = SentenceTransformer('all-MiniLM-L6-v2')
 
 # load categories
 categories_file_name = '/Users/vitalii.mishchenko/Documents/personal/opensearch/data/product_data/categories/categories_0001_abcat0010000_to_pcmcat99300050000.xml'
@@ -222,6 +230,67 @@ def create_query(user_query, click_prior_query, filters, sort="_score", sortDir=
         query_obj["_source"] = source
     return query_obj
 
+def create_vector_query(user_query, size=10):
+    embeddings = sentenceTransformerModel.encode([user_query])
+    query = {
+        # size amount of results for the entire query
+        "size": size,
+        "query": {
+            "knn": {
+                # "name_embeddings" see config in the mapping "week4/conf/bbuy_products.json"
+                "name_embeddings": {
+                    "vector": embeddings[0].tolist(),
+                    # k amount of results for each shard
+                    "k": size
+                }
+            }
+        }
+    }
+
+    return query
+
+hardcoded_synonyms = {}
+hardcoded_synonyms['irobot'] = ["vacuum", "robot", "cleaner"]
+
+def create_token_based_query(user_query, sort, sortDir, synonyms):
+    # check whether to apply prediction?
+    # p:iphone -    with prediction
+    # iphone -      without prediction
+    apply_prediction = False
+    if user_query.startswith("p:"):
+        apply_prediction = True
+        user_query = user_query.replace("p:", "")
+    # apply hard-coded synonyms at query time
+    for word in hardcoded_synonyms:
+        if word in user_query.lower():
+            for synonym in hardcoded_synonyms[word]:
+                if synonym not in user_query.lower():
+                    user_query += " " + synonym
+    # ultimately will be passed to create_query()
+    category_boost = None
+    category_filter = None
+    # predict categories based on query and build:
+    #   - category_boost
+    #   - category_filter
+    if apply_prediction:
+        candidate_count = 4
+        filter_probability_threshold = 0.95
+        boost_probability_threshold = 0.5
+        categories, probabilities = model.predict(normalize_query(user_query),
+                                                  k=candidate_count)
+
+        category_boost = get_boost_category(categories, probabilities,
+                                            boost_probability_threshold)
+        category_filter = get_filter_category(categories, probabilities,
+                                              filter_probability_threshold)
+    query_obj = create_query(user_query, click_prior_query=None, filters=None,
+                             sort=sort, sortDir=sortDir,
+                             source=["name", "shortDescription"],
+                             synonyms=synonyms,
+                             category_filter=category_filter,
+                             category_boost=category_boost)
+    return query_obj
+
 FASTEXT_FOLDER="/Users/vitalii.mishchenko/Documents/personal/opensearch/data/fasttext/query/"
 MODEL_FILE_NAME="query_classifier.bin"
 model = fasttext.load_model(f'{FASTEXT_FOLDER}{MODEL_FILE_NAME}')
@@ -306,45 +375,12 @@ def get_filter_category(categories, probabilities, filter_probability_threshold)
         }
     return category_filter
 
-hardcoded_synonyms = {}
-hardcoded_synonyms['irobot'] = ["vacuum", "robot", "cleaner"]
+def search(client, user_query, index="bbuy_products", sort="_score", sortDir="desc", synonyms=False, use_vector_search=False):
+    if use_vector_search:
+        query_obj = create_vector_query(user_query)
+    else:
+        query_obj = create_token_based_query(user_query, sort, sortDir, synonyms)
 
-def search(client, user_query, index="bbuy_products", sort="_score", sortDir="desc", synonyms=False):
-    # check whether to apply prediction?
-    # p:iphone -    with prediction
-    # iphone -      without prediction
-    apply_prediction = False
-    if user_query.startswith("p:"):
-        apply_prediction = True
-        user_query = user_query.replace("p:", "")
-
-    # apply hard-coded synonyms at query time
-    for word in hardcoded_synonyms:
-        if word in user_query.lower():
-            for synonym in hardcoded_synonyms[word]:
-                if synonym not in user_query.lower():
-                    user_query += " " + synonym
-
-    # ultimately will be passed to create_query()
-    category_boost=None
-    category_filter=None
-
-    # predict categories based on query and build:
-    #   - category_boost
-    #   - category_filter
-    if apply_prediction:
-        candidate_count = 4
-        filter_probability_threshold = 0.95
-        boost_probability_threshold = 0.5
-        categories, probabilities = model.predict(normalize_query(user_query), k=candidate_count)
-
-        category_boost = get_boost_category(categories, probabilities, boost_probability_threshold)
-        category_filter = get_filter_category(categories, probabilities, filter_probability_threshold)
-
-    query_obj = create_query(user_query, click_prior_query=None, filters=None, sort=sort, sortDir=sortDir, source=["name", "shortDescription"],
-                             synonyms=synonyms,
-                             category_filter=category_filter, category_boost=category_boost)
-    # print(query_obj)
     try:
         response = client.search(query_obj, index=index)
         if response:
@@ -375,6 +411,7 @@ if __name__ == "__main__":
                          help='The OpenSearch admin.  If this is set, the program will prompt for password too. If not set, use default of admin/admin')
 
     general.add_argument('--synonyms', default=False, help='Include synonyms in search. If this is set, search will be performed on field indexed with synonyms')
+    general.add_argument('--use_vector_search', default=False, help='Use create_vector_query() instead of create_query() for query')
 
     args = parser.parse_args()
 
@@ -408,4 +445,4 @@ if __name__ == "__main__":
         query = line.rstrip()
         if query == "Exit":
             break
-        search(client=opensearch, user_query=query, index=index_name, synonyms=args.synonyms)
+        search(client=opensearch, user_query=query, index=index_name, synonyms=args.synonyms, use_vector_search=args.use_vector_search)
